@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Sparkles } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
+  { name: "Courses", href: "#courses" },
   { name: "Countries", href: "#countries" },
   { name: "Contact", href: "#contact" },
 ];
@@ -25,22 +26,52 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-primary text-primary-foreground py-2 hidden md:block">
-        <div className="container-custom flex justify-between items-center text-sm">
-          <div className="flex items-center gap-6">
-            <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-accent transition-colors">
-              <Phone size={14} />
-              <span>+91 98765 43210</span>
-            </a>
-            <a href="mailto:info@globetrekoverseas.com" className="flex items-center gap-2 hover:text-accent transition-colors">
-              <Mail size={14} />
-              <span>info@globetrekoverseas.com</span>
-            </a>
+      {/* Animated Top Bar */}
+      <div className="bg-gradient-to-r from-primary via-globe-blue-light to-primary text-primary-foreground py-2.5 hidden md:block relative overflow-hidden">
+        {/* Animated background shimmer */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+          animate={{ x: ["-100%", "100%"] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+        />
+        
+        <div className="container-custom flex justify-between items-center text-sm relative z-10">
+          <div className="flex items-center gap-8">
+            <motion.a 
+              href="tel:+919876543210" 
+              className="flex items-center gap-2 hover:text-accent transition-colors group"
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                <Phone size={12} />
+              </div>
+              <span className="font-medium">+91 98765 43210</span>
+            </motion.a>
+            <motion.a 
+              href="mailto:info@globetrekoverseas.com" 
+              className="flex items-center gap-2 hover:text-accent transition-colors group"
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                <Mail size={12} />
+              </div>
+              <span className="font-medium">info@globetrekoverseas.com</span>
+            </motion.a>
+            <div className="flex items-center gap-2 text-primary-foreground/80">
+              <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center">
+                <MapPin size={12} />
+              </div>
+              <span>New Delhi, India</span>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-primary-foreground/80">Your Gateway to Global Education</span>
-          </div>
+          <motion.div 
+            className="flex items-center gap-2 bg-accent/20 px-4 py-1.5 rounded-full"
+            animate={{ scale: [1, 1.02, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <Sparkles size={14} className="text-accent" />
+            <span className="text-accent font-semibold">Your Gateway to Global Education</span>
+          </motion.div>
         </div>
       </div>
 
@@ -49,14 +80,14 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-background/95 backdrop-blur-lg shadow-elegant"
-            : "bg-background"
+            ? "bg-background/95 backdrop-blur-xl shadow-elegant py-2"
+            : "bg-background py-3"
         }`}
       >
         <div className="container-custom">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between">
             {/* Logo */}
             <motion.a
               href="#home"
@@ -64,7 +95,13 @@ const Navbar = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <img src={logo} alt="GlobeTrek Overseas" className="h-14 w-auto" />
+              <motion.img 
+                src={logo} 
+                alt="GlobeTrek Overseas" 
+                className={`transition-all duration-300 ${isScrolled ? "h-12" : "h-14"} w-auto`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              />
             </motion.a>
 
             {/* Desktop Navigation */}
@@ -73,13 +110,18 @@ const Navbar = () => {
                 <motion.a
                   key={link.name}
                   href={link.href}
-                  className="relative px-5 py-2 text-foreground font-medium transition-colors hover:text-accent group"
+                  className="relative px-5 py-2.5 text-foreground font-medium transition-all hover:text-accent group rounded-lg hover:bg-accent/5"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -2 }}
                 >
                   {link.name}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-3/4 rounded-full" />
+                  <motion.span 
+                    className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent rounded-full"
+                    whileHover={{ width: "60%" }}
+                    transition={{ duration: 0.2 }}
+                  />
                 </motion.a>
               ))}
             </div>
@@ -87,23 +129,25 @@ const Navbar = () => {
             {/* CTA Button */}
             <motion.a
               href="#contact"
-              className="hidden lg:flex btn-accent text-sm"
+              className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-accent to-globe-green-light text-accent-foreground font-semibold px-6 py-3 rounded-xl shadow-accent hover:shadow-lg transition-all"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5 }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
+              <Sparkles size={16} />
               Free Consultation
             </motion.a>
 
             {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 text-foreground"
+            <motion.button
+              className="lg:hidden p-2.5 text-foreground bg-secondary rounded-xl"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              whileTap={{ scale: 0.9 }}
             >
-              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.button>
           </div>
         </div>
 
@@ -122,7 +166,7 @@ const Navbar = () => {
                   <motion.a
                     key={link.name}
                     href={link.href}
-                    className="block px-4 py-3 text-foreground font-medium hover:bg-secondary rounded-lg transition-colors"
+                    className="block px-4 py-3 text-foreground font-medium hover:bg-accent/10 hover:text-accent rounded-xl transition-colors"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
@@ -133,7 +177,7 @@ const Navbar = () => {
                 ))}
                 <motion.a
                   href="#contact"
-                  className="block btn-accent text-center mt-4"
+                  className="block bg-gradient-to-r from-accent to-globe-green-light text-accent-foreground font-semibold text-center py-4 rounded-xl mt-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
