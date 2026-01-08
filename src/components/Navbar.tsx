@@ -4,12 +4,12 @@ import { Menu, X, Phone, Mail, MapPin, Sparkles } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Courses", href: "#courses" },
-  { name: "Countries", href: "#countries" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/#services" },
+  { name: "Courses", href: "/#courses" },
+  { name: "Countries", href: "/#countries" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 const Navbar = () => {
