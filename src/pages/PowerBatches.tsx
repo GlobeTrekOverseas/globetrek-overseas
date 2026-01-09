@@ -22,6 +22,12 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// Import batch images
+import batchIelts from "@/assets/batch-ielts.jpg";
+import batchPte from "@/assets/batch-pte.jpg";
+import batchGmat from "@/assets/batch-gmat.jpg";
+import batchGre from "@/assets/batch-gre.jpg";
+
 const batches = [
   {
     id: "ielts",
@@ -35,6 +41,7 @@ const batches = [
     batchSize: "15 Students",
     rating: "4.9",
     studentsPlaced: "5000+",
+    image: batchIelts,
     features: [
       "Listening, Reading, Writing & Speaking modules",
       "Mock tests with real exam conditions",
@@ -63,6 +70,7 @@ const batches = [
     batchSize: "12 Students",
     rating: "4.8",
     studentsPlaced: "3500+",
+    image: batchPte,
     features: [
       "AI-powered scoring pattern understanding",
       "Computer-based practice labs",
@@ -90,6 +98,7 @@ const batches = [
     batchSize: "10 Students",
     rating: "4.9",
     studentsPlaced: "1500+",
+    image: batchGmat,
     features: [
       "Integrated Reasoning mastery",
       "Quantitative & Verbal reasoning techniques",
@@ -118,6 +127,7 @@ const batches = [
     batchSize: "12 Students",
     rating: "4.8",
     studentsPlaced: "2000+",
+    image: batchGre,
     features: [
       "Vocabulary building with 3500+ words",
       "Quantitative reasoning shortcuts",
@@ -224,64 +234,108 @@ const PowerBatches = () => {
       {/* Batches Grid */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="space-y-16">
+          <div className="space-y-24">
             {batches.map((batch, index) => (
               <motion.div
                 key={batch.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className={`relative rounded-3xl overflow-hidden bg-gradient-to-br ${batch.bgGradient} border border-border/50`}
+                className="relative"
               >
-                <div className="grid lg:grid-cols-2 gap-8 p-8 lg:p-12">
-                  {/* Left Content */}
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${batch.color} flex items-center justify-center shadow-lg`}>
-                        <batch.icon className="w-8 h-8 text-primary-foreground" />
+                <div className={`grid lg:grid-cols-5 gap-8 items-start ${
+                  index % 2 === 1 ? "" : ""
+                }`}>
+                  {/* Image Section - 2 columns */}
+                  <div className={`lg:col-span-2 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                    <div className="relative group sticky top-32">
+                      {/* Decorative frame */}
+                      <div className={`absolute -inset-3 bg-gradient-to-br ${batch.color} rounded-[2rem] opacity-20 group-hover:opacity-30 blur-sm transition-all duration-500`} />
+                      
+                      {/* Main image container */}
+                      <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                        <img 
+                          src={batch.image} 
+                          alt={batch.name}
+                          className="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+                        />
+                        
+                        {/* Gradient overlay */}
+                        <div className={`absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent`} />
+                        
+                        {/* Floating badge */}
+                        <div className="absolute top-6 left-6">
+                          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${batch.color} flex items-center justify-center shadow-xl`}>
+                            <batch.icon className="w-8 h-8 text-primary-foreground" />
+                          </div>
+                        </div>
+                        
+                        {/* Bottom info */}
+                        <div className="absolute bottom-0 left-0 right-0 p-6">
+                          <div className="flex items-center gap-3 mb-2">
+                            <h3 className="text-3xl font-heading font-bold text-foreground">{batch.name}</h3>
+                            <span className="flex items-center gap-1 bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">
+                              <Star className="w-3 h-3 fill-current" />
+                              {batch.rating}
+                            </span>
+                          </div>
+                          <p className="text-sm text-muted-foreground">{batch.fullName}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-                          {batch.name}
-                        </h2>
-                        <p className="text-muted-foreground text-sm">
-                          {batch.fullName}
-                        </p>
+                      
+                      {/* Stats row below image */}
+                      <div className="grid grid-cols-2 gap-4 mt-6">
+                        <div className={`bg-gradient-to-br ${batch.bgGradient} rounded-2xl p-4 text-center border border-border/30`}>
+                          <Target className="w-6 h-6 text-accent mx-auto mb-2" />
+                          <p className="text-xs text-muted-foreground">Target Score</p>
+                          <p className="text-lg font-bold text-foreground">{batch.targetScore}</p>
+                        </div>
+                        <div className={`bg-gradient-to-br ${batch.bgGradient} rounded-2xl p-4 text-center border border-border/30`}>
+                          <Calendar className="w-6 h-6 text-primary mx-auto mb-2" />
+                          <p className="text-xs text-muted-foreground">Course Fee</p>
+                          <p className="text-lg font-bold text-foreground">{batch.fee}</p>
+                        </div>
                       </div>
                     </div>
-                    
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      {batch.description}
-                    </p>
-                    
-                    {/* Stats Row */}
-                    <div className="flex flex-wrap gap-4">
-                      <div className="flex items-center gap-2 bg-card/80 rounded-xl px-4 py-2">
-                        <Clock className="w-4 h-4 text-accent" />
-                        <span className="text-sm font-medium">{batch.duration}</span>
+                  </div>
+                  
+                  {/* Content Section - 3 columns */}
+                  <div className={`lg:col-span-3 space-y-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                    <motion.div
+                      initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                      <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                        {batch.description}
+                      </p>
+                      
+                      {/* Quick Stats */}
+                      <div className="flex flex-wrap gap-3 mb-8">
+                        <div className="flex items-center gap-2 bg-card rounded-xl px-4 py-2.5 border border-border/50">
+                          <Clock className="w-4 h-4 text-accent" />
+                          <span className="text-sm font-medium">{batch.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-card rounded-xl px-4 py-2.5 border border-border/50">
+                          <Users className="w-4 h-4 text-accent" />
+                          <span className="text-sm font-medium">{batch.batchSize}</span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-card rounded-xl px-4 py-2.5 border border-border/50">
+                          <Trophy className="w-4 h-4 text-accent" />
+                          <span className="text-sm font-medium">{batch.studentsPlaced} Placed</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 bg-card/80 rounded-xl px-4 py-2">
-                        <Users className="w-4 h-4 text-accent" />
-                        <span className="text-sm font-medium">{batch.batchSize}</span>
-                      </div>
-                      <div className="flex items-center gap-2 bg-card/80 rounded-xl px-4 py-2">
-                        <Star className="w-4 h-4 text-yellow-500" />
-                        <span className="text-sm font-medium">{batch.rating} Rating</span>
-                      </div>
-                      <div className="flex items-center gap-2 bg-card/80 rounded-xl px-4 py-2">
-                        <Trophy className="w-4 h-4 text-accent" />
-                        <span className="text-sm font-medium">{batch.studentsPlaced} Placed</span>
-                      </div>
-                    </div>
+                    </motion.div>
                     
                     {/* Features */}
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-foreground flex items-center gap-2">
+                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 rounded-2xl p-6 border border-border/30">
+                      <h4 className="font-semibold text-foreground flex items-center gap-2 mb-4">
                         <CheckCircle2 className="w-5 h-5 text-accent" />
                         What You'll Get
                       </h4>
-                      <ul className="grid gap-2">
+                      <ul className="grid sm:grid-cols-2 gap-3">
                         {batch.features.map((feature, i) => (
                           <motion.li
                             key={i}
@@ -291,35 +345,32 @@ const PowerBatches = () => {
                             viewport={{ once: true }}
                             className="flex items-start gap-3 text-muted-foreground"
                           >
-                            <CheckCircle2 className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
-                            <span>{feature}</span>
+                            <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">{feature}</span>
                           </motion.li>
                         ))}
                       </ul>
                     </div>
-                  </div>
-                  
-                  {/* Right Content - Modules & CTA */}
-                  <div className="space-y-6">
+                    
                     {/* Exam Modules */}
-                    <div className="bg-card/80 rounded-2xl p-6 space-y-4">
-                      <h4 className="font-semibold text-foreground flex items-center gap-2">
+                    <div className="bg-card rounded-2xl p-6 border border-border/30">
+                      <h4 className="font-semibold text-foreground flex items-center gap-2 mb-4">
                         <BookOpen className="w-5 h-5 text-primary" />
                         Exam Modules
                       </h4>
-                      <div className="grid gap-3">
+                      <div className="grid sm:grid-cols-2 gap-3">
                         {batch.modules.map((module, i) => (
                           <div 
                             key={i}
-                            className="flex items-center justify-between bg-background/50 rounded-xl px-4 py-3"
+                            className="flex items-center justify-between bg-muted/50 rounded-xl px-4 py-3"
                           >
                             <div className="flex items-center gap-3">
                               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                                 <module.icon className="w-5 h-5 text-primary" />
                               </div>
-                              <span className="font-medium text-foreground">{module.name}</span>
+                              <span className="font-medium text-foreground text-sm">{module.name}</span>
                             </div>
-                            <span className="text-sm text-muted-foreground bg-secondary px-3 py-1 rounded-full">
+                            <span className="text-xs text-muted-foreground bg-background px-3 py-1.5 rounded-full">
                               {module.duration}
                             </span>
                           </div>
@@ -327,28 +378,14 @@ const PowerBatches = () => {
                       </div>
                     </div>
                     
-                    {/* Target Score & Fee */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-gradient-to-br from-accent/20 to-accent/10 rounded-2xl p-6 text-center">
-                        <Target className="w-8 h-8 text-accent mx-auto mb-2" />
-                        <p className="text-sm text-muted-foreground">Target Score</p>
-                        <p className="text-2xl font-bold text-foreground">{batch.targetScore}</p>
-                      </div>
-                      <div className="bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl p-6 text-center">
-                        <Calendar className="w-8 h-8 text-primary mx-auto mb-2" />
-                        <p className="text-sm text-muted-foreground">Course Fee</p>
-                        <p className="text-2xl font-bold text-foreground">{batch.fee}</p>
-                      </div>
-                    </div>
-                    
                     {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4 pt-2">
                       <Link 
                         to="/#contact"
-                        className="flex-1 btn-accent text-center flex items-center justify-center gap-2"
+                        className="flex-1 btn-accent text-center flex items-center justify-center gap-2 group"
                       >
                         Enroll Now
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
                       <button className="flex-1 bg-card border border-border rounded-xl px-6 py-4 font-semibold text-foreground hover:bg-secondary transition-colors">
                         Download Brochure
@@ -356,6 +393,13 @@ const PowerBatches = () => {
                     </div>
                   </div>
                 </div>
+                
+                {/* Divider */}
+                {index < batches.length - 1 && (
+                  <div className="mt-24 flex justify-center">
+                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-border to-transparent rounded-full" />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -408,15 +452,15 @@ const PowerBatches = () => {
               }
             ].map((item, index) => (
               <motion.div
-                key={index}
+                key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-card rounded-2xl p-6 text-center card-elevated"
+                className="bg-card rounded-2xl p-6 text-center border border-border/50 hover:shadow-elegant transition-shadow duration-300"
               >
-                <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-7 h-7 text-accent" />
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="font-heading font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.description}</p>
@@ -427,8 +471,11 @@ const PowerBatches = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-br from-primary to-globe-blue-light">
-        <div className="container-custom">
+      <section className="section-padding bg-gradient-to-br from-primary to-primary/90 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
+        
+        <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -436,26 +483,26 @@ const PowerBatches = () => {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-6">
-              Ready to Achieve Your Dream Score?
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-6">
+              Start Your Journey Today
             </h2>
-            <p className="text-primary-foreground/80 text-lg mb-8">
-              Join our next batch and take the first step towards your global education journey.
-              Book a free counseling session today!
+            <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed">
+              Book a free counseling session with our experts and get personalized guidance 
+              on choosing the right exam and preparation strategy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 to="/#contact"
-                className="btn-accent inline-flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-accent text-accent-foreground rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 shadow-lg inline-flex items-center justify-center gap-2"
               >
-                Book Free Counseling
-                <ArrowRight className="w-4 h-4" />
+                Book Free Session
+                <ArrowRight className="w-5 h-5" />
               </Link>
               <a 
-                href="tel:+919876543210"
-                className="bg-primary-foreground/10 border border-primary-foreground/30 text-primary-foreground rounded-xl px-8 py-4 font-semibold hover:bg-primary-foreground/20 transition-colors"
+                href="tel:+1234567890"
+                className="px-8 py-4 bg-primary-foreground/10 text-primary-foreground rounded-full font-semibold hover:bg-primary-foreground/20 transition-all duration-300 border border-primary-foreground/20 inline-flex items-center justify-center"
               >
-                Call: +91 98765 43210
+                Call: +123 456 7890
               </a>
             </div>
           </motion.div>
