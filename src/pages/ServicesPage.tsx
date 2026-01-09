@@ -13,6 +13,14 @@ import {
   Sparkles,
 } from "lucide-react";
 
+// Import images
+import serviceCounseling from "@/assets/service-counseling.jpg";
+import serviceUniversity from "@/assets/service-university.jpg";
+import serviceVisa from "@/assets/service-visa.jpg";
+import serviceScholarship from "@/assets/service-scholarship.jpg";
+import serviceTravel from "@/assets/service-travel.jpg";
+import servicePartner from "@/assets/service-partner.jpg";
+
 const services = [
   {
     icon: GraduationCap,
@@ -27,6 +35,7 @@ const services = [
       "Long-term career planning",
     ],
     gradient: "from-accent to-accent/60",
+    image: serviceCounseling,
   },
   {
     icon: Building2,
@@ -41,6 +50,7 @@ const services = [
       "Application tracking & follow-up",
     ],
     gradient: "from-primary to-primary/60",
+    image: serviceUniversity,
   },
   {
     icon: FileCheck,
@@ -55,6 +65,7 @@ const services = [
       "Post-visa guidance",
     ],
     gradient: "from-accent to-accent/60",
+    image: serviceVisa,
   },
   {
     icon: Coins,
@@ -69,6 +80,7 @@ const services = [
       "Education loan guidance",
     ],
     gradient: "from-primary to-primary/60",
+    image: serviceScholarship,
   },
   {
     icon: Plane,
@@ -83,6 +95,7 @@ const services = [
       "Cultural integration support",
     ],
     gradient: "from-accent to-accent/60",
+    image: serviceTravel,
   },
   {
     icon: Handshake,
@@ -97,6 +110,7 @@ const services = [
       "Priority processing benefits",
     ],
     gradient: "from-primary to-primary/60",
+    image: servicePartner,
   },
 ];
 
@@ -136,76 +150,93 @@ const ServicesPage = () => {
       {/* Services Grid */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="space-y-20">
+          <div className="space-y-24">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                }`}
+                className="relative"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                {/* Content */}
-                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <div
-                    className={`inline-flex w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} items-center justify-center mb-6 shadow-lg`}
-                  >
-                    <service.icon size={32} className="text-primary-foreground" />
-                  </div>
-                  <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
-                    {service.title}
-                  </h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-3 mb-8">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-3">
-                        <CheckCircle2 size={20} className="text-accent flex-shrink-0" />
-                        <span className="text-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href="/#contact"
-                    className="btn-accent inline-flex items-center gap-2"
-                  >
-                    Get Started
-                    <ArrowRight size={18} />
-                  </a>
-                </div>
-
-                {/* Visual Card */}
-                <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                  <div className="relative bg-gradient-to-br from-muted/50 to-muted/30 rounded-3xl p-8 lg:p-12 border border-border/50">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-[100px] rounded-tr-3xl" />
-                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary/10 to-transparent rounded-tr-[80px] rounded-bl-3xl" />
-
-                    <div className="relative z-10 text-center">
-                      <div
-                        className={`inline-flex w-24 h-24 rounded-3xl bg-gradient-to-br ${service.gradient} items-center justify-center mb-6 shadow-xl`}
-                      >
-                        <service.icon size={48} className="text-primary-foreground" />
-                      </div>
-                      <h3 className="text-2xl font-heading font-bold mb-4">
-                        {service.title}
-                      </h3>
-                      <div className="flex flex-wrap justify-center gap-2">
-                        {service.features.slice(0, 3).map((feature) => (
-                          <span
-                            key={feature}
-                            className="px-4 py-2 bg-background rounded-full text-sm text-muted-foreground border border-border/50"
-                          >
-                            {feature}
-                          </span>
-                        ))}
+                <div className={`grid lg:grid-cols-2 gap-12 items-center ${
+                  index % 2 === 1 ? "" : ""
+                }`}>
+                  {/* Image Section */}
+                  <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                    <div className="relative group">
+                      {/* Decorative Elements */}
+                      <div className={`absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br ${service.gradient} rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500`} />
+                      <div className={`absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br ${service.gradient} rounded-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
+                      
+                      {/* Main Image */}
+                      <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-[350px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+                        />
+                        {/* Gradient Overlay */}
+                        <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-20`} />
+                        
+                        {/* Icon Badge */}
+                        <div className={`absolute top-6 left-6 w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-xl`}>
+                          <service.icon size={32} className="text-primary-foreground" />
+                        </div>
                       </div>
                     </div>
                   </div>
+
+                  {/* Content Section */}
+                  <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                    <motion.div
+                      initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                      <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
+                        {service.title}
+                      </h2>
+                      <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                        {service.description}
+                      </p>
+                      
+                      {/* Features Grid */}
+                      <div className="grid sm:grid-cols-2 gap-3 mb-8">
+                        {service.features.map((feature, idx) => (
+                          <motion.div
+                            key={feature}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1 }}
+                            className="flex items-center gap-3 bg-muted/50 rounded-xl px-4 py-3"
+                          >
+                            <CheckCircle2 size={18} className="text-accent flex-shrink-0" />
+                            <span className="text-sm text-foreground">{feature}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                      
+                      <a
+                        href="/#contact"
+                        className="btn-accent inline-flex items-center gap-2 group"
+                      >
+                        Get Started
+                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </motion.div>
+                  </div>
                 </div>
+
+                {/* Divider */}
+                {index < services.length - 1 && (
+                  <div className="mt-24 flex justify-center">
+                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-border to-transparent rounded-full" />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
