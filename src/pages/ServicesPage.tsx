@@ -1,0 +1,258 @@
+import { motion } from "framer-motion";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import {
+  GraduationCap,
+  Building2,
+  FileCheck,
+  Coins,
+  Plane,
+  Handshake,
+  ArrowRight,
+  CheckCircle2,
+  Sparkles,
+} from "lucide-react";
+
+const services = [
+  {
+    icon: GraduationCap,
+    title: "Academic & Course Counseling",
+    description:
+      "Our expert counselors help you identify the right academic path based on your interests, skills, and career aspirations. We provide personalized guidance to ensure you choose courses that align with your goals.",
+    features: [
+      "One-on-one counseling sessions",
+      "Career aptitude assessment",
+      "Course comparison analysis",
+      "Industry trend insights",
+      "Long-term career planning",
+    ],
+    gradient: "from-accent to-accent/60",
+  },
+  {
+    icon: Building2,
+    title: "University Selection & Application",
+    description:
+      "Navigate the complex world of international universities with our comprehensive selection and application support. We help you find the perfect institution that matches your academic profile and aspirations.",
+    features: [
+      "University shortlisting based on profile",
+      "Application document preparation",
+      "Statement of Purpose guidance",
+      "Letter of Recommendation support",
+      "Application tracking & follow-up",
+    ],
+    gradient: "from-primary to-primary/60",
+  },
+  {
+    icon: FileCheck,
+    title: "Visa Assistance",
+    description:
+      "Our visa experts guide you through every step of the visa application process, ensuring you have the best chance of approval. We prepare you for interviews and handle all documentation meticulously.",
+    features: [
+      "Document checklist & verification",
+      "Visa application filing",
+      "Mock interview preparation",
+      "Embassy appointment scheduling",
+      "Post-visa guidance",
+    ],
+    gradient: "from-accent to-accent/60",
+  },
+  {
+    icon: Coins,
+    title: "Scholarships & Funding Guidance",
+    description:
+      "Education abroad doesn't have to break the bank. We help you discover and apply for scholarships, grants, and financial aid opportunities to make your dream education affordable.",
+    features: [
+      "Scholarship opportunity research",
+      "Eligibility assessment",
+      "Application essay support",
+      "Financial planning consultation",
+      "Education loan guidance",
+    ],
+    gradient: "from-primary to-primary/60",
+  },
+  {
+    icon: Plane,
+    title: "Pre-Departure & Post-Arrival Support",
+    description:
+      "Your journey doesn't end with admission. We ensure you're fully prepared for life abroad with comprehensive pre-departure briefings and continued support after you arrive at your destination.",
+    features: [
+      "Pre-departure orientation",
+      "Travel & accommodation booking",
+      "Airport pickup arrangements",
+      "Local SIM & bank account setup",
+      "Cultural integration support",
+    ],
+    gradient: "from-accent to-accent/60",
+  },
+  {
+    icon: Handshake,
+    title: "Channel Partner Support",
+    description:
+      "We work closely with educational institutions, agencies, and partners worldwide to provide seamless services. Our partner network ensures you get the best opportunities and support globally.",
+    features: [
+      "Partner institution network",
+      "Agent training & certification",
+      "Collaborative marketing support",
+      "Dedicated partner portal",
+      "Priority processing benefits",
+    ],
+    gradient: "from-primary to-primary/60",
+  },
+];
+
+const ServicesPage = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-accent/5 blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px]" />
+
+        <div className="container-custom relative z-10">
+          <motion.div
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-6 border border-primary/20">
+              <Sparkles size={16} />
+              Our Services
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold mb-6">
+              Comprehensive Support for Your{" "}
+              <span className="text-accent italic">Global Education</span> Journey
+            </h1>
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              From choosing the right course to settling in your dream country, we provide
+              end-to-end assistance at every step of your international education journey.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="space-y-20">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                className={`grid lg:grid-cols-2 gap-12 items-center ${
+                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                }`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                {/* Content */}
+                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                  <div
+                    className={`inline-flex w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} items-center justify-center mb-6 shadow-lg`}
+                  >
+                    <service.icon size={32} className="text-primary-foreground" />
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
+                    {service.title}
+                  </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                    {service.description}
+                  </p>
+                  <ul className="space-y-3 mb-8">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-3">
+                        <CheckCircle2 size={20} className="text-accent flex-shrink-0" />
+                        <span className="text-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="/#contact"
+                    className="btn-accent inline-flex items-center gap-2"
+                  >
+                    Get Started
+                    <ArrowRight size={18} />
+                  </a>
+                </div>
+
+                {/* Visual Card */}
+                <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                  <div className="relative bg-gradient-to-br from-muted/50 to-muted/30 rounded-3xl p-8 lg:p-12 border border-border/50">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-[100px] rounded-tr-3xl" />
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary/10 to-transparent rounded-tr-[80px] rounded-bl-3xl" />
+
+                    <div className="relative z-10 text-center">
+                      <div
+                        className={`inline-flex w-24 h-24 rounded-3xl bg-gradient-to-br ${service.gradient} items-center justify-center mb-6 shadow-xl`}
+                      >
+                        <service.icon size={48} className="text-primary-foreground" />
+                      </div>
+                      <h3 className="text-2xl font-heading font-bold mb-4">
+                        {service.title}
+                      </h3>
+                      <div className="flex flex-wrap justify-center gap-2">
+                        {service.features.slice(0, 3).map((feature) => (
+                          <span
+                            key={feature}
+                            className="px-4 py-2 bg-background rounded-full text-sm text-muted-foreground border border-border/50"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section-padding bg-gradient-to-br from-primary to-primary/90 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
+
+        <div className="container-custom relative z-10">
+          <motion.div
+            className="text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-6">
+              Ready to Start Your Journey?
+            </h2>
+            <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed">
+              Get in touch with our expert counselors today and take the first step towards
+              your international education dream.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/#contact"
+                className="px-8 py-4 bg-accent text-accent-foreground rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 shadow-lg inline-flex items-center justify-center gap-2"
+              >
+                Book Free Consultation
+                <ArrowRight size={18} />
+              </a>
+              <a
+                href="tel:+1234567890"
+                className="px-8 py-4 bg-primary-foreground/10 text-primary-foreground rounded-full font-semibold hover:bg-primary-foreground/20 transition-all duration-300 border border-primary-foreground/20 inline-flex items-center justify-center"
+              >
+                Call Us Now
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default ServicesPage;
