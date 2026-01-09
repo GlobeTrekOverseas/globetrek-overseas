@@ -7,7 +7,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/#services" },
-  { name: "Courses", href: "/#courses" },
+  { name: "Power Batches", href: "/power-batches" },
   { name: "Countries", href: "/#countries" },
   { name: "Contact", href: "/#contact" },
 ];
