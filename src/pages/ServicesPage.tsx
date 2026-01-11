@@ -67,6 +67,7 @@ const services = [
     ],
     gradient: "from-accent to-accent/60",
     image: serviceVisa,
+    link: "/visa-assistance",
   },
   {
     icon: Coins,
