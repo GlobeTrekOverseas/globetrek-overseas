@@ -51,6 +51,7 @@ const services = [
     ],
     gradient: "from-primary to-primary/60",
     image: serviceUniversity,
+    link: "/university-selection",
   },
   {
     icon: FileCheck,
@@ -221,7 +222,7 @@ const ServicesPage = () => {
                       </div>
                       
                       <a
-                        href="/#contact"
+                        href={service.link || "/#contact"}
                         className="btn-accent inline-flex items-center gap-2 group"
                       >
                         Get Started
