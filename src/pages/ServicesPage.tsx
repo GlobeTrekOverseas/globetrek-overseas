@@ -99,6 +99,7 @@ const services = [
     ],
     gradient: "from-accent to-accent/60",
     image: serviceTravel,
+    link: "/pre-departure",
   },
   {
     icon: Handshake,
