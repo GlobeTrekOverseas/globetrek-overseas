@@ -10,6 +10,7 @@ import ServicesPage from "./pages/ServicesPage";
 import UniversitySelectionPage from "./pages/UniversitySelectionPage";
 import VisaAssistancePage from "./pages/VisaAssistancePage";
 import ScholarshipsPage from "./pages/ScholarshipsPage";
+import PreDeparturePage from "./pages/PreDeparturePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/university-selection" element={<UniversitySelectionPage />} />
           <Route path="/visa-assistance" element={<VisaAssistancePage />} />
           <Route path="/scholarships" element={<ScholarshipsPage />} />
+          <Route path="/pre-departure" element={<PreDeparturePage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
