@@ -83,6 +83,7 @@ const services = [
     ],
     gradient: "from-primary to-primary/60",
     image: serviceScholarship,
+    link: "/scholarships",
   },
   {
     icon: Plane,
