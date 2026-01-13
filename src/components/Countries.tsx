@@ -1,24 +1,16 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { MapPin, Users, GraduationCap, ArrowRight } from "lucide-react";
 
 import countryUSA from "@/assets/country-usa.jpg";
 import countryUK from "@/assets/country-uk.jpg";
-import countryCanada from "@/assets/country-canada.jpg";
 import countryAustralia from "@/assets/country-australia.jpg";
 import countryGermany from "@/assets/country-germany.jpg";
-import countryNewZealand from "@/assets/country-newzealand.jpg";
 
 const countries = [
   {
-    name: "United States",
-    flag: "🇺🇸",
-    image: countryUSA,
-    universities: "4,000+",
-    students: "1M+",
-    popular: ["MIT", "Harvard", "Stanford"],
-  },
-  {
     name: "United Kingdom",
+    slug: "uk",
     flag: "🇬🇧",
     image: countryUK,
     universities: "150+",
@@ -26,15 +18,17 @@ const countries = [
     popular: ["Oxford", "Cambridge", "Imperial"],
   },
   {
-    name: "Canada",
-    flag: "🇨🇦",
-    image: countryCanada,
-    universities: "100+",
-    students: "800K+",
-    popular: ["Toronto", "UBC", "McGill"],
+    name: "United States",
+    slug: "usa",
+    flag: "🇺🇸",
+    image: countryUSA,
+    universities: "4,000+",
+    students: "1M+",
+    popular: ["MIT", "Harvard", "Stanford"],
   },
   {
     name: "Australia",
+    slug: "australia",
     flag: "🇦🇺",
     image: countryAustralia,
     universities: "43+",
@@ -42,7 +36,17 @@ const countries = [
     popular: ["Melbourne", "Sydney", "ANU"],
   },
   {
+    name: "Switzerland",
+    slug: "switzerland",
+    flag: "🇨🇭",
+    image: countryGermany, // Using Germany image as placeholder
+    universities: "12+",
+    students: "60K+",
+    popular: ["ETH Zurich", "EPFL", "UZH"],
+  },
+  {
     name: "Germany",
+    slug: "germany",
     flag: "🇩🇪",
     image: countryGermany,
     universities: "400+",
@@ -50,12 +54,13 @@ const countries = [
     popular: ["TU Munich", "Heidelberg", "LMU"],
   },
   {
-    name: "New Zealand",
-    flag: "🇳🇿",
-    image: countryNewZealand,
-    universities: "8",
-    students: "100K+",
-    popular: ["Auckland", "Otago", "Victoria"],
+    name: "Europe",
+    slug: "europe",
+    flag: "🇪🇺",
+    image: countryUK, // Using UK image as placeholder
+    universities: "5,000+",
+    students: "2.5M+",
+    popular: ["Amsterdam", "Copenhagen", "Dublin"],
   },
 ];
 
@@ -147,13 +152,13 @@ const Countries = () => {
                   </div>
 
                   {/* CTA */}
-                  <a 
-                    href="#contact" 
+                  <Link 
+                    to={`/country/${country.slug}`}
                     className="inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all"
                   >
                     Explore Programs
                     <ArrowRight size={16} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>
