@@ -11,6 +11,7 @@ import UniversitySelectionPage from "./pages/UniversitySelectionPage";
 import VisaAssistancePage from "./pages/VisaAssistancePage";
 import ScholarshipsPage from "./pages/ScholarshipsPage";
 import PreDeparturePage from "./pages/PreDeparturePage";
+import AcademicCounselingPage from "./pages/AcademicCounselingPage";
 import CountryPage from "./pages/CountryPage";
 import NotFound from "./pages/NotFound";
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/visa-assistance" element={<VisaAssistancePage />} />
           <Route path="/scholarships" element={<ScholarshipsPage />} />
           <Route path="/pre-departure" element={<PreDeparturePage />} />
+          <Route path="/academic-counseling" element={<AcademicCounselingPage />} />
           <Route path="/country/:countrySlug" element={<CountryPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
