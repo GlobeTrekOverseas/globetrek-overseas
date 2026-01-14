@@ -36,6 +36,7 @@ const services = [
     ],
     gradient: "from-accent to-accent/60",
     image: serviceCounseling,
+    link: "/academic-counseling",
   },
   {
     icon: Building2,
