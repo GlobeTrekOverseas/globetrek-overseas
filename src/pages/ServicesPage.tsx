@@ -116,6 +116,7 @@ const services = [
     ],
     gradient: "from-primary to-primary/60",
     image: servicePartner,
+    link: "/channel-partner",
   },
 ];
 
