@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
-import { Target, Eye, Heart, Users, Award, Globe, BookOpen, CheckCircle, ArrowRight } from "lucide-react";
+import { Target, Eye, Heart, Users, Award, Globe, BookOpen, CheckCircle, ArrowRight, Star, Handshake, Trophy, Quote, MessageCircle, Building, GraduationCap, Plane, FileCheck } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import aboutHero from "@/assets/about-hero.jpg";
 import aboutTeam from "@/assets/about-team.jpg";
+import teamPhoto from "@/assets/team-photo.jpg";
+import partnerships from "@/assets/partnerships.jpg";
+import studentSuccess from "@/assets/student-success.jpg";
+import achievements from "@/assets/achievements.jpg";
 
 const stats = [
   { value: "15+", label: "Years Experience" },
@@ -53,6 +57,86 @@ const services = [
     icon: Users,
     title: "Pre-Departure Support",
     description: "Complete guidance on accommodation, travel, banking, and settling abroad.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Scholarship Guidance",
+    description: "Help students secure scholarships and financial aid to make education affordable.",
+  },
+  {
+    icon: Plane,
+    title: "Travel Assistance",
+    description: "Flight bookings, forex services, and travel insurance arrangements.",
+  },
+  {
+    icon: FileCheck,
+    title: "Document Processing",
+    description: "SOP writing, LOR guidance, and application document verification.",
+  },
+  {
+    icon: Building,
+    title: "Accommodation Support",
+    description: "Help finding suitable student housing and accommodation arrangements.",
+  },
+];
+
+const teamMembers = [
+  {
+    name: "Rajesh Kumar",
+    role: "Founder & CEO",
+    description: "15+ years of experience in overseas education consulting",
+  },
+  {
+    name: "Priya Sharma",
+    role: "Head of Counseling",
+    description: "Expert in UK & Australia student placements",
+  },
+  {
+    name: "Amit Patel",
+    role: "Visa Director",
+    description: "Specialized in complex visa cases with 98% success rate",
+  },
+  {
+    name: "Sneha Reddy",
+    role: "Partnership Manager",
+    description: "Manages relationships with 500+ university partners",
+  },
+];
+
+const partnerCountries = [
+  { name: "USA", universities: "100+" },
+  { name: "UK", universities: "80+" },
+  { name: "Canada", universities: "75+" },
+  { name: "Australia", universities: "60+" },
+  { name: "Germany", universities: "50+" },
+  { name: "New Zealand", universities: "40+" },
+];
+
+const achievementsList = [
+  { icon: Trophy, title: "Best Education Consultancy 2024", subtitle: "National Education Excellence Awards" },
+  { icon: Star, title: "5-Star Service Rating", subtitle: "Google Reviews - 4.9/5 Average" },
+  { icon: Award, title: "Top Visa Success Rate", subtitle: "98% Approval Across All Countries" },
+  { icon: Globe, title: "Global Partner Network", subtitle: "500+ Universities in 50+ Countries" },
+];
+
+const studentTestimonials = [
+  {
+    name: "Ananya Gupta",
+    university: "University of Toronto, Canada",
+    quote: "GlobeTrek made my dream of studying in Canada a reality. Their guidance was invaluable throughout the process.",
+    rating: 5,
+  },
+  {
+    name: "Rahul Verma",
+    university: "University of Melbourne, Australia",
+    quote: "The team's expertise in visa processing helped me secure my student visa in record time. Highly recommended!",
+    rating: 5,
+  },
+  {
+    name: "Pooja Singh",
+    university: "University of Manchester, UK",
+    quote: "From course selection to pre-departure, GlobeTrek was with me every step of the way. Forever grateful!",
+    rating: 5,
   },
 ];
 
@@ -120,7 +204,7 @@ const AboutUs = () => {
 
             <div className="flex flex-wrap gap-4">
               <motion.a
-                href="#contact"
+                href="/#contact"
                 className="btn-primary inline-flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -182,6 +266,9 @@ const AboutUs = () => {
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   <strong className="text-foreground">GlobeTrek Overseas was born out of a shared dream</strong> — to make global education simple, accessible, and transparent for every student.
+                </p>
+                <p>
+                  Founded in 2009, we started as a small team of passionate educators who believed that every student deserves access to world-class education regardless of their background.
                 </p>
                 <p>
                   Over the years, we have guided aspiring learners to universities across continents, helping them shape their careers and futures with confidence.
@@ -311,33 +398,283 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="section-padding bg-primary text-primary-foreground relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
+      {/* Meet Our Team Section */}
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom">
+          <motion.div
+            className="text-center max-w-2xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
+              <Users className="w-4 h-4" />
+              Our Team
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-4">
+              Meet the <span className="text-accent">Experts</span>
+            </h2>
+            <p className="text-muted-foreground">
+              Our dedicated team of experienced professionals is here to guide you every step of the way.
+            </p>
+          </motion.div>
 
-        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+            <motion.div
+              className="relative rounded-2xl overflow-hidden shadow-elegant"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <img 
+                src={teamPhoto} 
+                alt="GlobeTrek Professional Team" 
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              {teamMembers.map((member, index) => (
+                <motion.div
+                  key={member.name}
+                  className="bg-background p-6 rounded-2xl border border-border shadow-elegant"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                    <Users className="w-6 h-6 text-accent" />
+                  </div>
+                  <h3 className="text-lg font-heading font-bold">{member.name}</h3>
+                  <p className="text-accent text-sm font-medium mb-2">{member.role}</p>
+                  <p className="text-sm text-muted-foreground">{member.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Global Partnerships Section */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white font-medium text-sm mb-4">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
+                <Handshake className="w-4 h-4" />
+                Global Network
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-6">
+                Our Global <span className="text-accent">Partnerships</span>
+              </h2>
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                We have established strong partnerships with over 500 universities across 50+ countries, 
+                ensuring our students have access to the best educational opportunities worldwide.
+              </p>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {partnerCountries.map((country, index) => (
+                  <motion.div
+                    key={country.name}
+                    className="bg-secondary/50 p-4 rounded-xl border border-border text-center"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="text-2xl font-bold text-accent">{country.universities}</div>
+                    <div className="text-sm text-muted-foreground">{country.name}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative rounded-2xl overflow-hidden shadow-elegant"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <img 
+                src={partnerships} 
+                alt="Global University Partnerships" 
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements & Recognition Section */}
+      <section className="section-padding bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
+
+        <div className="container-custom relative z-10">
+          <motion.div
+            className="text-center max-w-2xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white font-medium text-sm mb-4">
+              <Trophy className="w-4 h-4" />
+              Our Achievements
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold">
+              Achievements & <span className="text-accent">Recognition</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid sm:grid-cols-2 gap-6">
+              {achievementsList.map((achievement, index) => (
+                <motion.div
+                  key={achievement.title}
+                  className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
+                    <achievement.icon className="w-6 h-6 text-accent" />
+                  </div>
+                  <h3 className="text-lg font-heading font-bold mb-1">{achievement.title}</h3>
+                  <p className="text-sm text-primary-foreground/70">{achievement.subtitle}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              className="relative rounded-2xl overflow-hidden shadow-elegant"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <img 
+                src={achievements} 
+                alt="Awards and Achievements" 
+                className="w-full h-auto"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Student Insights / Testimonials Section */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <motion.div
+            className="text-center max-w-2xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
+              <MessageCircle className="w-4 h-4" />
+              Student Insights
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-4">
+              What Our <span className="text-accent">Students Say</span>
+            </h2>
+            <p className="text-muted-foreground">
+              Hear from students who have successfully achieved their dreams of studying abroad with our guidance.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              className="relative rounded-2xl overflow-hidden shadow-elegant"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <img 
+                src={studentSuccess} 
+                alt="Successful Students" 
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+              <motion.div
+                className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
+                <div className="flex items-center gap-3">
+                  <GraduationCap className="w-8 h-8 text-accent" />
+                  <div>
+                    <div className="text-2xl font-bold text-primary">10,000+</div>
+                    <div className="text-sm text-muted-foreground">Students Successfully Placed</div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            <div className="space-y-6">
+              {studentTestimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.name}
+                  className="bg-secondary/50 p-6 rounded-2xl border border-border relative"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <Quote className="absolute top-4 right-4 w-8 h-8 text-accent/20" />
+                  <div className="flex items-center gap-1 mb-3">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-accent fill-accent" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-4 italic">"{testimonial.quote}"</p>
+                  <div>
+                    <div className="font-heading font-bold">{testimonial.name}</div>
+                    <div className="text-sm text-accent">{testimonial.university}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
                 Why GlobeTrek
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-6">
                 Why Students <span className="text-accent">Choose Us</span>
               </h2>
-              <p className="text-primary-foreground/80 mb-8 leading-relaxed">
+              <p className="text-muted-foreground mb-8 leading-relaxed">
                 With over 15 years of experience and a proven track record, we've helped 
                 thousands of students achieve their dreams of studying abroad. Here's what 
                 makes us different.
               </p>
               <motion.a
                 href="/#contact"
-                className="inline-flex items-center gap-2 bg-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl hover:bg-accent/90 transition-colors"
+                className="btn-primary inline-flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -355,7 +692,7 @@ const AboutUs = () => {
               {whyChooseUs.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="flex items-start gap-3 bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10"
+                  className="flex items-start gap-3 bg-background p-4 rounded-xl border border-border shadow-sm"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -367,6 +704,42 @@ const AboutUs = () => {
               ))}
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Inspirational Message Section */}
+      <section className="section-padding bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground relative overflow-hidden">
+        <motion.div
+          className="absolute top-10 left-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 5, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-10 right-10 w-60 h-60 bg-white/10 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 4, repeat: Infinity }}
+        />
+
+        <div className="container-custom relative z-10">
+          <motion.div
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Quote className="w-16 h-16 text-accent mx-auto mb-8 opacity-50" />
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-8 leading-tight">
+              "Education is the passport to the future, for tomorrow belongs to those who{" "}
+              <span className="text-accent">prepare for it today.</span>"
+            </h2>
+            <p className="text-xl text-primary-foreground/80 mb-8">
+              At GlobeTrek Overseas, we believe every student has the potential to achieve greatness. 
+              Let us be your partner in this transformative journey towards a brighter future.
+            </p>
+            <p className="text-primary-foreground/60 italic">
+              — The GlobeTrek Team
+            </p>
+          </motion.div>
         </div>
       </section>
 
