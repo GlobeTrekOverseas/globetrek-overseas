@@ -5,7 +5,16 @@ import Footer from "@/components/Footer";
 import aboutHero from "@/assets/about-hero.jpg";
 import aboutTeam from "@/assets/about-team.jpg";
 import teamPhoto from "@/assets/team-photo.jpg";
+import teamCeo from "@/assets/team-ceo.jpg";
+import teamCounseling from "@/assets/team-counseling.jpg";
+import teamVisa from "@/assets/team-visa.jpg";
+import teamPartnership from "@/assets/team-partnership.jpg";
+import student1 from "@/assets/student-1.jpg";
+import student2 from "@/assets/student-2.jpg";
+import student3 from "@/assets/student-3.jpg";
 import partnerships from "@/assets/partnerships.jpg";
+import universityPartners from "@/assets/university-partners.jpg";
+import globalNetwork from "@/assets/global-network.jpg";
 import studentSuccess from "@/assets/student-success.jpg";
 import achievements from "@/assets/achievements.jpg";
 
@@ -85,21 +94,25 @@ const teamMembers = [
     name: "Rajesh Kumar",
     role: "Founder & CEO",
     description: "15+ years of experience in overseas education consulting",
+    image: teamCeo,
   },
   {
     name: "Priya Sharma",
     role: "Head of Counseling",
     description: "Expert in UK & Australia student placements",
+    image: teamCounseling,
   },
   {
     name: "Amit Patel",
     role: "Visa Director",
     description: "Specialized in complex visa cases with 98% success rate",
+    image: teamVisa,
   },
   {
     name: "Sneha Reddy",
     role: "Partnership Manager",
     description: "Manages relationships with 500+ university partners",
+    image: teamPartnership,
   },
 ];
 
@@ -125,18 +138,21 @@ const studentTestimonials = [
     university: "University of Toronto, Canada",
     quote: "GlobeTrek made my dream of studying in Canada a reality. Their guidance was invaluable throughout the process.",
     rating: 5,
+    image: student1,
   },
   {
     name: "Rahul Verma",
     university: "University of Melbourne, Australia",
     quote: "The team's expertise in visa processing helped me secure my student visa in record time. Highly recommended!",
     rating: 5,
+    image: student2,
   },
   {
     name: "Pooja Singh",
     university: "University of Manchester, UK",
     quote: "From course selection to pre-departure, GlobeTrek was with me every step of the way. Forever grateful!",
     rating: 5,
+    image: student3,
   },
 ];
 
@@ -419,41 +435,52 @@ const AboutUs = () => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-            <motion.div
-              className="relative rounded-2xl overflow-hidden shadow-elegant"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <img 
-                src={teamPhoto} 
-                alt="GlobeTrek Professional Team" 
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
-            </motion.div>
+          {/* Team Group Photo */}
+          <motion.div
+            className="relative rounded-2xl overflow-hidden shadow-elegant mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <img 
+              src={teamPhoto} 
+              alt="GlobeTrek Professional Team" 
+              className="w-full h-[400px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+              <h3 className="text-2xl font-heading font-bold text-white mb-2">The GlobeTrek Family</h3>
+              <p className="text-white/80">Dedicated professionals committed to your success</p>
+            </div>
+          </motion.div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {teamMembers.map((member, index) => (
-                <motion.div
-                  key={member.name}
-                  className="bg-background p-6 rounded-2xl border border-border shadow-elegant"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                >
-                  <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-                    <Users className="w-6 h-6 text-accent" />
-                  </div>
+          {/* Individual Team Members */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={member.name}
+                className="group bg-background rounded-2xl overflow-hidden border border-border shadow-elegant"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="p-6">
                   <h3 className="text-lg font-heading font-bold">{member.name}</h3>
                   <p className="text-accent text-sm font-medium mb-2">{member.role}</p>
                   <p className="text-sm text-muted-foreground">{member.description}</p>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -461,56 +488,125 @@ const AboutUs = () => {
       {/* Global Partnerships Section */}
       <section className="section-padding bg-background">
         <div className="container-custom">
+          <motion.div
+            className="text-center max-w-2xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
+              <Handshake className="w-4 h-4" />
+              Global Network
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-4">
+              Our Global <span className="text-accent">Partnerships</span>
+            </h2>
+            <p className="text-muted-foreground">
+              We have established strong partnerships with over 500 universities across 50+ countries, 
+              ensuring our students have access to the best educational opportunities worldwide.
+            </p>
+          </motion.div>
+
+          {/* Global Network Map */}
+          <motion.div
+            className="relative rounded-2xl overflow-hidden shadow-elegant mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <img 
+              src={globalNetwork} 
+              alt="Global Education Network" 
+              className="w-full h-[400px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/40 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+              <div className="flex flex-wrap gap-4">
+                {partnerCountries.map((country, index) => (
+                  <motion.div
+                    key={country.name}
+                    className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <span className="font-bold text-primary">{country.universities}</span>
+                    <span className="text-muted-foreground ml-1">{country.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
+              className="relative rounded-2xl overflow-hidden shadow-elegant"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
-                <Handshake className="w-4 h-4" />
-                Global Network
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-6">
-                Our Global <span className="text-accent">Partnerships</span>
-              </h2>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                We have established strong partnerships with over 500 universities across 50+ countries, 
-                ensuring our students have access to the best educational opportunities worldwide.
-              </p>
-              
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {partnerCountries.map((country, index) => (
-                  <motion.div
-                    key={country.name}
-                    className="bg-secondary/50 p-4 rounded-xl border border-border text-center"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div className="text-2xl font-bold text-accent">{country.universities}</div>
-                    <div className="text-sm text-muted-foreground">{country.name}</div>
-                  </motion.div>
-                ))}
-              </div>
+              <img 
+                src={universityPartners} 
+                alt="Partner Universities" 
+                className="w-full h-auto"
+              />
             </motion.div>
 
             <motion.div
-              className="relative rounded-2xl overflow-hidden shadow-elegant"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <img 
-                src={partnerships} 
-                alt="Global University Partnerships" 
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
+              <h3 className="text-2xl font-heading font-bold mb-6">
+                World-Class <span className="text-accent">University Partners</span>
+              </h3>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Our partnerships span across the globe's most prestigious institutions, from Ivy League 
+                universities in the USA to Russell Group universities in the UK, Group of Eight in Australia, 
+                and top-ranked institutions in Canada, Germany, and beyond.
+              </p>
+              <div className="space-y-4">
+                {[
+                  "Direct admission pathways to partner universities",
+                  "Exclusive scholarship opportunities for our students",
+                  "Priority processing for applications",
+                  "Annual university visits and webinars",
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-start gap-3"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-foreground">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
+
+          {/* Partnership Meeting Image */}
+          <motion.div
+            className="relative rounded-2xl overflow-hidden shadow-elegant mt-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <img 
+              src={partnerships} 
+              alt="Partnership Meeting" 
+              className="w-full h-[350px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+              <h3 className="text-2xl font-heading font-bold text-white mb-2">Building Global Bridges</h3>
+              <p className="text-white/80">Strengthening partnerships for student success</p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -593,7 +689,8 @@ const AboutUs = () => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Student Success Image */}
             <motion.div
               className="relative rounded-2xl overflow-hidden shadow-elegant"
               initial={{ opacity: 0, x: -30 }}
@@ -623,6 +720,7 @@ const AboutUs = () => {
               </motion.div>
             </motion.div>
 
+            {/* Testimonials with Student Photos */}
             <div className="space-y-6">
               {studentTestimonials.map((testimonial, index) => (
                 <motion.div
@@ -635,15 +733,26 @@ const AboutUs = () => {
                   whileHover={{ x: 5 }}
                 >
                   <Quote className="absolute top-4 right-4 w-8 h-8 text-accent/20" />
-                  <div className="flex items-center gap-1 mb-3">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-accent fill-accent" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-4 italic">"{testimonial.quote}"</p>
-                  <div>
-                    <div className="font-heading font-bold">{testimonial.name}</div>
-                    <div className="text-sm text-accent">{testimonial.university}</div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-accent">
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-1 mb-2">
+                        {Array.from({ length: testimonial.rating }).map((_, i) => (
+                          <Star key={i} className="w-4 h-4 text-accent fill-accent" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground mb-3 italic">"{testimonial.quote}"</p>
+                      <div>
+                        <div className="font-heading font-bold">{testimonial.name}</div>
+                        <div className="text-sm text-accent">{testimonial.university}</div>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}
