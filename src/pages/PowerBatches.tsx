@@ -387,9 +387,19 @@ const PowerBatches = () => {
                         Enroll Now
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
-                      <button className="flex-1 bg-card border border-border rounded-xl px-6 py-4 font-semibold text-foreground hover:bg-secondary transition-colors">
-                        Download Brochure
-                      </button>
+                      {batch.id === "ielts" ? (
+                        <Link 
+                          to="/ielts"
+                          className="flex-1 bg-primary/10 border border-primary/30 rounded-xl px-6 py-4 font-semibold text-primary hover:bg-primary/20 transition-colors text-center flex items-center justify-center gap-2 group"
+                        >
+                          Explore More
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                      ) : (
+                        <button className="flex-1 bg-card border border-border rounded-xl px-6 py-4 font-semibold text-foreground hover:bg-secondary transition-colors">
+                          Download Brochure
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
