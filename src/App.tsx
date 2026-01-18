@@ -14,6 +14,7 @@ import PreDeparturePage from "./pages/PreDeparturePage";
 import AcademicCounselingPage from "./pages/AcademicCounselingPage";
 import ChannelPartnerPage from "./pages/ChannelPartnerPage";
 import CountryPage from "./pages/CountryPage";
+import IELTSPage from "./pages/IELTSPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/academic-counseling" element={<AcademicCounselingPage />} />
           <Route path="/channel-partner" element={<ChannelPartnerPage />} />
           <Route path="/country/:countrySlug" element={<CountryPage />} />
+          <Route path="/ielts" element={<IELTSPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
