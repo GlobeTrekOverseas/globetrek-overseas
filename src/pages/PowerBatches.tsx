@@ -407,10 +407,9 @@ const PowerBatches = () => {
                         </>
                       ) : (
                         <button 
-                          disabled
-                          className="flex-1 bg-muted border border-border rounded-xl px-6 py-4 font-semibold text-muted-foreground cursor-not-allowed flex items-center justify-center gap-2"
+                          className="flex-1 bg-muted border border-border rounded-xl px-6 py-4 font-semibold text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 flex items-center justify-center gap-2 group"
                         >
-                          <Clock className="w-4 h-4" />
+                          <Clock className="w-4 h-4 group-hover:animate-pulse" />
                           Coming Soon
                         </button>
                       )}
