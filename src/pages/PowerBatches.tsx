@@ -27,6 +27,7 @@ import batchIelts from "@/assets/batch-ielts.jpg";
 import batchPte from "@/assets/batch-pte.jpg";
 import batchGmat from "@/assets/batch-gmat.jpg";
 import batchGre from "@/assets/batch-gre.jpg";
+import powerBatchesHero from "@/assets/power-batches-hero.jpg";
 
 const batches = [
   {
@@ -152,8 +153,15 @@ const PowerBatches = () => {
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-background" />
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={powerBatchesHero} 
+            alt="Power Batches" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background" />
+        </div>
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl floating-element" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl floating-element-delayed" />
         
@@ -380,24 +388,30 @@ const PowerBatches = () => {
                     
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                      <Link 
-                        to="/#contact"
-                        className="flex-1 btn-accent text-center flex items-center justify-center gap-2 group"
-                      >
-                        Enroll Now
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
                       {batch.id === "ielts" ? (
-                        <Link 
-                          to="/ielts"
-                          className="flex-1 bg-primary/10 border border-primary/30 rounded-xl px-6 py-4 font-semibold text-primary hover:bg-primary/20 transition-colors text-center flex items-center justify-center gap-2 group"
-                        >
-                          Explore More
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                        <>
+                          <Link 
+                            to="/#contact"
+                            className="flex-1 btn-accent text-center flex items-center justify-center gap-2 group"
+                          >
+                            Enroll Now
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                          <Link 
+                            to="/ielts"
+                            className="flex-1 bg-primary/10 border border-primary/30 rounded-xl px-6 py-4 font-semibold text-primary hover:bg-primary/20 transition-colors text-center flex items-center justify-center gap-2 group"
+                          >
+                            Explore More
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                        </>
                       ) : (
-                        <button className="flex-1 bg-card border border-border rounded-xl px-6 py-4 font-semibold text-foreground hover:bg-secondary transition-colors">
-                          Download Brochure
+                        <button 
+                          disabled
+                          className="flex-1 bg-muted border border-border rounded-xl px-6 py-4 font-semibold text-muted-foreground cursor-not-allowed flex items-center justify-center gap-2"
+                        >
+                          <Clock className="w-4 h-4" />
+                          Coming Soon
                         </button>
                       )}
                     </div>

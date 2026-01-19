@@ -20,6 +20,7 @@ import serviceVisa from "@/assets/service-visa.jpg";
 import serviceScholarship from "@/assets/service-scholarship.jpg";
 import serviceTravel from "@/assets/service-travel.jpg";
 import servicePartner from "@/assets/service-partner.jpg";
+import servicesHero from "@/assets/services-hero.jpg";
 
 const services = [
   {
@@ -126,7 +127,16 @@ const ServicesPage = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={servicesHero} 
+            alt="Our Services" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background" />
+        </div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-accent/5 blur-[120px]" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px]" />
 
