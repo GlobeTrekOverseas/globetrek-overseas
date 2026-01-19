@@ -4,18 +4,21 @@ import { CheckCircle, Award, Shield, Heart } from "lucide-react";
 const features = [
   {
     icon: Award,
-    title: "15+ Years of Excellence",
-    description: "Over a decade of experience guiding students to their dream destinations.",
+    title: "3+ Years of Excellence",
+    description:
+      "Over a decade of experience guiding students to their dream destinations.",
   },
   {
     icon: Shield,
     title: "Trusted & Reliable",
-    description: "Licensed consultants with transparent processes and ethical practices.",
+    description:
+      "Licensed consultants with transparent processes and ethical practices.",
   },
   {
     icon: Heart,
     title: "Student-First Approach",
-    description: "Personalized attention to understand and fulfill your unique aspirations.",
+    description:
+      "Personalized attention to understand and fulfill your unique aspirations.",
   },
 ];
 
@@ -30,10 +33,13 @@ const highlights = [
 
 const About = () => {
   return (
-    <section id="about" className="section-padding bg-background relative overflow-hidden">
+    <section
+      id="about"
+      className="section-padding bg-background relative overflow-hidden"
+    >
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/5 to-transparent" />
-      
+
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content */}
@@ -51,10 +57,11 @@ const About = () => {
               <span className="text-accent">Global Opportunities</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              GlobeTrek Overseas has been at the forefront of international education consulting, 
-              helping thousands of students achieve their dreams of studying abroad. Our team of 
-              experienced counselors provides personalized guidance tailored to each student's 
-              unique goals and circumstances.
+              GlobeTrek Overseas has been at the forefront of international
+              education consulting, helping thousands of students achieve their
+              dreams of studying abroad. Our team of experienced counselors
+              provides personalized guidance tailored to each student's unique
+              goals and circumstances.
             </p>
 
             {/* Highlights */}
@@ -75,7 +82,7 @@ const About = () => {
             </div>
 
             <motion.a
-              href="#contact"
+              href="/about"
               className="btn-primary inline-flex"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -106,7 +113,9 @@ const About = () => {
                   <feature.icon size={28} className="text-accent" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-heading font-bold mb-2">{feature.title}</h3>
+                  <h3 className="text-lg font-heading font-bold mb-2">
+                    {feature.title}
+                  </h3>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </div>
               </motion.div>
@@ -122,13 +131,17 @@ const About = () => {
             >
               <div className="grid grid-cols-3 gap-4 text-center">
                 {[
-                  { value: "10K+", label: "Students Placed" },
-                  { value: "50+", label: "Countries" },
-                  { value: "500+", label: "University Partners" },
+                  { value: "500+", label: "Students Placed" },
+                  { value: "20+", label: "Countries" },
+                  { value: "500+", label: "Partner Universities" },
                 ].map((stat, index) => (
                   <div key={index}>
-                    <div className="text-2xl sm:text-3xl font-bold text-accent">{stat.value}</div>
-                    <div className="text-sm text-primary-foreground/80">{stat.label}</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-accent">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm text-primary-foreground/80">
+                      {stat.label}
+                    </div>
                   </div>
                 ))}
               </div>

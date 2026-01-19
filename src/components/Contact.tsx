@@ -1,30 +1,33 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
   Send,
   MessageCircle,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 
 const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    details: ["123 Education Hub, Sector 5", "New Delhi, India - 110001"],
+    details: [
+      `Tower 4 - 1210 Asshotech business cresterra,
+      Sector 135 Noida, Uttar Pradesh 201304`,
+    ],
   },
   {
     icon: Phone,
     title: "Call Us",
-    details: ["+91 98765 43210", "+91 11 2345 6789"],
+    details: ["+91 93113 31899", "+91 92113 13899"],
   },
   {
     icon: Mail,
     title: "Email Us",
-    details: ["info@globetrekoverseas.com", "admissions@globetrekoverseas.com"],
+    details: ["Headoffice@globetrekoverseas.com"],
   },
   {
     icon: Clock,
@@ -49,10 +52,13 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-background relative overflow-hidden">
+    <section
+      id="contact"
+      className="section-padding bg-background relative overflow-hidden"
+    >
       {/* Background Decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
-      
+
       <div className="container-custom relative z-10">
         {/* Section Header */}
         <motion.div
@@ -67,12 +73,11 @@ const Contact = () => {
             Get in Touch
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-6">
-            Start Your{" "}
-            <span className="text-accent">Journey Today</span>
+            Start Your <span className="text-accent">Journey Today</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Ready to take the first step? Contact us for a free consultation 
-            and let us help you achieve your international education goals.
+            Ready to take the first step? Contact us for a free consultation and
+            let us help you achieve your international education goals.
           </p>
         </motion.div>
 
@@ -85,49 +90,67 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-heading font-bold mb-6">Send Us a Message</h3>
-            
+            <h3 className="text-2xl font-heading font-bold mb-6">
+              Send Us a Message
+            </h3>
+
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Full Name</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Full Name
+                  </label>
                   <input
                     type="text"
                     placeholder="John Doe"
                     className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email Address</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     placeholder="john@example.com"
                     className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                   />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Phone Number</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Phone Number
+                  </label>
                   <input
                     type="tel"
                     placeholder="+91 98765 43210"
                     className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Preferred Country</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Preferred Country
+                  </label>
                   <select
                     className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                     value={formData.country}
-                    onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, country: e.target.value })
+                    }
                   >
                     <option value="">Select Country</option>
                     <option value="usa">United States</option>
@@ -141,13 +164,17 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Your Message</label>
+                <label className="block text-sm font-medium mb-2">
+                  Your Message
+                </label>
                 <textarea
                   rows={4}
                   placeholder="Tell us about your study abroad goals..."
                   className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-all resize-none"
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                 />
               </div>
 
@@ -186,7 +213,9 @@ const Contact = () => {
                 <div>
                   <h4 className="font-heading font-bold mb-2">{info.title}</h4>
                   {info.details.map((detail, i) => (
-                    <p key={i} className="text-muted-foreground">{detail}</p>
+                    <p key={i} className="text-muted-foreground">
+                      {detail}
+                    </p>
                   ))}
                 </div>
               </motion.div>
@@ -210,10 +239,15 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-heading font-bold">Chat on WhatsApp</h4>
-                  <p className="text-sm opacity-90">Quick response guaranteed</p>
+                  <p className="text-sm opacity-90">
+                    Quick response guaranteed
+                  </p>
                 </div>
               </div>
-              <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
+              <ArrowRight
+                size={24}
+                className="group-hover:translate-x-2 transition-transform"
+              />
             </motion.a>
           </motion.div>
         </div>

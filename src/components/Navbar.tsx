@@ -34,43 +34,47 @@ const Navbar = () => {
           animate={{ x: ["-100%", "100%"] }}
           transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
         />
-        
+
         <div className="container-custom flex justify-between items-center text-sm relative z-10">
           <div className="flex items-center gap-8">
-            <motion.a 
-              href="tel:+919876543210" 
+            <motion.a
+              href="tel:+91 93113 31899"
               className="flex items-center gap-2 hover:text-accent transition-colors group"
               whileHover={{ scale: 1.02 }}
             >
               <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                 <Phone size={12} />
               </div>
-              <span className="font-medium">+91 98765 43210</span>
+              <span className="font-medium">+91 93113 31899</span>
             </motion.a>
-            <motion.a 
-              href="mailto:info@globetrekoverseas.com" 
+            <motion.a
+              href="mailto:headoffice@globetrekoverseas.com"
               className="flex items-center gap-2 hover:text-accent transition-colors group"
               whileHover={{ scale: 1.02 }}
             >
               <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                 <Mail size={12} />
               </div>
-              <span className="font-medium">info@globetrekoverseas.com</span>
+              <span className="font-medium">
+                headoffice@globetrekoverseas.com
+              </span>
             </motion.a>
             <div className="flex items-center gap-2 text-primary-foreground/80">
               <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center">
                 <MapPin size={12} />
               </div>
-              <span>New Delhi, India</span>
+              <span>Sector 135, Noida, Uttar Pradesh</span>
             </div>
           </div>
-          <motion.div 
-            className="flex items-center gap-2 bg-accent/20 px-4 py-1.5 rounded-full"
+          <motion.div
+            className="flex items-center gap-2 bg-accent/50 px-4 py-1.5 rounded-full"
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <Sparkles size={14} className="text-accent" />
-            <span className="text-accent font-semibold">Your Gateway to Global Education</span>
+            <Sparkles size={14} className="text-white" />
+            <span className="text-white font-semibold">
+              Your Gateway to Global Education
+            </span>
           </motion.div>
         </div>
       </div>
@@ -95,9 +99,9 @@ const Navbar = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <motion.img 
-                src={logo} 
-                alt="GlobeTrek Overseas" 
+              <motion.img
+                src={logo}
+                alt="GlobeTrek Overseas"
                 className={`transition-all duration-300 ${isScrolled ? "h-12" : "h-14"} w-auto`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -117,7 +121,7 @@ const Navbar = () => {
                   whileHover={{ y: -2 }}
                 >
                   {link.name}
-                  <motion.span 
+                  <motion.span
                     className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent rounded-full"
                     whileHover={{ width: "60%" }}
                     transition={{ duration: 0.2 }}

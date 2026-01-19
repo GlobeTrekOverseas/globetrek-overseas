@@ -1,35 +1,41 @@
 import { motion } from "framer-motion";
-import { 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin, 
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
   Youtube,
-  ArrowUp
+  ArrowUp,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { Link } from "react-router-dom";
 
 const footerLinks = {
   services: [
-    { name: "University Admissions", href: "#services" },
-    { name: "Visa Assistance", href: "#services" },
-    { name: "Test Preparation", href: "#services" },
-    { name: "Career Counseling", href: "#services" },
-    { name: "Accommodation", href: "#services" },
+    {
+      name: "University Selection & Application",
+      href: "/university-selection",
+    },
+    { name: "Visa Assistance", href: "/visa-assistance" },
+    { name: "Academic & Course Counseling", href: "/career-counseling" },
+    { name: "Pre-Departure & Post-Arrival Support", href: "/pre-departure" },
+    { name: "Scholarships & Funding Guidance", href: "/scholarships" },
+    { name: "Channel Partner Support", href: "/channel-partner" },
   ],
   destinations: [
-    { name: "Study in USA", href: "#countries" },
-    { name: "Study in UK", href: "#countries" },
-    { name: "Study in Canada", href: "#countries" },
-    { name: "Study in Australia", href: "#countries" },
-    { name: "Study in Germany", href: "#countries" },
+    { name: "Study in UK", href: "/country/uk" },
+    { name: "Study in Canada", href: "/country/canada" },
+    { name: "Study in Switzerland", href: "/country/switzerland" },
+    { name: "Study in Germany", href: "/country/germany" },
+    { name: "Study in Europe", href: "/country/europe" },
+    { name: "Study in USA", href: "/country/usa" },
   ],
   company: [
-    { name: "About Us", href: "#about" },
-    { name: "Our Team", href: "#about" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact Us", href: "#contact" },
-    { name: "Careers", href: "#" },
+    { name: "About Us", href: "/about" },
+    { name: "Power batches", href: "/power-batches" },
+    { name: "Testimonials", href: "/#testimonials" },
+    { name: "Contact Us", href: "/#contact" },
+    { name: "Services", href: "/services" },
   ],
 };
 
@@ -62,11 +68,11 @@ const Footer = () => {
               viewport={{ once: true }}
             />
             <p className="text-primary-foreground/80 mb-6 max-w-sm leading-relaxed">
-              Your trusted partner for international education. We help students 
-              achieve their dreams of studying abroad with expert guidance and 
+              Your trusted partner for international education. We help students
+              achieve their dreams of studying abroad with expert guidance and
               comprehensive support.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -86,16 +92,18 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-4">Our Services</h4>
+            <h4 className="font-heading font-bold text-lg mb-4">
+              Our Services
+            </h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-primary-foreground/70 hover:text-accent transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -103,16 +111,18 @@ const Footer = () => {
 
           {/* Destinations */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-4">Destinations</h4>
+            <h4 className="font-heading font-bold text-lg mb-4">
+              Destinations
+            </h4>
             <ul className="space-y-3">
               {footerLinks.destinations.map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-primary-foreground/70 hover:text-accent transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -124,12 +134,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-primary-foreground/70 hover:text-accent transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -141,13 +151,20 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container-custom py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} GlobeTrek Overseas. All rights reserved.
+            © {new Date().getFullYear()} GlobeTrek Overseas. All rights
+            reserved.
           </p>
           <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors">
+            <a
+              href="#"
+              className="text-primary-foreground/60 hover:text-accent transition-colors"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors">
+            <a
+              href="#"
+              className="text-primary-foreground/60 hover:text-accent transition-colors"
+            >
               Terms of Service
             </a>
           </div>

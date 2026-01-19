@@ -4,26 +4,29 @@ import heroStudents from "@/assets/hero-students.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-background">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center overflow-hidden bg-background"
+    >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Elegant Gradient Orbs */}
-        <motion.div 
+        <motion.div
           className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-accent/8 blur-[100px]"
           animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
-        <motion.div 
+        <motion.div
           className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-primary/8 blur-[100px]"
           animate={{ scale: [1.1, 1, 1.1], opacity: [0.6, 0.4, 0.6] }}
           transition={{ duration: 10, repeat: Infinity }}
         />
-        
+
         {/* Decorative Patterns */}
         <div className="absolute top-20 left-10 w-32 h-32 border border-accent/10 rounded-full" />
         <div className="absolute top-32 left-20 w-16 h-16 border border-primary/10 rounded-full" />
         <div className="absolute bottom-40 right-20 w-24 h-24 border border-accent/10 rounded-full" />
-        
+
         {/* Floating Stars */}
         <motion.div
           className="absolute top-40 right-[20%] hidden lg:block"
@@ -74,7 +77,9 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Expert guidance for studying abroad. We simplify visa processes, university admissions, and help you achieve your dreams of international education.
+              Expert guidance for studying abroad. We simplify visa processes,
+              university admissions, and help you achieve your dreams of
+              international education.
             </motion.p>
 
             {/* Trust Indicators */}
@@ -84,12 +89,17 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
             >
-              {["15+ Years Experience", "98% Visa Success", "50+ Countries"].map((item, i) => (
-                <span key={i} className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                  <CheckCircle size={16} className="text-accent" />
-                  {item}
-                </span>
-              ))}
+              {["3+ Years Experience", "98% Visa Success", "20+ Countries"].map(
+                (item, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground"
+                  >
+                    <CheckCircle size={16} className="text-accent" />
+                    {item}
+                  </span>
+                ),
+              )}
             </motion.div>
 
             <motion.div
@@ -105,10 +115,13 @@ const Hero = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 Start Your Journey
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight
+                  size={20}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </motion.a>
               <motion.a
-                href="#services"
+                href="/services"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-lg border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -128,16 +141,14 @@ const Hero = () => {
             <div className="relative">
               {/* Main Image Container */}
               <div className="relative rounded-3xl overflow-hidden shadow-elegant-lg">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent z-10"
-                />
-                <img 
-                  src={heroStudents} 
+                <motion.div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent z-10" />
+                <img
+                  src={heroStudents}
                   alt="International students walking on university campus"
                   className="w-full h-[400px] lg:h-[550px] object-cover"
                 />
               </div>
-              
+
               {/* Floating Card - Top Left */}
               <motion.div
                 className="absolute -top-4 -left-4 lg:-left-8 bg-background p-4 rounded-2xl shadow-elegant border border-border z-20"
@@ -146,11 +157,16 @@ const Hero = () => {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center">
-                    <Star size={24} className="text-accent-foreground fill-accent-foreground" />
+                    <Star
+                      size={24}
+                      className="text-accent-foreground fill-accent-foreground"
+                    />
                   </div>
                   <div>
                     <div className="font-heading font-bold text-lg">500+</div>
-                    <div className="text-sm text-muted-foreground">University Admits</div>
+                    <div className="text-sm text-muted-foreground">
+                      University Admits
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -163,11 +179,16 @@ const Hero = () => {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
-                    <CheckCircle size={24} className="text-primary-foreground" />
+                    <CheckCircle
+                      size={24}
+                      className="text-primary-foreground"
+                    />
                   </div>
                   <div>
                     <div className="font-heading font-bold text-lg">98%</div>
-                    <div className="text-sm text-muted-foreground">Visa Success Rate</div>
+                    <div className="text-sm text-muted-foreground">
+                      Visa Success Rate
+                    </div>
                   </div>
                 </div>
               </motion.div>

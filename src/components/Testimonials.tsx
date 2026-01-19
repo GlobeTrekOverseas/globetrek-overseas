@@ -3,56 +3,63 @@ import { Star, Quote, GraduationCap, MapPin, Trophy } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Priya Sharma",
+    name: "Anjali R.",
     role: "MS in Computer Science",
-    university: "Stanford University",
-    country: "USA",
+    university: "Geneva School of Diplomacy",
+    country: "Switzerland",
     image: "PS",
-    content: "GlobeTrek made my dream of studying at Stanford a reality. Their guidance throughout the application process was invaluable. The counselors understood my profile and recommended the perfect universities!",
+    content:
+      "Globetrek helped me find the perfect international relations program in Switzerland and supported me from application to accommodation. I’m now studying in one of the world’s top diplomatic hubs!",
     rating: 5,
     gradient: "from-violet-500 to-purple-500",
   },
   {
-    name: "Rahul Mehta",
+    name: "Karthik M.",
     role: "MBA Graduate",
-    university: "London Business School",
+    university: "University of Portsmouth",
     country: "UK",
     image: "RM",
-    content: "The team's expertise in UK admissions helped me secure admission to LBS. The visa support was exceptional, making the entire process completely stress-free. Highly recommended!",
+    content:
+      "Coming from a technical background, I wanted a fast-track top-up program in the UK. Globetrek guided me to the perfect fit at Portsmouth London campus. I had an offer within 10 days, and my visa was approved in under 3 weeks.",
     rating: 5,
     gradient: "from-blue-500 to-cyan-500",
   },
   {
-    name: "Ananya Patel",
+    name: "Shivani K.",
     role: "Bachelor's in Medicine",
-    university: "University of Melbourne",
-    country: "Australia",
+    university: "Seneca College",
+    country: "Canada",
     image: "AP",
-    content: "From university selection to accommodation, GlobeTrek was with me at every step. Their personalized approach and constant support made all the difference in my journey.",
+    content:
+      "Globetrek supported me from course selection to SOPs and GIC funding with complete honesty and clear communication. Thanks to them, I’m now happily pursuing a business diploma in Toronto.",
     rating: 5,
     gradient: "from-emerald-500 to-teal-500",
   },
   {
-    name: "Vikram Singh",
+    name: "Aditya P.",
     role: "Masters in Data Science",
-    university: "University of Toronto",
-    country: "Canada",
+    university: "Deakin University",
+    country: "Australia",
     image: "VS",
-    content: "I was confused about my career path, but GlobeTrek's counselors helped me choose the right program. Their IELTS coaching helped me score 8.0 bands! Now studying at UofT!",
+    content:
+      "After multiple refusals, Globetrek helped rebuild my profile and guided me to the right course. I secured admission along with a partial scholarship! Their team made the process simple and stress-free.",
     rating: 5,
     gradient: "from-orange-500 to-red-500",
   },
 ];
 
 const stats = [
-  { value: "10,000+", label: "Students Placed", icon: GraduationCap },
+  { value: "500+", label: "Students Placed", icon: GraduationCap },
   { value: "98%", label: "Visa Success", icon: Trophy },
-  { value: "50+", label: "Countries", icon: MapPin },
+  { value: "20+", label: "Countries", icon: MapPin },
 ];
 
 const Testimonials = () => {
   return (
-    <section className="section-padding bg-gradient-to-b from-secondary/50 via-background to-secondary/30 relative overflow-hidden">
+    <section
+      id="testimonials"
+      className="section-padding bg-gradient-to-b from-secondary/50 via-background to-secondary/30 relative overflow-hidden"
+    >
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <motion.div
@@ -76,7 +83,7 @@ const Testimonials = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.span 
+          <motion.span
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-accent/20 to-primary/20 text-accent font-semibold text-sm mb-6"
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
@@ -91,7 +98,7 @@ const Testimonials = () => {
             </span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Join thousands of successful students who trusted GlobeTrek Overseas 
+            Join thousands of successful students who trusted GlobeTrek Overseas
             to guide them towards their international education dreams.
           </p>
         </motion.div>
@@ -118,8 +125,12 @@ const Testimonials = () => {
                 <stat.icon size={24} className="text-accent" />
               </div>
               <div>
-                <div className="text-2xl font-bold text-primary">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-2xl font-bold text-primary">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  {stat.label}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -138,10 +149,12 @@ const Testimonials = () => {
             >
               <div className="relative bg-card rounded-3xl p-8 shadow-elegant border border-border hover:border-accent/30 transition-all duration-500 overflow-hidden">
                 {/* Gradient Background on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${testimonial.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${testimonial.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
+
                 {/* Quote Icon */}
-                <motion.div 
+                <motion.div
                   className={`absolute top-6 right-6 w-14 h-14 rounded-2xl bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center shadow-lg`}
                   whileHover={{ rotate: 12, scale: 1.1 }}
                 >
@@ -158,7 +171,10 @@ const Testimonials = () => {
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 + i * 0.1 }}
                     >
-                      <Star size={20} className="fill-amber-400 text-amber-400" />
+                      <Star
+                        size={20}
+                        className="fill-amber-400 text-amber-400"
+                      />
                     </motion.div>
                   ))}
                 </div>
@@ -170,15 +186,19 @@ const Testimonials = () => {
 
                 {/* Author */}
                 <div className="flex items-center gap-4 pt-6 border-t border-border">
-                  <motion.div 
+                  <motion.div
                     className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center text-white font-bold text-lg shadow-lg`}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                   >
                     {testimonial.image}
                   </motion.div>
                   <div className="flex-1">
-                    <h4 className="font-heading font-bold text-lg">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <h4 className="font-heading font-bold text-lg">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {testimonial.role}
+                    </p>
                     <div className="flex items-center gap-2 mt-1">
                       <GraduationCap size={14} className="text-accent" />
                       <span className="text-xs text-accent font-medium">

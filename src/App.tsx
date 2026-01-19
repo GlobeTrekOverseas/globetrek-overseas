@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import Index from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import PowerBatches from "./pages/PowerBatches";
 import ServicesPage from "./pages/ServicesPage";
@@ -16,6 +16,7 @@ import ChannelPartnerPage from "./pages/ChannelPartnerPage";
 import CountryPage from "./pages/CountryPage";
 import IELTSPage from "./pages/IELTSPage";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -25,17 +26,26 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/power-batches" element={<PowerBatches />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/university-selection" element={<UniversitySelectionPage />} />
+          {/* Services pages */}
+          <Route
+            path="/university-selection"
+            element={<UniversitySelectionPage />}
+          />
           <Route path="/visa-assistance" element={<VisaAssistancePage />} />
           <Route path="/scholarships" element={<ScholarshipsPage />} />
           <Route path="/pre-departure" element={<PreDeparturePage />} />
-          <Route path="/academic-counseling" element={<AcademicCounselingPage />} />
+          <Route
+            path="/career-counseling"
+            element={<AcademicCounselingPage />}
+          />
           <Route path="/channel-partner" element={<ChannelPartnerPage />} />
+          {/* Country pages */}
           <Route path="/country/:countrySlug" element={<CountryPage />} />
           <Route path="/ielts" element={<IELTSPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

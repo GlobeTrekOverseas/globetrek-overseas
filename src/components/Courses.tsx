@@ -1,22 +1,28 @@
 import { motion } from "framer-motion";
-import { 
-  BookOpen, 
-  Clock, 
-  Users, 
+import {
+  BookOpen,
+  Clock,
+  Users,
   Trophy,
   ArrowRight,
   Sparkles,
-  CheckCircle2
+  CheckCircle2,
 } from "lucide-react";
 
 const courses = [
   {
     name: "IELTS",
     fullName: "International English Language Testing System",
-    description: "Master all four modules - Listening, Reading, Writing & Speaking with expert trainers.",
-    duration: "4-8 Weeks",
-    batchSize: "10-15 Students",
-    features: ["Band 7+ Guarantee", "Practice Tests", "Speaking Mock Sessions", "Personal Feedback"],
+    description:
+      "Master all four modules - Listening, Reading, Writing & Speaking with expert trainers.",
+    duration: "4+ Weeks",
+    batchSize: "15+ Students",
+    features: [
+      "Band 7+ Guarantee",
+      "Practice Tests",
+      "Speaking Mock Sessions",
+      "Personal Feedback",
+    ],
     gradient: "from-blue-500 to-cyan-400",
     bgGradient: "from-blue-500/10 to-cyan-400/10",
     icon: "🎯",
@@ -24,10 +30,16 @@ const courses = [
   {
     name: "PTE",
     fullName: "Pearson Test of English",
-    description: "Computer-based test preparation with AI-powered practice for quick results.",
+    description:
+      "Computer-based test preparation with AI-powered practice for quick results.",
     duration: "4-6 Weeks",
     batchSize: "8-12 Students",
-    features: ["Score 79+ Strategy", "Computer Lab Access", "Unlimited Practice", "Score Prediction"],
+    features: [
+      "Score 79+ Strategy",
+      "Computer Lab Access",
+      "Unlimited Practice",
+      "Score Prediction",
+    ],
     gradient: "from-purple-500 to-pink-400",
     bgGradient: "from-purple-500/10 to-pink-400/10",
     icon: "💻",
@@ -35,10 +47,16 @@ const courses = [
   {
     name: "GMAT",
     fullName: "Graduate Management Admission Test",
-    description: "Excel in Quantitative, Verbal, and Analytical Writing for top MBA programs.",
+    description:
+      "Excel in Quantitative, Verbal, and Analytical Writing for top MBA programs.",
     duration: "8-12 Weeks",
     batchSize: "6-10 Students",
-    features: ["700+ Score Strategy", "AWA Techniques", "Data Insights Prep", "Expert Mentorship"],
+    features: [
+      "700+ Score Strategy",
+      "AWA Techniques",
+      "Data Insights Prep",
+      "Expert Mentorship",
+    ],
     gradient: "from-orange-500 to-amber-400",
     bgGradient: "from-orange-500/10 to-amber-400/10",
     icon: "📊",
@@ -46,10 +64,16 @@ const courses = [
   {
     name: "GRE",
     fullName: "Graduate Record Examinations",
-    description: "Comprehensive preparation for graduate school admissions worldwide.",
+    description:
+      "Comprehensive preparation for graduate school admissions worldwide.",
     duration: "8-12 Weeks",
     batchSize: "8-12 Students",
-    features: ["320+ Score Target", "Vocabulary Building", "Quant Strategies", "AWA Excellence"],
+    features: [
+      "320+ Score Target",
+      "Vocabulary Building",
+      "Quant Strategies",
+      "AWA Excellence",
+    ],
     gradient: "from-emerald-500 to-teal-400",
     bgGradient: "from-emerald-500/10 to-teal-400/10",
     icon: "🎓",
@@ -58,7 +82,10 @@ const courses = [
 
 const Courses = () => {
   return (
-    <section id="courses" className="section-padding bg-background relative overflow-hidden">
+    <section
+      id="courses"
+      className="section-padding bg-background relative overflow-hidden"
+    >
       {/* Background Decorations */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
@@ -74,7 +101,7 @@ const Courses = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.span 
+          <motion.span
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-accent/20 to-primary/20 text-accent font-semibold text-sm mb-6"
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
@@ -89,8 +116,9 @@ const Courses = () => {
             </span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Expert-led coaching for all major English proficiency and aptitude tests. 
-            Join thousands of successful students who achieved their dream scores.
+            Expert-led coaching for all major English proficiency and aptitude
+            tests. Join thousands of successful students who achieved their
+            dream scores.
           </p>
         </motion.div>
 
@@ -107,14 +135,16 @@ const Courses = () => {
               whileHover={{ y: -8 }}
             >
               {/* Gradient Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${course.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${course.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+              />
+
               {/* Content */}
               <div className="relative p-8">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center gap-4">
-                    <motion.div 
+                    <motion.div
                       className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${course.gradient} flex items-center justify-center text-3xl shadow-lg`}
                       whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                       transition={{ duration: 0.5 }}
@@ -122,8 +152,12 @@ const Courses = () => {
                       {course.icon}
                     </motion.div>
                     <div>
-                      <h3 className="text-2xl font-heading font-bold">{course.name}</h3>
-                      <p className="text-sm text-muted-foreground">{course.fullName}</p>
+                      <h3 className="text-2xl font-heading font-bold">
+                        {course.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {course.fullName}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -156,7 +190,10 @@ const Courses = () => {
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 + i * 0.1 }}
                     >
-                      <CheckCircle2 size={16} className="text-accent flex-shrink-0" />
+                      <CheckCircle2
+                        size={16}
+                        className="text-accent flex-shrink-0"
+                      />
                       <span>{feature}</span>
                     </motion.div>
                   ))}
@@ -170,7 +207,10 @@ const Courses = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   Enroll Now
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight
+                    size={18}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
                 </motion.a>
               </div>
             </motion.div>
@@ -188,7 +228,8 @@ const Courses = () => {
           <div className="inline-flex items-center gap-4 px-8 py-4 bg-secondary rounded-2xl">
             <Trophy size={24} className="text-accent" />
             <span className="font-medium">
-              <span className="text-accent font-bold">95%</span> of our students achieve their target scores
+              <span className="text-accent font-bold">95%</span> of our students
+              achieve their target scores
             </span>
           </div>
         </motion.div>

@@ -85,7 +85,7 @@ const Countries = () => {
             <span className="text-primary italic">Dream Destination</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            We help students pursue education in top countries worldwide. 
+            We help students pursue education in top countries worldwide.
             Explore opportunities that match your aspirations.
           </p>
         </motion.div>
@@ -93,75 +93,77 @@ const Countries = () => {
         {/* Countries Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {countries.map((country, index) => (
-            <motion.div
-              key={country.name}
-              className="group relative rounded-3xl overflow-hidden cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-            >
-              {/* Background Image */}
-              <div className="aspect-[4/5] relative overflow-hidden">
-                <img 
-                  src={country.image} 
-                  alt={`Study in ${country.name}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent opacity-80" />
-              </div>
-
-              {/* Content Overlay */}
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-primary-foreground">
-                {/* Flag Badge */}
-                <div className="absolute top-4 right-4 w-14 h-14 rounded-2xl bg-background/20 backdrop-blur-sm flex items-center justify-center text-3xl border border-primary-foreground/20">
-                  {country.flag}
+            <Link to={`/country/${country.slug}`} key={country.name}>
+              <motion.div
+                key={country.name}
+                className="group relative rounded-3xl overflow-hidden cursor-pointer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+              >
+                {/* Background Image */}
+                <div className="aspect-[4/5] relative overflow-hidden">
+                  <img
+                    src={country.image}
+                    alt={`Study in ${country.name}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent opacity-80" />
                 </div>
 
-                {/* Country Info */}
-                <div>
-                  <h3 className="text-2xl font-heading font-bold mb-2 group-hover:text-accent-foreground transition-colors">
-                    {country.name}
-                  </h3>
-                  
-                  <div className="flex items-center gap-4 text-sm opacity-90 mb-4">
-                    <span className="flex items-center gap-1.5">
-                      <GraduationCap size={16} />
-                      {country.universities} Unis
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Users size={16} />
-                      {country.students}
-                    </span>
+                {/* Content Overlay */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-end text-primary-foreground">
+                  {/* Flag Badge */}
+                  <div className="absolute top-4 right-4 w-14 h-14 rounded-2xl bg-background/20 backdrop-blur-sm flex items-center justify-center text-3xl border border-primary-foreground/20">
+                    {country.flag}
                   </div>
 
-                  {/* Top Universities */}
-                  <div className="mb-4">
-                    <div className="flex flex-wrap gap-2">
-                      {country.popular.map((uni) => (
-                        <span
-                          key={uni}
-                          className="px-3 py-1 bg-primary-foreground/20 backdrop-blur-sm rounded-full text-xs font-medium border border-primary-foreground/20"
-                        >
-                          {uni}
-                        </span>
-                      ))}
+                  {/* Country Info */}
+                  <div>
+                    <h3 className="text-2xl font-heading font-bold mb-2 group-hover:text-accent-foreground transition-colors">
+                      {country.name}
+                    </h3>
+
+                    <div className="flex items-center gap-4 text-sm opacity-90 mb-4">
+                      <span className="flex items-center gap-1.5">
+                        <GraduationCap size={16} />
+                        {country.universities} Unis
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <Users size={16} />
+                        {country.students}
+                      </span>
                     </div>
-                  </div>
 
-                  {/* CTA */}
-                  <Link 
-                    to={`/country/${country.slug}`}
-                    className="inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all"
-                  >
-                    Explore Programs
-                    <ArrowRight size={16} />
-                  </Link>
+                    {/* Top Universities */}
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2">
+                        {country.popular.map((uni) => (
+                          <span
+                            key={uni}
+                            className="px-3 py-1 bg-primary-foreground/20 backdrop-blur-sm rounded-full text-xs font-medium border border-primary-foreground/20"
+                          >
+                            {uni}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* CTA */}
+                    <Link
+                      to={`/country/${country.slug}`}
+                      className="inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all"
+                    >
+                      Explore Programs
+                      <ArrowRight size={16} />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
