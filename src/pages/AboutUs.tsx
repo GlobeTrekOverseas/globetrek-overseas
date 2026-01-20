@@ -164,21 +164,15 @@ const whyChooseUs = [
 ];
 
 const AboutUs = () => {
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(true);
 
   useEffect(() => {
-    // Show popup when page loads
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 500);
-
-    // Auto close after 4 seconds
+    // Auto close after 2 seconds
     const autoClose = setTimeout(() => {
       setShowPopup(false);
-    }, 4500);
+    }, 2000);
 
     return () => {
-      clearTimeout(timer);
       clearTimeout(autoClose);
     };
   }, []);
@@ -187,81 +181,154 @@ const AboutUs = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Welcome Popup */}
+      {/* Full Page Welcome Popup */}
       <AnimatePresence>
         {showPopup && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setShowPopup(false)}
+            transition={{ duration: 0.5 }}
           >
-            <motion.div
-              className="relative max-w-2xl mx-4 bg-gradient-to-br from-primary via-primary/95 to-primary/90 rounded-3xl p-12 text-center shadow-2xl overflow-hidden"
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.5, opacity: 0 }}
-              transition={{ type: "spring", duration: 0.6 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Decorative elements */}
+            {/* Animated Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-accent/30">
+              {/* Animated circles */}
               <motion.div
-                className="absolute top-0 left-0 w-40 h-40 bg-accent/20 rounded-full blur-3xl"
-                animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[100px]"
+                animate={{ 
+                  scale: [1, 1.3, 1],
+                  x: [0, 50, 0],
+                  y: [0, -30, 0],
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute bottom-0 right-0 w-60 h-60 bg-white/10 rounded-full blur-3xl"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-white/10 rounded-full blur-[80px]"
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  x: [0, -40, 0],
+                  y: [0, 40, 0],
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-primary/30 rounded-full blur-[60px]"
+                animate={{ 
+                  scale: [1, 1.4, 1],
+                  rotate: [0, 180, 360],
+                }}
+                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
               />
               
-              {/* Close button */}
-              <button 
-                onClick={() => setShowPopup(false)}
-                className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
-              
-              <div className="relative z-10">
+              {/* Floating particles */}
+              {[...Array(20)].map((_, i) => (
                 <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <Globe className="w-16 h-16 text-accent mx-auto mb-6" />
-                </motion.div>
-                
-                <motion.h2
-                  className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white mb-4"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                >
+                  key={i}
+                  className="absolute w-2 h-2 bg-white/30 rounded-full"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                  }}
+                  animate={{
+                    y: [0, -30, 0],
+                    opacity: [0.3, 0.8, 0.3],
+                  }}
+                  transition={{
+                    duration: 2 + Math.random() * 2,
+                    repeat: Infinity,
+                    delay: Math.random() * 2,
+                  }}
+                />
+              ))}
+            </div>
+            
+            {/* Content */}
+            <div className="relative z-10 text-center px-6">
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: "spring", duration: 0.8 }}
+              >
+                <div className="relative inline-block mb-8">
+                  <motion.div
+                    className="absolute inset-0 bg-accent/40 rounded-full blur-xl"
+                    animate={{ scale: [1, 1.3, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                  <Globe className="w-24 h-24 sm:w-32 sm:h-32 text-accent relative z-10" />
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white/90 mb-4">
                   Welcome to
-                </motion.h2>
-                
-                <motion.h1
-                  className="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold text-accent mb-6"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  GlobeTrek Overseas
-                </motion.h1>
-                
-                <motion.p
-                  className="text-lg text-white/80 max-w-md mx-auto"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                >
-                  Your trusted partner for global education excellence
-                </motion.p>
-              </div>
-            </motion.div>
+                </h2>
+              </motion.div>
+              
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+              >
+                <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading font-bold mb-6">
+                  <span className="text-white">Globe</span>
+                  <span className="text-accent">Trek</span>
+                  <span className="text-white"> Overseas</span>
+                </h1>
+              </motion.div>
+              
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+                className="flex items-center justify-center gap-4"
+              >
+                <motion.div
+                  className="h-[2px] w-16 sm:w-24 bg-gradient-to-r from-transparent to-accent"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.9, duration: 0.5 }}
+                />
+                <p className="text-lg sm:text-xl lg:text-2xl text-white/80 font-light tracking-wide">
+                  Your Gateway to Global Education
+                </p>
+                <motion.div
+                  className="h-[2px] w-16 sm:w-24 bg-gradient-to-l from-transparent to-accent"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.9, duration: 0.5 }}
+                />
+              </motion.div>
+              
+              {/* Animated dots/stars */}
+              <motion.div
+                className="flex justify-center gap-3 mt-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+              >
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="w-2 h-2 bg-accent rounded-full"
+                    animate={{ 
+                      scale: [1, 1.5, 1],
+                      opacity: [0.5, 1, 0.5],
+                    }}
+                    transition={{ 
+                      duration: 1,
+                      repeat: Infinity,
+                      delay: i * 0.1,
+                    }}
+                  />
+                ))}
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
