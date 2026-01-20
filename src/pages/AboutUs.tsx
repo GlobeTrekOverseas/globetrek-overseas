@@ -1,22 +1,24 @@
-import { motion } from "framer-motion";
-import { Target, Eye, Heart, Users, Award, Globe, BookOpen, CheckCircle, ArrowRight, Star, Handshake, Trophy, Quote, MessageCircle, Building, GraduationCap, Plane, FileCheck } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Target, Eye, Heart, Users, Award, Globe, BookOpen, CheckCircle, ArrowRight, Star, Handshake, Quote, MessageCircle, GraduationCap, Plane, FileCheck, X } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import aboutHero from "@/assets/about-hero.jpg";
 import aboutTeam from "@/assets/about-team.jpg";
 import teamPhoto from "@/assets/team-photo.jpg";
-import teamCeo from "@/assets/team-ceo.jpg";
-import teamCounseling from "@/assets/team-counseling.jpg";
-import teamVisa from "@/assets/team-visa.jpg";
-import teamPartnership from "@/assets/team-partnership.jpg";
+import teamDirector from "@/assets/team-director.jpg";
+import teamCofounder from "@/assets/team-cofounder.jpg";
+import teamCoo from "@/assets/team-coo.jpg";
+import teamBdm from "@/assets/team-bdm.jpg";
+import teamItHead from "@/assets/team-it-head.jpg";
 import student1 from "@/assets/student-1.jpg";
 import student2 from "@/assets/student-2.jpg";
 import student3 from "@/assets/student-3.jpg";
 import partnerships from "@/assets/partnerships.jpg";
-import universityPartners from "@/assets/university-partners.jpg";
+import universityPartnersNew from "@/assets/university-partners-new.jpg";
 import globalNetwork from "@/assets/global-network.jpg";
 import studentSuccess from "@/assets/student-success.jpg";
-import achievements from "@/assets/achievements.jpg";
+import companyEventsCollage from "@/assets/company-events-collage.jpg";
 
 const stats = [
   { value: "15+", label: "Years Experience" },
@@ -65,7 +67,7 @@ const services = [
   {
     icon: Users,
     title: "Pre-Departure Support",
-    description: "Complete guidance on accommodation, travel, banking, and settling abroad.",
+    description: "Complete guidance on travel, banking, and settling abroad.",
   },
   {
     icon: GraduationCap,
@@ -82,37 +84,38 @@ const services = [
     title: "Document Processing",
     description: "SOP writing, LOR guidance, and application document verification.",
   },
-  {
-    icon: Building,
-    title: "Accommodation Support",
-    description: "Help finding suitable student housing and accommodation arrangements.",
-  },
 ];
 
 const teamMembers = [
   {
     name: "Rajesh Kumar",
-    role: "Founder & CEO",
-    description: "15+ years of experience in overseas education consulting",
-    image: teamCeo,
+    role: "Director",
+    description: "Visionary leader with 15+ years of experience in overseas education consulting",
+    image: teamDirector,
   },
   {
     name: "Priya Sharma",
-    role: "Head of Counseling",
-    description: "Expert in UK & Australia student placements",
-    image: teamCounseling,
+    role: "Co-Founder",
+    description: "Expert strategist driving company growth and student success",
+    image: teamCofounder,
   },
   {
     name: "Amit Patel",
-    role: "Visa Director",
-    description: "Specialized in complex visa cases with 98% success rate",
-    image: teamVisa,
+    role: "Chief Operating Officer",
+    description: "Oversees daily operations ensuring seamless student experiences",
+    image: teamCoo,
   },
   {
-    name: "Sneha Reddy",
-    role: "Partnership Manager",
-    description: "Manages relationships with 500+ university partners",
-    image: teamPartnership,
+    name: "Vikram Singh",
+    role: "Business Development Manager",
+    description: "Expanding partnerships and building new opportunities for students",
+    image: teamBdm,
+  },
+  {
+    name: "Rohit Mehta",
+    role: "IT Head",
+    description: "Leading technology initiatives to enhance digital student services",
+    image: teamItHead,
   },
 ];
 
@@ -123,13 +126,6 @@ const partnerCountries = [
   { name: "Australia", universities: "60+" },
   { name: "Germany", universities: "50+" },
   { name: "New Zealand", universities: "40+" },
-];
-
-const achievementsList = [
-  { icon: Trophy, title: "Best Education Consultancy 2024", subtitle: "National Education Excellence Awards" },
-  { icon: Star, title: "5-Star Service Rating", subtitle: "Google Reviews - 4.9/5 Average" },
-  { icon: Award, title: "Top Visa Success Rate", subtitle: "98% Approval Across All Countries" },
-  { icon: Globe, title: "Global Partner Network", subtitle: "500+ Universities in 50+ Countries" },
 ];
 
 const studentTestimonials = [
@@ -168,9 +164,107 @@ const whyChooseUs = [
 ];
 
 const AboutUs = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    // Show popup when page loads
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 500);
+
+    // Auto close after 4 seconds
+    const autoClose = setTimeout(() => {
+      setShowPopup(false);
+    }, 4500);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(autoClose);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      
+      {/* Welcome Popup */}
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowPopup(false)}
+          >
+            <motion.div
+              className="relative max-w-2xl mx-4 bg-gradient-to-br from-primary via-primary/95 to-primary/90 rounded-3xl p-12 text-center shadow-2xl overflow-hidden"
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              transition={{ type: "spring", duration: 0.6 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Decorative elements */}
+              <motion.div
+                className="absolute top-0 left-0 w-40 h-40 bg-accent/20 rounded-full blur-3xl"
+                animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+              <motion.div
+                className="absolute bottom-0 right-0 w-60 h-60 bg-white/10 rounded-full blur-3xl"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 4, repeat: Infinity }}
+              />
+              
+              {/* Close button */}
+              <button 
+                onClick={() => setShowPopup(false)}
+                className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              
+              <div className="relative z-10">
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <Globe className="w-16 h-16 text-accent mx-auto mb-6" />
+                </motion.div>
+                
+                <motion.h2
+                  className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white mb-4"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  Welcome to
+                </motion.h2>
+                
+                <motion.h1
+                  className="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold text-accent mb-6"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  GlobeTrek Overseas
+                </motion.h1>
+                
+                <motion.p
+                  className="text-lg text-white/80 max-w-md mx-auto"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  Your trusted partner for global education excellence
+                </motion.p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
@@ -393,7 +487,7 @@ const AboutUs = () => {
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
+            {services.slice(0, 4).map((service, index) => (
               <motion.div
                 key={service.title}
                 className="group p-6 bg-secondary/50 rounded-2xl border border-border hover:bg-background hover:shadow-elegant transition-all duration-300"
@@ -401,6 +495,27 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                  <service.icon className="w-7 h-7 text-accent" />
+                </div>
+                <h3 className="text-lg font-heading font-bold mb-2">{service.title}</h3>
+                <p className="text-sm text-muted-foreground">{service.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Second row with 3 cards centered */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 max-w-4xl mx-auto">
+            {services.slice(4).map((service, index) => (
+              <motion.div
+                key={service.title}
+                className="group p-6 bg-secondary/50 rounded-2xl border border-border hover:bg-background hover:shadow-elegant transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index + 4) * 0.1 }}
                 whileHover={{ y: -5 }}
               >
                 <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
@@ -454,9 +569,9 @@ const AboutUs = () => {
             </div>
           </motion.div>
 
-          {/* Individual Team Members */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
+          {/* Individual Team Members - 5 cards with proper layout */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.slice(0, 3).map((member, index) => (
               <motion.div
                 key={member.name}
                 className="group bg-background rounded-2xl overflow-hidden border border-border shadow-elegant"
@@ -464,6 +579,35 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-heading font-bold">{member.name}</h3>
+                  <p className="text-accent text-sm font-medium mb-2">{member.role}</p>
+                  <p className="text-sm text-muted-foreground">{member.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Second row with 2 cards centered */}
+          <div className="grid sm:grid-cols-2 gap-8 mt-8 max-w-2xl mx-auto">
+            {teamMembers.slice(3).map((member, index) => (
+              <motion.div
+                key={member.name}
+                className="group bg-background rounded-2xl overflow-hidden border border-border shadow-elegant"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index + 3) * 0.1 }}
                 whileHover={{ y: -8 }}
               >
                 <div className="relative h-64 overflow-hidden">
@@ -547,7 +691,7 @@ const AboutUs = () => {
               viewport={{ once: true }}
             >
               <img 
-                src={universityPartners} 
+                src={universityPartnersNew} 
                 alt="Partner Universities" 
                 className="w-full h-auto"
               />
@@ -610,7 +754,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Achievements & Recognition Section */}
+      {/* Company Events Collage Section */}
       <section className="section-padding bg-primary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
@@ -623,48 +767,29 @@ const AboutUs = () => {
             viewport={{ once: true }}
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white font-medium text-sm mb-4">
-              <Trophy className="w-4 h-4" />
-              Our Achievements
+              <Star className="w-4 h-4" />
+              Our Journey
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold">
-              Achievements & <span className="text-accent">Recognition</span>
+              Our <span className="text-accent">Events & Celebrations</span>
             </h2>
+            <p className="text-primary-foreground/80 mt-4">
+              Moments that define our journey and celebrate our achievements together
+            </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="grid sm:grid-cols-2 gap-6">
-              {achievementsList.map((achievement, index) => (
-                <motion.div
-                  key={achievement.title}
-                  className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
-                    <achievement.icon className="w-6 h-6 text-accent" />
-                  </div>
-                  <h3 className="text-lg font-heading font-bold mb-1">{achievement.title}</h3>
-                  <p className="text-sm text-primary-foreground/70">{achievement.subtitle}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              className="relative rounded-2xl overflow-hidden shadow-elegant"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <img 
-                src={achievements} 
-                alt="Awards and Achievements" 
-                className="w-full h-auto"
-              />
-            </motion.div>
-          </div>
+          <motion.div
+            className="relative rounded-2xl overflow-hidden shadow-elegant"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <img 
+              src={companyEventsCollage} 
+              alt="GlobeTrek Company Events and Celebrations" 
+              className="w-full h-auto"
+            />
+          </motion.div>
         </div>
       </section>
 
