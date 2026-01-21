@@ -9,7 +9,7 @@ import teamPhoto from "@/assets/team-photo.jpg";
 import teamCeo from "@/assets/team- director.jpeg";
 import teamCounseling from "@/assets/team-co-founder.jpeg";
 import teamVisa from "@/assets/team-coo.jpeg";
-import teamPartnership from "@/assets/team-BDM.jpeg";
+import teamPartnership from "@/assets/team-bdm.jpeg";
 import teamitHead from "@/assets/teamithead.jpeg";
 import student1 from "@/assets/student-1.jpg";
 import student2 from "@/assets/student-2.jpg";
