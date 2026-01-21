@@ -1,6 +1,24 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Target, Eye, Heart, Users, Award, Globe, BookOpen, CheckCircle, ArrowRight, Star, Handshake, Quote, MessageCircle, GraduationCap, Plane, FileCheck, X, Trophy } from "lucide-react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import {
+  Target,
+  Eye,
+  Heart,
+  Users,
+  Award,
+  Globe,
+  BookOpen,
+  CheckCircle,
+  ArrowRight,
+  Star,
+  Handshake,
+  Quote,
+  MessageCircle,
+  GraduationCap,
+  Plane,
+  FileCheck,
+  Trophy,
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import aboutHero from "@/assets/about-hero.jpg";
@@ -9,8 +27,8 @@ import teamPhoto from "@/assets/team-photo.jpg";
 import teamCeo from "@/assets/team- director.jpeg";
 import teamCounseling from "@/assets/team-co-founder.jpeg";
 import teamVisa from "@/assets/team-coo.jpeg";
-import teamPartnership from "@/assets/team-BDM.jpeg";
-import teamitHead from "@/assets/teamithead.jpeg";
+import teamPartnership from "@/assets/team-bdm.jpeg";
+import teamitHead from "@/assets/team-it-head.jpeg";
 import student1 from "@/assets/student-1.jpg";
 import student2 from "@/assets/student-2.jpg";
 import student3 from "@/assets/student-3.jpg";
@@ -19,6 +37,7 @@ import universityPartnersNew from "@/assets/university-partners-new.jpg";
 import globalNetwork from "@/assets/global-network.jpg";
 import studentSuccess from "@/assets/student-success.jpg";
 import companyEventsCollage from "@/assets/company-events-collage.jpg";
+import { cn } from "@/lib/utils";
 
 const stats = [
   { value: "3+", label: "Years Experience" },
@@ -31,19 +50,22 @@ const values = [
   {
     icon: Target,
     title: "Our Mission",
-    description: "To make global education simple, accessible, and transparent for every student, empowering them to achieve their dreams of studying abroad.",
+    description:
+      "To make global education simple, accessible, and transparent for every student, empowering them to achieve their dreams of studying abroad.",
     color: "from-primary to-globe-blue-light",
   },
   {
     icon: Eye,
     title: "Our Vision",
-    description: "To be the most trusted and innovative overseas education consultancy, creating pathways for millions of students to access world-class education.",
+    description:
+      "To be the most trusted and innovative overseas education consultancy, creating pathways for millions of students to access world-class education.",
     color: "from-accent to-globe-green-light",
   },
   {
     icon: Heart,
     title: "Core Values",
-    description: "Integrity, transparency, student-first approach, and excellence in service. We believe in building lasting relationships based on trust.",
+    description:
+      "Integrity, transparency, student-first approach, and excellence in service. We believe in building lasting relationships based on trust.",
     color: "from-globe-blue-light to-primary",
   },
 ];
@@ -52,17 +74,20 @@ const services = [
   {
     icon: BookOpen,
     title: "Study Abroad Preparation",
-    description: "Expert guidance to choose the right course and university based on your profile and career goals.",
+    description:
+      "Expert guidance to choose the right course and university based on your profile and career goals.",
   },
   {
     icon: Globe,
     title: "University Selection",
-    description: "Access to 350+ partner universities across 20+ countries with personalized recommendations.",
+    description:
+      "Access to 350+ partner universities across 20+ countries with personalized recommendations.",
   },
   {
     icon: Award,
     title: "Visa Assistance",
-    description: "Comprehensive visa support with 98% success rate and interview preparation.",
+    description:
+      "Comprehensive visa support with 98% success rate and interview preparation.",
   },
   {
     icon: Users,
@@ -72,17 +97,20 @@ const services = [
   {
     icon: GraduationCap,
     title: "Scholarship Guidance",
-    description: "Help students secure scholarships and financial aid to make education affordable.",
+    description:
+      "Help students secure scholarships and financial aid to make education affordable.",
   },
   {
     icon: Plane,
     title: "Travel Assistance",
-    description: "Flight bookings, forex services, and travel insurance arrangements.",
+    description:
+      "Flight bookings, forex services, and travel insurance arrangements.",
   },
   {
     icon: FileCheck,
     title: "Document Processing",
-    description: "SOP writing, LOR guidance, and application document verification.",
+    description:
+      "SOP writing, LOR guidance, and application document verification.",
   },
 ];
 
@@ -129,31 +157,50 @@ const partnerCountries = [
 ];
 
 const achievementsList = [
-  { icon: Trophy, title: "Best Education Consultancy 2024", subtitle: "National Education Excellence Awards" },
-  { icon: Star, title: "5-Star Service Rating", subtitle: "Google Reviews - 4.9/5 Average" },
-  { icon: Award, title: "Top Visa Success Rate", subtitle: "98% Approval Across All Countries" },
-  { icon: Globe, title: "Global Partner Network", subtitle: "350+ Universities in 20+ Countries" },
+  {
+    icon: Trophy,
+    title: "Best Education Consultancy 2024",
+    subtitle: "National Education Excellence Awards",
+  },
+  {
+    icon: Star,
+    title: "5-Star Service Rating",
+    subtitle: "Google Reviews - 4.9/5 Average",
+  },
+  {
+    icon: Award,
+    title: "Top Visa Success Rate",
+    subtitle: "98% Approval Across All Countries",
+  },
+  {
+    icon: Globe,
+    title: "Global Partner Network",
+    subtitle: "350+ Universities in 20+ Countries",
+  },
 ];
 
 const studentTestimonials = [
   {
     name: "Ananya Gupta",
     university: "University of Toronto, Canada",
-    quote: "GlobeTrek made my dream of studying in Canada a reality. Their guidance was invaluable throughout the process.",
+    quote:
+      "GlobeTrek made my dream of studying in Canada a reality. Their guidance was invaluable throughout the process.",
     rating: 5,
     image: student1,
   },
   {
     name: "Rahul Verma",
     university: "University of Melbourne, Australia",
-    quote: "The team's expertise in visa processing helped me secure my student visa in record time. Highly recommended!",
+    quote:
+      "The team's expertise in visa processing helped me secure my student visa in record time. Highly recommended!",
     rating: 5,
     image: student2,
   },
   {
     name: "Pooja Singh",
     university: "University of Manchester, UK",
-    quote: "From course selection to pre-departure, GlobeTrek was with me every step of the way. Forever grateful!",
+    quote:
+      "From course selection to pre-departure, GlobeTrek was with me every step of the way. Forever grateful!",
     rating: 5,
     image: student3,
   },
@@ -170,183 +217,20 @@ const whyChooseUs = [
   "Personalized attention to every student",
 ];
 
+const MotionLink = motion(Link);
+
 const AboutUs = () => {
-  const [showPopup, setShowPopup] = useState(true);
-
-  useEffect(() => {
-    // Auto close after 2 seconds
-    const autoClose = setTimeout(() => {
-      setShowPopup(false);
-    }, 2000);
-
-    return () => {
-      clearTimeout(autoClose);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
-      {/* Full Page Welcome Popup */}
-      <AnimatePresence>
-        {showPopup && (
-          <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            {/* Animated Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-accent/30">
-              {/* Animated circles */}
-              <motion.div
-                className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[100px]"
-                animate={{ 
-                  scale: [1, 1.3, 1],
-                  x: [0, 50, 0],
-                  y: [0, -30, 0],
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-white/10 rounded-full blur-[80px]"
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  x: [0, -40, 0],
-                  y: [0, 40, 0],
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-primary/30 rounded-full blur-[60px]"
-                animate={{ 
-                  scale: [1, 1.4, 1],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-              />
-              
-              {/* Floating particles */}
-              {[...Array(20)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-2 h-2 bg-white/30 rounded-full"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                  }}
-                  animate={{
-                    y: [0, -30, 0],
-                    opacity: [0.3, 0.8, 0.3],
-                  }}
-                  transition={{
-                    duration: 2 + Math.random() * 2,
-                    repeat: Infinity,
-                    delay: Math.random() * 2,
-                  }}
-                />
-              ))}
-            </div>
-            
-            {/* Content */}
-            <div className="relative z-10 text-center px-6">
-              <motion.div
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ type: "spring", duration: 0.8 }}
-              >
-                <div className="relative inline-block mb-8">
-                  <motion.div
-                    className="absolute inset-0 bg-accent/40 rounded-full blur-xl"
-                    animate={{ scale: [1, 1.3, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                  <Globe className="w-24 h-24 sm:w-32 sm:h-32 text-accent relative z-10" />
-                </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-              >
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white/90 mb-4">
-                  Welcome to
-                </h2>
-              </motion.div>
-              
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-              >
-                <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading font-bold mb-6">
-                  <span className="text-white">Globe</span>
-                  <span className="text-accent">Trek</span>
-                  <span className="text-white"> Overseas</span>
-                </h1>
-              </motion.div>
-              
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-                className="flex items-center justify-center gap-4"
-              >
-                <motion.div
-                  className="h-[2px] w-16 sm:w-24 bg-gradient-to-r from-transparent to-accent"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                />
-                <p className="text-lg sm:text-xl lg:text-2xl text-white/80 font-light tracking-wide">
-                  Your Gateway to Global Education
-                </p>
-                <motion.div
-                  className="h-[2px] w-16 sm:w-24 bg-gradient-to-l from-transparent to-accent"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                />
-              </motion.div>
-              
-              {/* Animated dots/stars */}
-              <motion.div
-                className="flex justify-center gap-3 mt-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-              >
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <motion.div
-                    key={i}
-                    className="w-2 h-2 bg-accent rounded-full"
-                    animate={{ 
-                      scale: [1, 1.5, 1],
-                      opacity: [0.5, 1, 0.5],
-                    }}
-                    transition={{ 
-                      duration: 1,
-                      repeat: Infinity,
-                      delay: i * 0.1,
-                    }}
-                  />
-                ))}
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      
+
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
-            src={aboutHero} 
-            alt="Students celebrating graduation" 
+          <img
+            src={aboutHero}
+            alt="Students celebrating graduation"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent" />
@@ -375,35 +259,44 @@ const AboutUs = () => {
               <Globe className="w-4 h-4" />
               About GlobeTrek Overseas
             </motion.span>
-            
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-tight">
               Turning Dreams into{" "}
               <span className="text-accent">Global Reality</span>
             </h1>
-            
+
             <p className="text-lg text-white/90 mb-8 leading-relaxed">
-              For over 15 years, we've been the trusted partner for thousands of students 
-              embarking on their international education journey. Your success is our story.
+              For over 15 years, we've been the trusted partner for thousands of
+              students embarking on their international education journey. Your
+              success is our story.
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <motion.a
-                href="/#contact"
+              <MotionLink
+                to="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = "/#contact";
+                }}
                 className="btn-primary inline-flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Get Started
                 <ArrowRight className="w-4 h-4" />
-              </motion.a>
-              <motion.a
-                href="#services"
+              </MotionLink>
+              <motion.button
+                onClick={() =>
+                  document
+                    .getElementById("services")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Our Services
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         </div>
@@ -422,8 +315,12 @@ const AboutUs = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="text-3xl sm:text-4xl font-bold text-accent mb-1">{stat.value}</div>
-                <div className="text-sm text-primary-foreground/80">{stat.label}</div>
+                <div className="text-3xl sm:text-4xl font-bold text-accent mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-primary-foreground/80">
+                  {stat.label}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -449,19 +346,31 @@ const AboutUs = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  <strong className="text-foreground">GlobeTrek Overseas was born out of a shared dream</strong> — to make global education simple, accessible, and transparent for every student.
+                  <strong className="text-foreground">
+                    GlobeTrek Overseas was born out of a shared dream
+                  </strong>{" "}
+                  — to make global education simple, accessible, and transparent
+                  for every student.
                 </p>
                 <p>
-                  Founded in 2009, we started as a small team of passionate educators who believed that every student deserves access to world-class education regardless of their background.
+                  Founded in 2009, we started as a small team of passionate
+                  educators who believed that every student deserves access to
+                  world-class education regardless of their background.
                 </p>
                 <p>
-                  Over the years, we have guided aspiring learners to universities across continents, helping them shape their careers and futures with confidence.
+                  Over the years, we have guided aspiring learners to
+                  universities across continents, helping them shape their
+                  careers and futures with confidence.
                 </p>
                 <p>
-                  What sets us apart is not just our network of global universities, but the <strong className="text-foreground">personal touch</strong> we bring to each student's journey.
+                  What sets us apart is not just our network of global
+                  universities, but the{" "}
+                  <strong className="text-foreground">personal touch</strong> we
+                  bring to each student's journey.
                 </p>
                 <p>
-                  For us, every success story is personal — because when a student achieves their dream, it becomes our achievement too.
+                  For us, every success story is personal — because when a
+                  student achieves their dream, it becomes our achievement too.
                 </p>
               </div>
             </motion.div>
@@ -474,9 +383,9 @@ const AboutUs = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="relative rounded-2xl overflow-hidden shadow-elegant">
-                <img 
-                  src={aboutTeam} 
-                  alt="GlobeTrek Team" 
+                <img
+                  src={aboutTeam}
+                  alt="GlobeTrek Team"
                   className="w-full h-auto"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
@@ -526,14 +435,22 @@ const AboutUs = () => {
                 whileHover={{ y: -8 }}
               >
                 {/* Gradient background on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6 shadow-lg`}>
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                />
+
+                <div
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6 shadow-lg`}
+                >
                   <item.icon className="w-8 h-8 text-white" />
                 </div>
-                
-                <h3 className="text-xl font-heading font-bold mb-4">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+
+                <h3 className="text-xl font-heading font-bold mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -556,7 +473,8 @@ const AboutUs = () => {
               Our Education <span className="text-accent">Services</span>
             </h2>
             <p className="text-muted-foreground">
-              Comprehensive suite of services designed to provide students with a stress-free overseas education journey.
+              Comprehensive suite of services designed to provide students with
+              a stress-free overseas education journey.
             </p>
           </motion.div>
 
@@ -574,8 +492,12 @@ const AboutUs = () => {
                 <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
                   <service.icon className="w-7 h-7 text-accent" />
                 </div>
-                <h3 className="text-lg font-heading font-bold mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground">{service.description}</p>
+                <h3 className="text-lg font-heading font-bold mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {service.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -595,8 +517,12 @@ const AboutUs = () => {
                 <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
                   <service.icon className="w-7 h-7 text-accent" />
                 </div>
-                <h3 className="text-lg font-heading font-bold mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground">{service.description}</p>
+                <h3 className="text-lg font-heading font-bold mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {service.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -620,7 +546,8 @@ const AboutUs = () => {
               Meet the <span className="text-accent">Experts</span>
             </h2>
             <p className="text-muted-foreground">
-              Our dedicated team of experienced professionals is here to guide you every step of the way.
+              Our dedicated team of experienced professionals is here to guide
+              you every step of the way.
             </p>
           </motion.div>
 
@@ -631,15 +558,19 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <img 
-              src={teamPhoto} 
-              alt="GlobeTrek Professional Team" 
+            <img
+              src={teamPhoto}
+              alt="GlobeTrek Professional Team"
               className="w-full h-[400px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">
-              <h3 className="text-2xl font-heading font-bold text-white mb-2">The GlobeTrek Family</h3>
-              <p className="text-white/80">Dedicated professionals committed to your success</p>
+              <h3 className="text-2xl font-heading font-bold text-white mb-2">
+                The GlobeTrek Family
+              </h3>
+              <p className="text-white/80">
+                Dedicated professionals committed to your success
+              </p>
             </div>
           </motion.div>
 
@@ -656,17 +587,26 @@ const AboutUs = () => {
                 whileHover={{ y: -8 }}
               >
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={member.image} 
+                  <img
+                    src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className={cn(
+                      "w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500",
+                      index === 0 && "object-[center_-80px]",
+                    )}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-heading font-bold">{member.name}</h3>
-                  <p className="text-accent text-sm font-medium mb-2">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.description}</p>
+                  <h3 className="text-lg font-heading font-bold">
+                    {member.name}
+                  </h3>
+                  <p className="text-accent text-sm font-medium mb-2">
+                    {member.role}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {member.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -685,17 +625,26 @@ const AboutUs = () => {
                 whileHover={{ y: -8 }}
               >
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={member.image} 
+                  <img
+                    src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className={cn(
+                      "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500",
+                      index === 1 && "object-[center_0px]",
+                    )}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-heading font-bold">{member.name}</h3>
-                  <p className="text-accent text-sm font-medium mb-2">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.description}</p>
+                  <h3 className="text-lg font-heading font-bold">
+                    {member.name}
+                  </h3>
+                  <p className="text-accent text-sm font-medium mb-2">
+                    {member.role}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {member.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -720,8 +669,9 @@ const AboutUs = () => {
               Our Global <span className="text-accent">Partnerships</span>
             </h2>
             <p className="text-muted-foreground">
-              We have established strong partnerships with over 350+ universities across 20+ countries, 
-              ensuring our students have access to the best educational opportunities worldwide.
+              We have established strong partnerships with over 350+
+              universities across 20+ countries, ensuring our students have
+              access to the best educational opportunities worldwide.
             </p>
           </motion.div>
 
@@ -732,9 +682,9 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <img 
-              src={globalNetwork} 
-              alt="Global Education Network" 
+            <img
+              src={globalNetwork}
+              alt="Global Education Network"
               className="w-full h-[400px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-primary/40 to-transparent" />
@@ -749,8 +699,12 @@ const AboutUs = () => {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <span className="font-bold text-primary">{country.universities}</span>
-                    <span className="text-muted-foreground ml-1">{country.name}</span>
+                    <span className="font-bold text-primary">
+                      {country.universities}
+                    </span>
+                    <span className="text-muted-foreground ml-1">
+                      {country.name}
+                    </span>
                   </motion.div>
                 ))}
               </div>
@@ -764,9 +718,9 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <img 
-                src={universityPartnersNew} 
-                alt="Partner Universities" 
+              <img
+                src={universityPartnersNew}
+                alt="Partner Universities"
                 className="w-full h-auto"
               />
             </motion.div>
@@ -777,12 +731,14 @@ const AboutUs = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-heading font-bold mb-6">
-                World-Class <span className="text-accent">University Partners</span>
+                World-Class{" "}
+                <span className="text-accent">University Partners</span>
               </h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Our partnerships span across the globe's most prestigious institutions, from Ivy League 
-                universities in the USA to Russell Group universities in the UK, Group of Eight in Australia, 
-                and top-ranked institutions in Canada, Germany, and beyond.
+                Our partnerships span across the globe's most prestigious
+                institutions, from Ivy League universities in the USA to Russell
+                Group universities in the UK, Group of Eight in Australia, and
+                top-ranked institutions in Canada, Germany, and beyond.
               </p>
               <div className="space-y-4">
                 {[
@@ -814,15 +770,19 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <img 
-              src={partnerships} 
-              alt="Partnership Meeting" 
+            <img
+              src={partnerships}
+              alt="Partnership Meeting"
               className="w-full h-[350px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">
-              <h3 className="text-2xl font-heading font-bold text-white mb-2">Building Global Bridges</h3>
-              <p className="text-white/80">Strengthening partnerships for student success</p>
+              <h3 className="text-2xl font-heading font-bold text-white mb-2">
+                Building Global Bridges
+              </h3>
+              <p className="text-white/80">
+                Strengthening partnerships for student success
+              </p>
             </div>
           </motion.div>
         </div>
@@ -848,7 +808,8 @@ const AboutUs = () => {
               Our <span className="text-accent">Events & Celebrations</span>
             </h2>
             <p className="text-primary-foreground/80 mt-4">
-              Moments that define our journey and celebrate our achievements together
+              Moments that define our journey and celebrate our achievements
+              together
             </p>
           </motion.div>
 
@@ -858,9 +819,9 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <img 
-              src={companyEventsCollage} 
-              alt="GlobeTrek Company Events and Celebrations" 
+            <img
+              src={companyEventsCollage}
+              alt="GlobeTrek Company Events and Celebrations"
               className="w-full h-auto"
             />
           </motion.div>
@@ -884,7 +845,8 @@ const AboutUs = () => {
               What Our <span className="text-accent">Students Say</span>
             </h2>
             <p className="text-muted-foreground">
-              Hear from students who have successfully achieved their dreams of studying abroad with our guidance.
+              Hear from students who have successfully achieved their dreams of
+              studying abroad with our guidance.
             </p>
           </motion.div>
 
@@ -896,9 +858,9 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <img 
-                src={studentSuccess} 
-                alt="Successful Students" 
+              <img
+                src={studentSuccess}
+                alt="Successful Students"
                 className="w-full h-auto"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
@@ -913,7 +875,9 @@ const AboutUs = () => {
                   <GraduationCap className="w-8 h-8 text-accent" />
                   <div>
                     <div className="text-2xl font-bold text-primary">500+</div>
-                    <div className="text-sm text-muted-foreground">Students Successfully Placed</div>
+                    <div className="text-sm text-muted-foreground">
+                      Students Successfully Placed
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -934,22 +898,33 @@ const AboutUs = () => {
                   <Quote className="absolute top-4 right-4 w-8 h-8 text-accent/20" />
                   <div className="flex items-start gap-4">
                     <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-accent">
-                      <img 
-                        src={testimonial.image} 
+                      <img
+                        src={testimonial.image}
                         alt={testimonial.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-1 mb-2">
-                        {Array.from({ length: testimonial.rating }).map((_, i) => (
-                          <Star key={i} className="w-4 h-4 text-accent fill-accent" />
-                        ))}
+                        {Array.from({ length: testimonial.rating }).map(
+                          (_, i) => (
+                            <Star
+                              key={i}
+                              className="w-4 h-4 text-accent fill-accent"
+                            />
+                          ),
+                        )}
                       </div>
-                      <p className="text-muted-foreground mb-3 italic">"{testimonial.quote}"</p>
+                      <p className="text-muted-foreground mb-3 italic">
+                        "{testimonial.quote}"
+                      </p>
                       <div>
-                        <div className="font-heading font-bold">{testimonial.name}</div>
-                        <div className="text-sm text-accent">{testimonial.university}</div>
+                        <div className="font-heading font-bold">
+                          {testimonial.name}
+                        </div>
+                        <div className="text-sm text-accent">
+                          {testimonial.university}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -976,9 +951,9 @@ const AboutUs = () => {
                 Why Students <span className="text-accent">Choose Us</span>
               </h2>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                With over 15 years of experience and a proven track record, we've helped 
-                thousands of students achieve their dreams of studying abroad. Here's what 
-                makes us different.
+                With over 15 years of experience and a proven track record,
+                we've helped thousands of students achieve their dreams of
+                studying abroad. Here's what makes us different.
               </p>
               <motion.a
                 href="/#contact"
@@ -1037,12 +1012,14 @@ const AboutUs = () => {
           >
             <Quote className="w-16 h-16 text-accent mx-auto mb-8 opacity-50" />
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-8 leading-tight">
-              "Education is the passport to the future, for tomorrow belongs to those who{" "}
+              "Education is the passport to the future, for tomorrow belongs to
+              those who{" "}
               <span className="text-accent">prepare for it today.</span>"
             </h2>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              At GlobeTrek Overseas, we believe every student has the potential to achieve greatness. 
-              Let us be your partner in this transformative journey towards a brighter future.
+              At GlobeTrek Overseas, we believe every student has the potential
+              to achieve greatness. Let us be your partner in this
+              transformative journey towards a brighter future.
             </p>
             <p className="text-primary-foreground/60 italic">
               — The GlobeTrek Team
@@ -1073,11 +1050,12 @@ const AboutUs = () => {
 
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
-                Ready to Start Your <span className="text-accent">Journey?</span>
+                Ready to Start Your{" "}
+                <span className="text-accent">Journey?</span>
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-                Book a free consultation with our expert counselors and take the first step 
-                towards your dream of studying abroad.
+                Book a free consultation with our expert counselors and take the
+                first step towards your dream of studying abroad.
               </p>
               <motion.a
                 href="/#contact"
