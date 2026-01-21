@@ -24,9 +24,9 @@ import serviceUniversity from "@/assets/service-university.jpg";
 const selectionCriteria = [
   {
     icon: Award,
-    title: "Reputation",
+    title: "Ranking & Reviews",
     description:
-      "Research rankings and reputation of universities, especially in your field of interest. Check international university rankings and student reviews.",
+      "Research rankings and reviews of universities, especially in your field of interest. Check international university rankings and student reviews.",
     gradient: "from-primary to-primary/60",
   },
   {
@@ -135,7 +135,7 @@ const applicationProcess = [
   },
   {
     step: 3,
-    title: "Document Preparation",
+    title: "Document Verification & Preparation",
     description: "We help you prepare compelling SOPs, LORs, and ensure all documents meet requirements.",
   },
   {
@@ -222,7 +222,7 @@ const UniversitySelectionPage = () => {
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full">
                   <Star className="text-accent" size={18} />
-                  <span className="font-medium text-sm">500+ Partner Universities</span>
+                  <span className="font-medium text-sm">350+ Partner Universities</span>
                 </div>
                 <div className="flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full">
                   <Star className="text-accent" size={18} />

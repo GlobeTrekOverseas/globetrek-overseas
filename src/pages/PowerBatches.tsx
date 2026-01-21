@@ -38,10 +38,10 @@ const batches = [
     icon: Globe,
     color: "from-primary to-globe-blue-light",
     bgGradient: "from-primary/5 to-primary/10",
-    duration: "8 Weeks",
+    duration: "4Weeks-1year",
     batchSize: "15 Students",
     rating: "4.9",
-    studentsPlaced: "5000+",
+    studentsPlaced: "500+",
     image: batchIelts,
     features: [
       "Listening, Reading, Writing & Speaking modules",
@@ -57,7 +57,7 @@ const batches = [
       { name: "Speaking", icon: Users, duration: "15 min" }
     ],
     targetScore: "7.0+ Band",
-    fee: "₹25,000"
+    fee: "₹10,000"
   },
   {
     id: "pte",
@@ -68,15 +68,13 @@ const batches = [
     color: "from-accent to-globe-green-light",
     bgGradient: "from-accent/5 to-accent/10",
     duration: "6 Weeks",
-    batchSize: "12 Students",
+    batchSize: "15 Students",
     rating: "4.8",
-    studentsPlaced: "3500+",
     image: batchPte,
     features: [
       "AI-powered scoring pattern understanding",
       "Computer-based practice labs",
       "Speaking & writing integration techniques",
-      "Pearson certified preparation material",
       "Weekly progress tracking"
     ],
     modules: [
@@ -85,7 +83,7 @@ const batches = [
       { name: "Listening", icon: Headphones, duration: "45-57 min" }
     ],
     targetScore: "79+ Score",
-    fee: "₹22,000"
+    fee: "₹8,000"
   },
   {
     id: "gmat",
@@ -96,9 +94,8 @@ const batches = [
     color: "from-primary to-accent",
     bgGradient: "from-primary/5 to-accent/10",
     duration: "12 Weeks",
-    batchSize: "10 Students",
+    batchSize: "15 Students",
     rating: "4.9",
-    studentsPlaced: "1500+",
     image: batchGmat,
     features: [
       "Integrated Reasoning mastery",
@@ -114,7 +111,7 @@ const batches = [
       { name: "Verbal", icon: BookOpen, duration: "65 min" }
     ],
     targetScore: "700+ Score",
-    fee: "₹45,000"
+    fee: "₹30,000"
   },
   {
     id: "gre",
@@ -125,9 +122,8 @@ const batches = [
     color: "from-globe-blue-light to-primary",
     bgGradient: "from-globe-blue-light/5 to-primary/10",
     duration: "10 Weeks",
-    batchSize: "12 Students",
+    batchSize: "15 Students",
     rating: "4.8",
-    studentsPlaced: "2000+",
     image: batchGre,
     features: [
       "Vocabulary building with 3500+ words",
@@ -142,7 +138,7 @@ const batches = [
       { name: "Quantitative Reasoning", icon: TrendingUp, duration: "70 min" }
     ],
     targetScore: "320+ Score",
-    fee: "₹35,000"
+    fee: "₹25,000"
   }
 ];
 
@@ -394,7 +390,7 @@ const PowerBatches = () => {
                             to="/#contact"
                             className="flex-1 btn-accent text-center flex items-center justify-center gap-2 group"
                           >
-                            Enroll Now
+                           Book Free Demo Session
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </Link>
                           <Link 
@@ -522,10 +518,10 @@ const PowerBatches = () => {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a 
-                href="tel:+1234567890"
+                href="tel:+91 93113 31899"
                 className="px-8 py-4 bg-primary-foreground/10 text-primary-foreground rounded-full font-semibold hover:bg-primary-foreground/20 transition-all duration-300 border border-primary-foreground/20 inline-flex items-center justify-center"
               >
-                Call: +123 456 7890
+                Call:+91 93113 31899
               </a>
             </div>
           </motion.div>

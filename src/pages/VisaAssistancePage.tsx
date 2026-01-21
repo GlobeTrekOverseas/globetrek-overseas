@@ -21,11 +21,11 @@ const visaServices = [
     icon: ClipboardCheck,
     title: "Eligibility Assessment",
     description:
-      "Comprehensive evaluation of your eligibility for the visa category (Student Visa, Work Visa, Visitor Visa, etc.). Guidance on meeting the specific requirements of the destination country.",
+      "Comprehensive evaluation of your eligibility for the visa category (Student Visa, Work Visa). Guidance on meeting the specific requirements of the destination country.",
   },
   {
     icon: FileText,
-    title: "Document Preparation",
+    title: "Documentation",
     description:
       "Assistance in gathering and organizing essential documents, including academic credentials, financial proof (bank statements, sponsorship letters), passport and photographs, acceptance letters (for student visas), and work authorization documents (for work visas).",
   },
@@ -150,10 +150,7 @@ const VisaAssistancePage = () => {
                   <Shield className="text-accent" size={20} />
                   <span className="text-sm text-muted-foreground">98% Visa Success Rate</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="text-accent" size={20} />
-                  <span className="text-sm text-muted-foreground">10,000+ Visas Processed</span>
-                </div>
+                
               </div>
             </motion.div>
 
@@ -173,11 +170,11 @@ const VisaAssistancePage = () => {
                     </div>
                     <div>
                       <h3 className="font-heading font-bold text-xl">Visa Types We Handle</h3>
-                      <p className="text-muted-foreground text-sm">All major categories</p>
+                    
                     </div>
                   </div>
                   <ul className="space-y-3">
-                    {["Student Visa", "Work Visa", "Visitor Visa", "Tourist Visa", "Business Visa"].map((visa, idx) => (
+                    {["Student Visa", "Work Visa"].map((visa, idx) => (
                       <li key={idx} className="flex items-center gap-3 text-foreground">
                         <CheckCircle2 size={16} className="text-accent" />
                         {visa}

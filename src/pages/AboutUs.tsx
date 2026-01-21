@@ -5,10 +5,11 @@ import Footer from "@/components/Footer";
 import aboutHero from "@/assets/about-hero.jpg";
 import aboutTeam from "@/assets/about-team.jpg";
 import teamPhoto from "@/assets/team-photo.jpg";
-import teamCeo from "@/assets/team-ceo.jpg";
-import teamCounseling from "@/assets/team-counseling.jpg";
-import teamVisa from "@/assets/team-visa.jpg";
-import teamPartnership from "@/assets/team-partnership.jpg";
+import teamCeo from "@/assets/team- director.jpeg";
+import teamCounseling from "@/assets/team-co-founder.jpeg";
+import teamVisa from "@/assets/team-coo.jpeg";
+import teamPartnership from "@/assets/team-BDM.jpeg";
+import teamitHead from "@/assets/teamithead.jpeg";
 import student1 from "@/assets/student-1.jpg";
 import student2 from "@/assets/student-2.jpg";
 import student3 from "@/assets/student-3.jpg";
@@ -19,9 +20,9 @@ import studentSuccess from "@/assets/student-success.jpg";
 import achievements from "@/assets/achievements.jpg";
 
 const stats = [
-  { value: "15+", label: "Years Experience" },
-  { value: "10K+", label: "Students Placed" },
-  { value: "50+", label: "Countries" },
+  { value: "3+", label: "Years Experience" },
+  { value: "500+", label: "Students Placed" },
+  { value: "20+", label: "Countries" },
   { value: "98%", label: "Visa Success" },
 ];
 
@@ -49,13 +50,13 @@ const values = [
 const services = [
   {
     icon: BookOpen,
-    title: "Academic & Course Counseling",
+    title: "Study Abroad Preparation",
     description: "Expert guidance to choose the right course and university based on your profile and career goals.",
   },
   {
     icon: Globe,
     title: "University Selection",
-    description: "Access to 500+ partner universities across 50+ countries with personalized recommendations.",
+    description: "Access to 350+ partner universities across 20+ countries with personalized recommendations.",
   },
   {
     icon: Award,
@@ -82,36 +83,38 @@ const services = [
     title: "Document Processing",
     description: "SOP writing, LOR guidance, and application document verification.",
   },
-  {
-    icon: Building,
-    title: "Accommodation Support",
-    description: "Help finding suitable student housing and accommodation arrangements.",
-  },
+
 ];
 
 const teamMembers = [
   {
-    name: "Rajesh Kumar",
-    role: "Founder & CEO",
-    description: "15+ years of experience in overseas education consulting",
+    name: "Ishita Gulati",
+    role: "Director",
+    description: "3+ years of experience in overseas education consulting",
     image: teamCeo,
   },
   {
-    name: "Priya Sharma",
-    role: "Head of Counseling",
+    name: "Barun Gulati",
+    role: "CO-Founder",
     description: "Expert in UK & Australia student placements",
     image: teamCounseling,
   },
   {
-    name: "Amit Patel",
-    role: "Visa Director",
+    name: "Suhani Gulati",
+    role: "Chief Operations Officer",
     description: "Specialized in complex visa cases with 98% success rate",
     image: teamVisa,
   },
   {
-    name: "Sneha Reddy",
-    role: "Partnership Manager",
-    description: "Manages relationships with 500+ university partners",
+    name: "Aditya Sharma",
+    role: "Business Development Manager",
+    description: "Manages relationships with 350+ university partners",
+    image: teamPartnership,
+  },
+  {
+    name: "Nidamanuri Chandana",
+    role: "IT Head",
+    description: "Manages relationships with 350+ university partners",
     image: teamPartnership,
   },
 ];
@@ -129,7 +132,7 @@ const achievementsList = [
   { icon: Trophy, title: "Best Education Consultancy 2024", subtitle: "National Education Excellence Awards" },
   { icon: Star, title: "5-Star Service Rating", subtitle: "Google Reviews - 4.9/5 Average" },
   { icon: Award, title: "Top Visa Success Rate", subtitle: "98% Approval Across All Countries" },
-  { icon: Globe, title: "Global Partner Network", subtitle: "500+ Universities in 50+ Countries" },
+  { icon: Globe, title: "Global Partner Network", subtitle: "350+ Universities in 20+ Countries" },
 ];
 
 const studentTestimonials = [
@@ -158,7 +161,7 @@ const studentTestimonials = [
 
 const whyChooseUs = [
   "Expert counselors with international education experience",
-  "Partnerships with 500+ universities worldwide",
+  "Partnerships with 350+ universities worldwide",
   "98% visa success rate across all countries",
   "Comprehensive pre-departure and post-arrival support",
   "Scholarship guidance saving millions for students",
@@ -321,7 +324,7 @@ const AboutUs = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, type: "spring" }}
               >
-                <div className="text-3xl font-bold">15+</div>
+                <div className="text-3xl font-bold">3+</div>
                 <div className="text-sm">Years of Excellence</div>
               </motion.div>
             </motion.div>
@@ -502,7 +505,7 @@ const AboutUs = () => {
               Our Global <span className="text-accent">Partnerships</span>
             </h2>
             <p className="text-muted-foreground">
-              We have established strong partnerships with over 500 universities across 50+ countries, 
+              We have established strong partnerships with over 350+ universities across 20+ countries, 
               ensuring our students have access to the best educational opportunities worldwide.
             </p>
           </motion.div>
@@ -713,7 +716,7 @@ const AboutUs = () => {
                 <div className="flex items-center gap-3">
                   <GraduationCap className="w-8 h-8 text-accent" />
                   <div>
-                    <div className="text-2xl font-bold text-primary">10,000+</div>
+                    <div className="text-2xl font-bold text-primary">500+</div>
                     <div className="text-sm text-muted-foreground">Students Successfully Placed</div>
                   </div>
                 </div>

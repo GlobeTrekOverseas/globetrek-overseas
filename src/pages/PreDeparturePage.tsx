@@ -64,12 +64,7 @@ const briefingTopics = [
     description:
       "Connecting with alumni groups, local associations, and community resources for ongoing support.",
   },
-  {
-    icon: Smartphone,
-    title: "Communication Setup",
-    description:
-      "Setting up local SIM cards, communication tools, and staying connected with family back home.",
-  },
+ 
 ];
 
 const additionalSupport = [
@@ -133,13 +128,13 @@ const PreDeparturePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent/20 text-accent font-semibold text-sm mb-6 border border-accent/30 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent/20 text-white font-semibold text-sm mb-6 border border-accent/30 backdrop-blur-sm">
               <Luggage size={16} />
               Pre-Departure & Post-Arrival Support
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-6 leading-tight">
               Prepare for Your{" "}
-              <span className="text-accent italic">Journey Abroad</span>
+              <span className="text-white white">Journey Abroad</span>
             </h1>
             <p className="text-lg sm:text-xl text-primary-foreground/90 leading-relaxed mb-8 max-w-2xl">
               At GlobeTrek Overseas, we believe that preparation is the key to a
@@ -154,12 +149,7 @@ const PreDeparturePage = () => {
                 Schedule Your Briefing
                 <ArrowRight size={18} />
               </a>
-              <a
-                href="#briefing"
-                className="px-8 py-4 bg-primary-foreground/10 text-primary-foreground rounded-full font-semibold hover:bg-primary-foreground/20 transition-all duration-300 border border-primary-foreground/20 inline-flex items-center justify-center"
-              >
-                Learn More
-              </a>
+              
             </div>
           </motion.div>
         </div>

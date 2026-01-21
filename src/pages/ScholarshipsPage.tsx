@@ -20,37 +20,6 @@ import {
 import scholarshipHero from "@/assets/scholarship-hero.jpg";
 import serviceScholarship from "@/assets/service-scholarship.jpg";
 
-const whatWeOffer = [
-  {
-    icon: Target,
-    title: "Personalized Assistance",
-    description:
-      "We assess your profile to match you with the best scholarship opportunities offered by universities, governments, and private organizations.",
-    gradient: "from-accent to-accent/60",
-  },
-  {
-    icon: FileText,
-    title: "Comprehensive Application Support",
-    description:
-      "Our experts help you craft compelling essays, gather required documents, and submit strong applications for scholarships and grants.",
-    gradient: "from-primary to-primary/60",
-  },
-  {
-    icon: DollarSign,
-    title: "Financial Planning Guidance",
-    description:
-      "We provide insights into financial aid packages, including loans, grants, and work-study programs, ensuring a financially secure education journey.",
-    gradient: "from-accent to-accent/60",
-  },
-  {
-    icon: Globe,
-    title: "Exclusive Access",
-    description:
-      "We connect you to special scholarships for international students, focusing on merit, need, and field-specific awards.",
-    gradient: "from-primary to-primary/60",
-  },
-];
-
 const whyChooseUs = [
   {
     icon: Award,
@@ -196,11 +165,7 @@ const ScholarshipsPage = () => {
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full">
                   <Star className="text-accent" size={18} />
-                  <span className="font-medium text-sm">$10M+ Secured</span>
-                </div>
-                <div className="flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full">
-                  <Star className="text-accent" size={18} />
-                  <span className="font-medium text-sm">85% Success Rate</span>
+                  <span className="font-medium text-sm">98% Success Rate</span>
                 </div>
               </div>
             </motion.div>
@@ -238,59 +203,6 @@ const ScholarshipsPage = () => {
         </div>
       </section>
 
-      {/* What We Offer Section */}
-      <section className="section-padding bg-gradient-to-br from-primary/5 via-background to-accent/5">
-        <div className="container-custom">
-          <motion.div
-            className="text-center max-w-3xl mx-auto mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-4">
-              <Sparkles size={14} />
-              What We Offer
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-6">
-              Our{" "}
-              <span className="text-accent italic">Services</span>
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Comprehensive support to help you secure the funding you need for your education journey.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {whatWeOffer.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 h-full border border-border/50 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-accent/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-                  
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className="text-white" size={28} />
-                  </div>
-                  
-                  <h3 className="text-xl font-heading font-bold mb-4 group-hover:text-accent transition-colors">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Scholarship Types Section */}
       <section className="section-padding bg-background">

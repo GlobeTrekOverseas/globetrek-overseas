@@ -25,12 +25,11 @@ import servicesHero from "@/assets/services-hero.jpg";
 const services = [
   {
     icon: GraduationCap,
-    title: "Academic & Course Counseling",
+    title: "Study Abroad Preparation",
     description:
       "Our expert counselors help you identify the right academic path based on your interests, skills, and career aspirations. We provide personalized guidance to ensure you choose courses that align with your goals.",
     features: [
       "One-on-one counseling sessions",
-      "Career aptitude assessment",
       "Course comparison analysis",
       "Industry trend insights",
       "Long-term career planning",
@@ -47,7 +46,6 @@ const services = [
     features: [
       "University shortlisting based on profile",
       "Application document preparation",
-      "Statement of Purpose guidance",
       "Letter of Recommendation support",
       "Application tracking & follow-up",
     ],
@@ -63,7 +61,6 @@ const services = [
     features: [
       "Document checklist & verification",
       "Visa application filing",
-      "Mock interview preparation",
       "Embassy appointment scheduling",
       "Post-visa guidance",
     ],
@@ -78,7 +75,6 @@ const services = [
       "Education abroad doesn't have to break the bank. We help you discover and apply for scholarships, grants, and financial aid opportunities to make your dream education affordable.",
     features: [
       "Scholarship opportunity research",
-      "Eligibility assessment",
       "Application essay support",
       "Financial planning consultation",
       "Education loan guidance",
@@ -96,7 +92,6 @@ const services = [
       "Pre-departure orientation",
       "Travel & accommodation booking",
       "Airport pickup arrangements",
-      "Local SIM & bank account setup",
       "Cultural integration support",
     ],
     gradient: "from-accent to-accent/60",
@@ -287,7 +282,7 @@ const ServicesPage = () => {
                 <ArrowRight size={18} />
               </a>
               <a
-                href="tel:+1234567890"
+                href="tel:+91 93113 31899"
                 className="px-8 py-4 bg-primary-foreground/10 text-primary-foreground rounded-full font-semibold hover:bg-primary-foreground/20 transition-all duration-300 border border-primary-foreground/20 inline-flex items-center justify-center"
               >
                 Call Us Now
