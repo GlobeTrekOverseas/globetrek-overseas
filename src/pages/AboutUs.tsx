@@ -115,7 +115,7 @@ const teamMembers = [
     name: "Nidamanuri Chandana",
     role: "IT Head",
     description: "Manages relationships with 350+ university partners",
-    image: teamPartnership,
+    image: teamitHead,
   },
 ];
 
