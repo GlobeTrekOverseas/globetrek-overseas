@@ -7,11 +7,13 @@ import Countries from "@/components/Countries";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ConsultationPopup from "@/components/ConsultationPopup";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Index = () => {
   const location = useLocation();
+  const [isConsultationOpen, setIsConsultationOpen] = useState(true);
 
   useEffect(() => {
     if (location.hash) {
@@ -24,7 +26,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar onOpenConsultation={() => setIsConsultationOpen(true)} />
       <Hero />
       <About />
       <Services />
@@ -33,6 +35,11 @@ const Index = () => {
       <Testimonials />
       <Contact />
       <Footer />
+      
+      <ConsultationPopup 
+        isOpen={isConsultationOpen} 
+        onClose={() => setIsConsultationOpen(false)} 
+      />
     </div>
   );
 };

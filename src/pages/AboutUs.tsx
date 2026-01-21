@@ -1,24 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import {
-  Target,
-  Eye,
-  Heart,
-  Users,
-  Award,
-  Globe,
-  BookOpen,
-  CheckCircle,
-  ArrowRight,
-  Star,
-  Handshake,
-  Quote,
-  MessageCircle,
-  GraduationCap,
-  Plane,
-  FileCheck,
-  Trophy,
-} from "lucide-react";
+import { Target, Eye, Heart, Users, Award, Globe, BookOpen, CheckCircle, ArrowRight, Star, Handshake, Quote, MessageCircle, GraduationCap, Plane, FileCheck, Trophy } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import aboutHero from "@/assets/about-hero.jpg";
@@ -223,7 +205,6 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         {/* Background Image */}

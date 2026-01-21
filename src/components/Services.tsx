@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   GraduationCap,
   FileCheck,
@@ -9,6 +10,8 @@ import {
   ArrowUpRight,
   Sparkles,
 } from "lucide-react";
+
+const MotionLink = motion(Link);
 
 const services = [
   {
@@ -97,8 +100,8 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <motion.a
-              href={service.href}
+            <MotionLink
+              to={service.href}
               key={service.title}
               className="group relative bg-background rounded-3xl p-8 cursor-pointer border border-border/50 hover:border-accent/30 shadow-sm hover:shadow-elegant transition-all duration-500"
               initial={{ opacity: 0, y: 30 }}
@@ -131,7 +134,7 @@ const Services = () => {
 
               {/* Hover Line */}
               <div className="absolute bottom-0 left-8 right-8 h-1 bg-gradient-to-r from-accent to-accent/50 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            </motion.a>
+            </MotionLink>
           ))}
         </div>
 
@@ -143,13 +146,17 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <a
-            href="/#contact"
+          <Link
+            to="/#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="btn-accent inline-flex items-center gap-2 text-lg"
           >
             Get Free Consultation
             <ArrowUpRight size={20} />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

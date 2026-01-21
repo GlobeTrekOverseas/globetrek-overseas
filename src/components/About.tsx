@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { CheckCircle, Award, Shield, Heart } from "lucide-react";
+
+const MotionLink = motion(Link);
 
 const features = [
   {
@@ -81,14 +84,14 @@ const About = () => {
               ))}
             </div>
 
-            <motion.a
-              href="/about"
+            <MotionLink
+              to="/about"
               className="btn-primary inline-flex"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               Learn More About Us
-            </motion.a>
+            </MotionLink>
           </motion.div>
 
           {/* Features Cards */}
