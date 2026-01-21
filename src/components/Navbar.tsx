@@ -1,24 +1,46 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Phone, Mail, MapPin, Sparkles, CalendarCheck } from "lucide-react";
 import logo from "@/assets/logo.png";
+
+// Create motion-enabled Link component
+const MotionLink = motion(Link);
 
 interface NavbarProps {
   onOpenConsultation?: () => void;
 }
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Power Batches", href: "/power-batches" },
-  { name: "Countries", href: "/#countries" },
-  { name: "Contact", href: "/#contact" },
+  { name: "Home", href: "/", isHash: false },
+  { name: "About", href: "/about", isHash: false },
+  { name: "Services", href: "/services", isHash: false },
+  { name: "Power Batches", href: "/power-batches", isHash: false },
+  { name: "Countries", href: "/#countries", isHash: true },
+  { name: "Contact", href: "/#contact", isHash: true },
 ];
 
 const Navbar = ({ onOpenConsultation }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (href: string, isHash: boolean) => {
+    if (isHash) {
+      const [path, hash] = href.split('#');
+      if (location.pathname === path || (path === '/' && location.pathname === '/')) {
+        // Same page, just scroll to hash
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Different page, navigate then scroll
+        navigate(href);
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -97,8 +119,8 @@ const Navbar = ({ onOpenConsultation }: NavbarProps) => {
         <div className="container-custom">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <motion.a
-              href="#home"
+            <MotionLink
+              to="/"
               className="flex items-center"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -110,14 +132,20 @@ const Navbar = ({ onOpenConsultation }: NavbarProps) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               />
-            </motion.a>
+            </MotionLink>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link, index) => (
-                <motion.a
+                <MotionLink
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
+                  onClick={(e) => {
+                    if (link.isHash) {
+                      e.preventDefault();
+                      handleNavClick(link.href, link.isHash);
+                    }
+                  }}
                   className="relative px-5 py-2.5 text-foreground font-medium transition-all hover:text-accent group rounded-lg hover:bg-accent/5"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -130,7 +158,7 @@ const Navbar = ({ onOpenConsultation }: NavbarProps) => {
                     whileHover={{ width: "60%" }}
                     transition={{ duration: 0.2 }}
                   />
-                </motion.a>
+                </MotionLink>
               ))}
             </div>
 
@@ -171,17 +199,23 @@ const Navbar = ({ onOpenConsultation }: NavbarProps) => {
             >
               <div className="container-custom py-4 space-y-2">
                 {navLinks.map((link, index) => (
-                  <motion.a
+                  <MotionLink
                     key={link.name}
-                    href={link.href}
+                    to={link.href}
                     className="block px-4 py-3 text-foreground font-medium hover:bg-accent/10 hover:text-accent rounded-xl transition-colors"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      setIsMobileMenuOpen(false);
+                      if (link.isHash) {
+                        e.preventDefault();
+                        handleNavClick(link.href, link.isHash);
+                      }
+                    }}
                   >
                     {link.name}
-                  </motion.a>
+                  </MotionLink>
                 ))}
                 <motion.button
                   className="block w-full bg-gradient-to-r from-accent to-globe-green-light text-accent-foreground font-semibold text-center py-4 rounded-xl mt-4"

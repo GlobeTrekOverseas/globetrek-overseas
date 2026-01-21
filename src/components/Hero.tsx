@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Star, CheckCircle } from "lucide-react";
 import heroStudents from "@/assets/hero-students.jpg";
+
+const MotionLink = motion(Link);
 
 const Hero = () => {
   return (
@@ -108,8 +111,12 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <motion.a
-                href="#contact"
+              <MotionLink
+                to="/#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="btn-accent inline-flex items-center justify-center gap-2 group text-lg"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -119,15 +126,15 @@ const Hero = () => {
                   size={20}
                   className="group-hover:translate-x-1 transition-transform"
                 />
-              </motion.a>
-              <motion.a
-                href="/services"
+              </MotionLink>
+              <MotionLink
+                to="/services"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-lg border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 Explore Services
-              </motion.a>
+              </MotionLink>
             </motion.div>
           </div>
 

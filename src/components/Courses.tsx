@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   BookOpen,
   Clock,
@@ -8,6 +9,8 @@ import {
   Sparkles,
   CheckCircle2,
 } from "lucide-react";
+
+const MotionLink = motion(Link);
 
 const courses = [
   {
@@ -200,8 +203,12 @@ const Courses = () => {
                 </div>
 
                 {/* CTA */}
-                <motion.a
-                  href="#contact"
+                <MotionLink
+                  to="/#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className={`flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-gradient-to-r ${course.gradient} text-white font-semibold group-hover:shadow-lg transition-all`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -211,7 +218,7 @@ const Courses = () => {
                     size={18}
                     className="group-hover:translate-x-1 transition-transform"
                   />
-                </motion.a>
+                </MotionLink>
               </div>
             </motion.div>
           ))}
