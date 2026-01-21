@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Target, Eye, Heart, Users, Award, Globe, BookOpen, CheckCircle, ArrowRight, Star, Handshake, Trophy, Quote, MessageCircle, Building, GraduationCap, Plane, FileCheck } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Target, Eye, Heart, Users, Award, Globe, BookOpen, CheckCircle, ArrowRight, Star, Handshake, Quote, MessageCircle, GraduationCap, Plane, FileCheck, X, Trophy } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import aboutHero from "@/assets/about-hero.jpg";
@@ -14,10 +15,10 @@ import student1 from "@/assets/student-1.jpg";
 import student2 from "@/assets/student-2.jpg";
 import student3 from "@/assets/student-3.jpg";
 import partnerships from "@/assets/partnerships.jpg";
-import universityPartners from "@/assets/university-partners.jpg";
+import universityPartnersNew from "@/assets/university-partners-new.jpg";
 import globalNetwork from "@/assets/global-network.jpg";
 import studentSuccess from "@/assets/student-success.jpg";
-import achievements from "@/assets/achievements.jpg";
+import companyEventsCollage from "@/assets/company-events-collage.jpg";
 
 const stats = [
   { value: "3+", label: "Years Experience" },
@@ -66,7 +67,7 @@ const services = [
   {
     icon: Users,
     title: "Pre-Departure Support",
-    description: "Complete guidance on accommodation, travel, banking, and settling abroad.",
+    description: "Complete guidance on travel, banking, and settling abroad.",
   },
   {
     icon: GraduationCap,
@@ -83,7 +84,6 @@ const services = [
     title: "Document Processing",
     description: "SOP writing, LOR guidance, and application document verification.",
   },
-
 ];
 
 const teamMembers = [
@@ -171,9 +171,174 @@ const whyChooseUs = [
 ];
 
 const AboutUs = () => {
+  const [showPopup, setShowPopup] = useState(true);
+
+  useEffect(() => {
+    // Auto close after 2 seconds
+    const autoClose = setTimeout(() => {
+      setShowPopup(false);
+    }, 2000);
+
+    return () => {
+      clearTimeout(autoClose);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      
+      {/* Full Page Welcome Popup */}
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* Animated Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-accent/30">
+              {/* Animated circles */}
+              <motion.div
+                className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[100px]"
+                animate={{ 
+                  scale: [1, 1.3, 1],
+                  x: [0, 50, 0],
+                  y: [0, -30, 0],
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-white/10 rounded-full blur-[80px]"
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  x: [0, -40, 0],
+                  y: [0, 40, 0],
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-primary/30 rounded-full blur-[60px]"
+                animate={{ 
+                  scale: [1, 1.4, 1],
+                  rotate: [0, 180, 360],
+                }}
+                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+              />
+              
+              {/* Floating particles */}
+              {[...Array(20)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-2 h-2 bg-white/30 rounded-full"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                  }}
+                  animate={{
+                    y: [0, -30, 0],
+                    opacity: [0.3, 0.8, 0.3],
+                  }}
+                  transition={{
+                    duration: 2 + Math.random() * 2,
+                    repeat: Infinity,
+                    delay: Math.random() * 2,
+                  }}
+                />
+              ))}
+            </div>
+            
+            {/* Content */}
+            <div className="relative z-10 text-center px-6">
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: "spring", duration: 0.8 }}
+              >
+                <div className="relative inline-block mb-8">
+                  <motion.div
+                    className="absolute inset-0 bg-accent/40 rounded-full blur-xl"
+                    animate={{ scale: [1, 1.3, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                  <Globe className="w-24 h-24 sm:w-32 sm:h-32 text-accent relative z-10" />
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white/90 mb-4">
+                  Welcome to
+                </h2>
+              </motion.div>
+              
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+              >
+                <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading font-bold mb-6">
+                  <span className="text-white">Globe</span>
+                  <span className="text-accent">Trek</span>
+                  <span className="text-white"> Overseas</span>
+                </h1>
+              </motion.div>
+              
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+                className="flex items-center justify-center gap-4"
+              >
+                <motion.div
+                  className="h-[2px] w-16 sm:w-24 bg-gradient-to-r from-transparent to-accent"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.9, duration: 0.5 }}
+                />
+                <p className="text-lg sm:text-xl lg:text-2xl text-white/80 font-light tracking-wide">
+                  Your Gateway to Global Education
+                </p>
+                <motion.div
+                  className="h-[2px] w-16 sm:w-24 bg-gradient-to-l from-transparent to-accent"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.9, duration: 0.5 }}
+                />
+              </motion.div>
+              
+              {/* Animated dots/stars */}
+              <motion.div
+                className="flex justify-center gap-3 mt-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+              >
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="w-2 h-2 bg-accent rounded-full"
+                    animate={{ 
+                      scale: [1, 1.5, 1],
+                      opacity: [0.5, 1, 0.5],
+                    }}
+                    transition={{ 
+                      duration: 1,
+                      repeat: Infinity,
+                      delay: i * 0.1,
+                    }}
+                  />
+                ))}
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
@@ -396,7 +561,7 @@ const AboutUs = () => {
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
+            {services.slice(0, 4).map((service, index) => (
               <motion.div
                 key={service.title}
                 className="group p-6 bg-secondary/50 rounded-2xl border border-border hover:bg-background hover:shadow-elegant transition-all duration-300"
@@ -404,6 +569,27 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                  <service.icon className="w-7 h-7 text-accent" />
+                </div>
+                <h3 className="text-lg font-heading font-bold mb-2">{service.title}</h3>
+                <p className="text-sm text-muted-foreground">{service.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Second row with 3 cards centered */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 max-w-4xl mx-auto">
+            {services.slice(4).map((service, index) => (
+              <motion.div
+                key={service.title}
+                className="group p-6 bg-secondary/50 rounded-2xl border border-border hover:bg-background hover:shadow-elegant transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index + 4) * 0.1 }}
                 whileHover={{ y: -5 }}
               >
                 <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
@@ -457,9 +643,9 @@ const AboutUs = () => {
             </div>
           </motion.div>
 
-          {/* Individual Team Members */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
+          {/* Individual Team Members - 5 cards with proper layout */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.slice(0, 3).map((member, index) => (
               <motion.div
                 key={member.name}
                 className="group bg-background rounded-2xl overflow-hidden border border-border shadow-elegant"
@@ -467,6 +653,35 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-heading font-bold">{member.name}</h3>
+                  <p className="text-accent text-sm font-medium mb-2">{member.role}</p>
+                  <p className="text-sm text-muted-foreground">{member.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Second row with 2 cards centered */}
+          <div className="grid sm:grid-cols-2 gap-8 mt-8 max-w-2xl mx-auto">
+            {teamMembers.slice(3).map((member, index) => (
+              <motion.div
+                key={member.name}
+                className="group bg-background rounded-2xl overflow-hidden border border-border shadow-elegant"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index + 3) * 0.1 }}
                 whileHover={{ y: -8 }}
               >
                 <div className="relative h-64 overflow-hidden">
@@ -550,7 +765,7 @@ const AboutUs = () => {
               viewport={{ once: true }}
             >
               <img 
-                src={universityPartners} 
+                src={universityPartnersNew} 
                 alt="Partner Universities" 
                 className="w-full h-auto"
               />
@@ -613,7 +828,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Achievements & Recognition Section */}
+      {/* Company Events Collage Section */}
       <section className="section-padding bg-primary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
@@ -626,48 +841,29 @@ const AboutUs = () => {
             viewport={{ once: true }}
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white font-medium text-sm mb-4">
-              <Trophy className="w-4 h-4" />
-              Our Achievements
+              <Star className="w-4 h-4" />
+              Our Journey
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold">
-              Achievements & <span className="text-accent">Recognition</span>
+              Our <span className="text-accent">Events & Celebrations</span>
             </h2>
+            <p className="text-primary-foreground/80 mt-4">
+              Moments that define our journey and celebrate our achievements together
+            </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="grid sm:grid-cols-2 gap-6">
-              {achievementsList.map((achievement, index) => (
-                <motion.div
-                  key={achievement.title}
-                  className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
-                    <achievement.icon className="w-6 h-6 text-accent" />
-                  </div>
-                  <h3 className="text-lg font-heading font-bold mb-1">{achievement.title}</h3>
-                  <p className="text-sm text-primary-foreground/70">{achievement.subtitle}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              className="relative rounded-2xl overflow-hidden shadow-elegant"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <img 
-                src={achievements} 
-                alt="Awards and Achievements" 
-                className="w-full h-auto"
-              />
-            </motion.div>
-          </div>
+          <motion.div
+            className="relative rounded-2xl overflow-hidden shadow-elegant"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <img 
+              src={companyEventsCollage} 
+              alt="GlobeTrek Company Events and Celebrations" 
+              className="w-full h-auto"
+            />
+          </motion.div>
         </div>
       </section>
 
