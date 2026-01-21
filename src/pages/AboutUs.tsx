@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Target, Eye, Heart, Users, Award, Globe, BookOpen, CheckCircle, ArrowRight, Star, Handshake, Quote, MessageCircle, GraduationCap, Plane, FileCheck, X, Trophy } from "lucide-react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Target, Eye, Heart, Users, Award, Globe, BookOpen, CheckCircle, ArrowRight, Star, Handshake, Quote, MessageCircle, GraduationCap, Plane, FileCheck, Trophy } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import aboutHero from "@/assets/about-hero.jpg";
@@ -170,175 +170,12 @@ const whyChooseUs = [
   "Personalized attention to every student",
 ];
 
+const MotionLink = motion(Link);
+
 const AboutUs = () => {
-  const [showPopup, setShowPopup] = useState(true);
-
-  useEffect(() => {
-    // Auto close after 2 seconds
-    const autoClose = setTimeout(() => {
-      setShowPopup(false);
-    }, 2000);
-
-    return () => {
-      clearTimeout(autoClose);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
-      {/* Full Page Welcome Popup */}
-      <AnimatePresence>
-        {showPopup && (
-          <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            {/* Animated Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-accent/30">
-              {/* Animated circles */}
-              <motion.div
-                className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[100px]"
-                animate={{ 
-                  scale: [1, 1.3, 1],
-                  x: [0, 50, 0],
-                  y: [0, -30, 0],
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-white/10 rounded-full blur-[80px]"
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  x: [0, -40, 0],
-                  y: [0, 40, 0],
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-primary/30 rounded-full blur-[60px]"
-                animate={{ 
-                  scale: [1, 1.4, 1],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-              />
-              
-              {/* Floating particles */}
-              {[...Array(20)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-2 h-2 bg-white/30 rounded-full"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                  }}
-                  animate={{
-                    y: [0, -30, 0],
-                    opacity: [0.3, 0.8, 0.3],
-                  }}
-                  transition={{
-                    duration: 2 + Math.random() * 2,
-                    repeat: Infinity,
-                    delay: Math.random() * 2,
-                  }}
-                />
-              ))}
-            </div>
-            
-            {/* Content */}
-            <div className="relative z-10 text-center px-6">
-              <motion.div
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ type: "spring", duration: 0.8 }}
-              >
-                <div className="relative inline-block mb-8">
-                  <motion.div
-                    className="absolute inset-0 bg-accent/40 rounded-full blur-xl"
-                    animate={{ scale: [1, 1.3, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                  <Globe className="w-24 h-24 sm:w-32 sm:h-32 text-accent relative z-10" />
-                </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-              >
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white/90 mb-4">
-                  Welcome to
-                </h2>
-              </motion.div>
-              
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-              >
-                <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading font-bold mb-6">
-                  <span className="text-white">Globe</span>
-                  <span className="text-accent">Trek</span>
-                  <span className="text-white"> Overseas</span>
-                </h1>
-              </motion.div>
-              
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-                className="flex items-center justify-center gap-4"
-              >
-                <motion.div
-                  className="h-[2px] w-16 sm:w-24 bg-gradient-to-r from-transparent to-accent"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                />
-                <p className="text-lg sm:text-xl lg:text-2xl text-white/80 font-light tracking-wide">
-                  Your Gateway to Global Education
-                </p>
-                <motion.div
-                  className="h-[2px] w-16 sm:w-24 bg-gradient-to-l from-transparent to-accent"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                />
-              </motion.div>
-              
-              {/* Animated dots/stars */}
-              <motion.div
-                className="flex justify-center gap-3 mt-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-              >
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <motion.div
-                    key={i}
-                    className="w-2 h-2 bg-accent rounded-full"
-                    animate={{ 
-                      scale: [1, 1.5, 1],
-                      opacity: [0.5, 1, 0.5],
-                    }}
-                    transition={{ 
-                      duration: 1,
-                      repeat: Infinity,
-                      delay: i * 0.1,
-                    }}
-                  />
-                ))}
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
       
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
@@ -387,23 +224,27 @@ const AboutUs = () => {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <motion.a
-                href="/#contact"
+              <MotionLink
+                to="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = '/#contact';
+                }}
                 className="btn-primary inline-flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Get Started
                 <ArrowRight className="w-4 h-4" />
-              </motion.a>
-              <motion.a
-                href="#services"
+              </MotionLink>
+              <motion.button
+                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Our Services
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         </div>
