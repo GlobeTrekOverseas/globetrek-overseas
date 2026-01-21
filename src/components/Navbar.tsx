@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail, MapPin, Sparkles } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Sparkles, CalendarCheck } from "lucide-react";
 import logo from "@/assets/logo.png";
+
+interface NavbarProps {
+  onOpenConsultation?: () => void;
+}
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -12,7 +16,7 @@ const navLinks = [
   { name: "Contact", href: "/#contact" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ onOpenConsultation }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -131,8 +135,8 @@ const Navbar = () => {
             </div>
 
             {/* CTA Button */}
-            <motion.a
-              href="#contact"
+            <motion.button
+              onClick={onOpenConsultation}
               className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-accent to-globe-green-light text-accent-foreground font-semibold px-6 py-3 rounded-xl shadow-accent hover:shadow-lg transition-all"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -140,9 +144,9 @@ const Navbar = () => {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Sparkles size={16} />
-              Free Consultation
-            </motion.a>
+              <CalendarCheck size={16} />
+              Book Consultation
+            </motion.button>
 
             {/* Mobile Menu Button */}
             <motion.button
@@ -179,16 +183,19 @@ const Navbar = () => {
                     {link.name}
                   </motion.a>
                 ))}
-                <motion.a
-                  href="#contact"
-                  className="block bg-gradient-to-r from-accent to-globe-green-light text-accent-foreground font-semibold text-center py-4 rounded-xl mt-4"
+                <motion.button
+                  className="block w-full bg-gradient-to-r from-accent to-globe-green-light text-accent-foreground font-semibold text-center py-4 rounded-xl mt-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    onOpenConsultation?.();
+                  }}
                 >
-                  Free Consultation
-                </motion.a>
+                  <CalendarCheck className="inline-block w-4 h-4 mr-2" />
+                  Book Consultation
+                </motion.button>
               </div>
             </motion.div>
           )}
