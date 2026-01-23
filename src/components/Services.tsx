@@ -35,7 +35,7 @@ const services = [
     title: "Study Abroad Preparation",
     href: "/career-counseling",
     description:
-      "Comprehensive coaching for IELTS, TOEFL, GRE, GMAT, SAT, and other standardized tests.",
+      "Comprehensive coaching for IELTS, PTE, GRE, GMAT,  and other standardized tests.",
     gradient: "from-accent to-accent/60",
   },
   {

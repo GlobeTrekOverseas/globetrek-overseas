@@ -92,7 +92,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
             >
-              {["3+ Years Experience", "98% Visa Success", "20+ Countries"].map(
+              {["500+ students placed", "98% Visa Success", "20+ Countries"].map(
                 (item, i) => (
                   <span
                     key={i}
@@ -170,7 +170,7 @@ const Hero = () => {
                     />
                   </div>
                   <div>
-                    <div className="font-heading font-bold text-lg">500+</div>
+                    <div className="font-heading font-bold text-lg">350+</div>
                     <div className="text-sm text-muted-foreground">
                       University Admits
                     </div>
