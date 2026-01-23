@@ -19,6 +19,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { API } from "@/lib/bot";
 
 interface ConsultationPopupProps {
   isOpen: boolean;
@@ -46,42 +47,19 @@ const timelines = [
   "Just exploring",
 ];
 
-const counsellingModes = [
-  "In-Person",
-  "Video Call",
-  "Phone Call",
-  "Email/Chat",
-];
+const counsellingModes = ["In-Person", "Virtual"];
 
 const studyLevels = [
   "Undergraduate (Bachelor's)",
   "Postgraduate (Master's)",
   "Doctorate (PhD)",
-  "Diploma/Certificate",
+  "University Prepration",
   "English Language Course",
 ];
 
-const courses = [
-  "Engineering & Technology",
-  "Business & Management",
-  "Medicine & Healthcare",
-  "Arts & Humanities",
-  "Science",
-  "Law",
-  "Computer Science & IT",
-  "Design & Architecture",
-  "Hospitality & Tourism",
-  "Other",
-];
+const courses = ["IELTS", "PTE", "GMAT", "GRE"];
 
-const fundingOptions = [
-  "Self-funded",
-  "Education Loan",
-  "Scholarship",
-  "Sponsorship",
-  "Mixed (Loan + Self)",
-  "Not sure yet",
-];
+const fundingOptions = ["Education Loan", "Others"];
 
 const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
   const { toast } = useToast();
@@ -98,9 +76,9 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
     agreeTerms: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.agreeTerms) {
       toast({
         title: "Please accept terms",
@@ -110,27 +88,45 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
       return;
     }
 
-    // Here you would typically send the data to your backend
-    console.log("Form submitted:", formData);
-    
-    toast({
-      title: "Request Submitted! 🎉",
-      description: "Our counselor will contact you within 24 hours.",
-    });
-    
-    onClose();
-    setFormData({
-      fullName: "",
-      email: "",
-      contact: "",
-      destination: "",
-      timeline: "",
-      counsellingMode: "",
-      studyLevel: "",
-      course: "",
-      funding: "",
-      agreeTerms: false,
-    });
+    try {
+      const res = await fetch(API.consultationMail, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send consultation request");
+      }
+
+      toast({
+        title: "Request Submitted!",
+        description: "Our counselor will contact you within 24 hours.",
+      });
+
+      onClose();
+      setFormData({
+        fullName: "",
+        email: "",
+        contact: "",
+        destination: "",
+        timeline: "",
+        counsellingMode: "",
+        studyLevel: "",
+        course: "",
+        funding: "",
+        agreeTerms: false,
+      });
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -139,7 +135,7 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary/20 to-transparent rounded-full blur-2xl" />
-        
+
         <DialogHeader className="relative">
           <motion.div
             initial={{ scale: 0 }}
@@ -167,7 +163,9 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
                 id="fullName"
                 placeholder="Enter your full name"
                 value={formData.fullName}
-                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, fullName: e.target.value })
+                }
                 required
                 className="bg-background/50 border-primary/20 focus:border-accent"
               />
@@ -181,7 +179,9 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
                 type="email"
                 placeholder="your@email.com"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 required
                 className="bg-background/50 border-primary/20 focus:border-accent"
               />
@@ -199,18 +199,23 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
                 type="tel"
                 placeholder="+91 XXXXX XXXXX"
                 value={formData.contact}
-                onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, contact: e.target.value })
+                }
                 required
                 className="bg-background/50 border-primary/20 focus:border-accent"
               />
             </div>
             <div className="space-y-2">
               <Label className="text-sm font-medium">
-                Preferred Study Destination <span className="text-destructive">*</span>
+                Preferred Study Destination{" "}
+                <span className="text-destructive">*</span>
               </Label>
               <Select
                 value={formData.destination}
-                onValueChange={(value) => setFormData({ ...formData, destination: value })}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, destination: value })
+                }
                 required
               >
                 <SelectTrigger className="bg-background/50 border-primary/20">
@@ -231,11 +236,14 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label className="text-sm font-medium">
-                When would you like to start? <span className="text-destructive">*</span>
+                When would you like to start?{" "}
+                <span className="text-destructive">*</span>
               </Label>
               <Select
                 value={formData.timeline}
-                onValueChange={(value) => setFormData({ ...formData, timeline: value })}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, timeline: value })
+                }
                 required
               >
                 <SelectTrigger className="bg-background/50 border-primary/20">
@@ -252,11 +260,14 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
             </div>
             <div className="space-y-2">
               <Label className="text-sm font-medium">
-                Preferred Mode of Counselling <span className="text-destructive">*</span>
+                Preferred Mode of Counselling{" "}
+                <span className="text-destructive">*</span>
               </Label>
               <Select
                 value={formData.counsellingMode}
-                onValueChange={(value) => setFormData({ ...formData, counsellingMode: value })}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, counsellingMode: value })
+                }
                 required
               >
                 <SelectTrigger className="bg-background/50 border-primary/20">
@@ -277,11 +288,14 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label className="text-sm font-medium">
-                Preferred Study Level <span className="text-destructive">*</span>
+                Preferred Study Level{" "}
+                <span className="text-destructive">*</span>
               </Label>
               <Select
                 value={formData.studyLevel}
-                onValueChange={(value) => setFormData({ ...formData, studyLevel: value })}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, studyLevel: value })
+                }
                 required
               >
                 <SelectTrigger className="bg-background/50 border-primary/20">
@@ -298,11 +312,14 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
             </div>
             <div className="space-y-2">
               <Label className="text-sm font-medium">
-                Select Your Course <span className="text-destructive">*</span>
+                Select Your Power Batches{" "}
+                <span className="text-destructive">*</span>
               </Label>
               <Select
                 value={formData.course}
-                onValueChange={(value) => setFormData({ ...formData, course: value })}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, course: value })
+                }
                 required
               >
                 <SelectTrigger className="bg-background/50 border-primary/20">
@@ -322,11 +339,14 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
           {/* Row 5: Funding */}
           <div className="space-y-2">
             <Label className="text-sm font-medium">
-              How would you fund your education? <span className="text-destructive">*</span>
+              How would you fund your education?{" "}
+              <span className="text-destructive">*</span>
             </Label>
             <Select
               value={formData.funding}
-              onValueChange={(value) => setFormData({ ...formData, funding: value })}
+              onValueChange={(value) =>
+                setFormData({ ...formData, funding: value })
+              }
               required
             >
               <SelectTrigger className="bg-background/50 border-primary/20">
@@ -352,7 +372,10 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
               }
               className="mt-0.5"
             />
-            <Label htmlFor="terms" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
+            <Label
+              htmlFor="terms"
+              className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
+            >
               I agree to the{" "}
               <a href="#" className="text-accent hover:underline font-medium">
                 Terms and Conditions

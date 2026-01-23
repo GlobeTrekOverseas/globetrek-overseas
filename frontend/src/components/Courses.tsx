@@ -9,7 +9,7 @@ import {
   Sparkles,
   CheckCircle2,
 } from "lucide-react";
-
+import { useState } from "react";
 const MotionLink = motion(Link);
 
 const courses = [
@@ -84,6 +84,7 @@ const courses = [
 ];
 
 const Courses = () => {
+  const [activeCourse, setActiveCourse] = useState(courses[0]);
   return (
     <section
       id="courses"
@@ -207,7 +208,9 @@ const Courses = () => {
                   to="/#contact"
                   onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" });
                   }}
                   className={`flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-gradient-to-r ${course.gradient} text-white font-semibold group-hover:shadow-lg transition-all`}
                   whileHover={{ scale: 1.02 }}

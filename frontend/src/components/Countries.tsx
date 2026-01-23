@@ -6,60 +6,59 @@ import countryUSA from "@/assets/country-usa.jpg";
 import countryUK from "@/assets/country-uk.jpg";
 import countryAustralia from "@/assets/country-australia.jpg";
 import countryGermany from "@/assets/country-germany.jpg";
-
+import London from "@/assets/London.jpeg";
+import aus from "@/assets/aus.jpeg";
+import germany from "@/assets/germany.jpeg";
+import usa from "@/assets/usa.jpeg";
+import swiz from "@/assets/swiz.jpeg";
+import euro from "@/assets/eur.jpeg";
 const countries = [
   {
     name: "United Kingdom",
     slug: "uk",
     flag: "🇬🇧",
-    image: countryUK,
+    image: London,
     universities: "150+",
-    students: "600K+",
     popular: ["Oxford", "Cambridge", "Imperial"],
   },
   {
     name: "United States",
     slug: "usa",
     flag: "🇺🇸",
-    image: countryUSA,
+    image: usa,
     universities: "4,000+",
-    students: "1M+",
     popular: ["MIT", "Harvard", "Stanford"],
   },
   {
     name: "Australia",
     slug: "australia",
     flag: "🇦🇺",
-    image: countryAustralia,
+    image: aus,
     universities: "43+",
-    students: "750K+",
     popular: ["Melbourne", "Sydney", "ANU"],
   },
   {
     name: "Switzerland",
     slug: "switzerland",
     flag: "🇨🇭",
-    image: countryGermany, // Using Germany image as placeholder
+    image: swiz, // Using Germany image as placeholder
     universities: "12+",
-    students: "60K+",
     popular: ["ETH Zurich", "EPFL", "UZH"],
   },
   {
     name: "Germany",
     slug: "germany",
     flag: "🇩🇪",
-    image: countryGermany,
+    image: germany,
     universities: "400+",
-    students: "400K+",
     popular: ["TU Munich", "Heidelberg", "LMU"],
   },
   {
     name: "Europe",
     slug: "europe",
     flag: "🇪🇺",
-    image: countryUK, // Using UK image as placeholder
+    image: euro, // Using UK image as placeholder
     universities: "5,000+",
-    students: "2.5M+",
     popular: ["Amsterdam", "Copenhagen", "Dublin"],
   },
 ];
@@ -131,10 +130,6 @@ const Countries = () => {
                       <span className="flex items-center gap-1.5">
                         <GraduationCap size={16} />
                         {country.universities} Unis
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Users size={16} />
-                        {country.students}
                       </span>
                     </div>
 
