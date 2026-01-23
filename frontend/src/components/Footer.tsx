@@ -42,9 +42,9 @@ const footerLinks = {
 const socialLinks = [
   { icon: Facebook, href: "#", label: "Facebook" },
   { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Youtube, href: "#", label: "YouTube" },
+  { icon: Instagram, href: "https://www.instagram.com/globetrekieltspathway?igsh=MXZvMzUwZHAybXhpYg==", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/globetrek-overseas/", label: "LinkedIn" },
+  { icon: Youtube, href: "https://www.instagram.com/globetrekieltspathway?igsh=MXZvMzUwZHAybXhpYg==", label: "YouTube" },
 ];
 
 const Footer = () => {

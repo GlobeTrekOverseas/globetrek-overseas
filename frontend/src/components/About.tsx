@@ -7,9 +7,9 @@ const MotionLink = motion(Link);
 const features = [
   {
     icon: Award,
-    title: "3+ Years of Excellence",
+    title: "Proven Excellence",
     description:
-      "Over a decade of experience guiding students to their dream destinations.",
+      "A strong track record of successfully guiding students to their dream destinations.",
   },
   {
     icon: Shield,
@@ -27,7 +27,7 @@ const features = [
 
 const highlights = [
   "Expert counselors with international education experience",
-  "Partnerships with 500+ universities worldwide",
+  "Partnerships with 350+ universities worldwide",
   "98% visa success rate across all countries",
   "Comprehensive pre-departure and post-arrival support",
   "Scholarship guidance saving millions for students",
@@ -136,7 +136,7 @@ const About = () => {
                 {[
                   { value: "500+", label: "Students Placed" },
                   { value: "20+", label: "Countries" },
-                  { value: "500+", label: "Partner Universities" },
+                  { value: "350+", label: "Partner Universities" },
                 ].map((stat, index) => (
                   <div key={index}>
                     <div className="text-2xl sm:text-3xl font-bold text-accent">
