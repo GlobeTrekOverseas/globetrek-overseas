@@ -2,6 +2,9 @@ import countryUSA from "@/assets/country-usa.jpg";
 import countryUK from "@/assets/country-uk.jpg";
 import countryAustralia from "@/assets/country-australia.jpg";
 import countryGermany from "@/assets/country-germany.jpg";
+import london from "@/assets/London.jpeg";
+import usa from "@/assets/USA.jpeg";
+import aus from "@/assets/aus.jpeg";
 
 export interface CountryData {
   slug: string;
@@ -40,9 +43,10 @@ export const countriesData: Record<string, CountryData> = {
     slug: "uk",
     name: "United Kingdom",
     flag: "🇬🇧",
-    heroImage: countryUK,
+    heroImage: london,
     tagline: "World-Class Education in Historic Institutions",
-    description: "The United Kingdom offers a rich academic tradition with some of the world's oldest and most prestigious universities. With shorter degree programs and a multicultural environment, the UK remains a top destination for international students seeking quality education.",
+    description:
+      "The United Kingdom offers a rich academic tradition with some of the world's oldest and most prestigious universities. With shorter degree programs and a multicultural environment, the UK remains a top destination for international students seeking quality education.",
     facts: {
       universities: "150+",
       internationalStudents: "600,000+",
@@ -51,21 +55,70 @@ export const countriesData: Record<string, CountryData> = {
     },
     topUniversities: [
       { name: "University of Oxford", ranking: "#1 in UK", location: "Oxford" },
-      { name: "University of Cambridge", ranking: "#2 in UK", location: "Cambridge" },
-      { name: "Imperial College London", ranking: "#3 in UK", location: "London" },
+      {
+        name: "University of Cambridge",
+        ranking: "#2 in UK",
+        location: "Cambridge",
+      },
+      {
+        name: "Imperial College London",
+        ranking: "#3 in UK",
+        location: "London",
+      },
       { name: "UCL", ranking: "#4 in UK", location: "London" },
-      { name: "University of Edinburgh", ranking: "#5 in UK", location: "Edinburgh" },
-      { name: "King's College London", ranking: "#6 in UK", location: "London" },
+      {
+        name: "University of Edinburgh",
+        ranking: "#5 in UK",
+        location: "Edinburgh",
+      },
+      {
+        name: "King's College London",
+        ranking: "#6 in UK",
+        location: "London",
+      },
     ],
     whyStudy: [
-      { title: "Shorter Degree Programs", description: "Complete undergraduate degrees in 3 years and master's in 1 year, saving time and money." },
-      { title: "Global Recognition", description: "UK degrees are recognized and respected by employers and institutions worldwide." },
-      { title: "Research Excellence", description: "Home to groundbreaking research and Nobel Prize winners across various fields." },
-      { title: "Cultural Diversity", description: "Experience a multicultural environment with students from over 180 countries." },
-      { title: "Work Opportunities", description: "Graduate Route visa allows 2 years of work experience after completing your degree." },
-      { title: "Historic Heritage", description: "Study in cities rich with history, culture, and world-famous landmarks." },
+      {
+        title: "Shorter Degree Programs",
+        description:
+          "Complete undergraduate degrees in 3 years and master's in 1 year, saving time and money.",
+      },
+      {
+        title: "Global Recognition",
+        description:
+          "UK degrees are recognized and respected by employers and institutions worldwide.",
+      },
+      {
+        title: "Research Excellence",
+        description:
+          "Home to groundbreaking research and Nobel Prize winners across various fields.",
+      },
+      {
+        title: "Cultural Diversity",
+        description:
+          "Experience a multicultural environment with students from over 180 countries.",
+      },
+      {
+        title: "Work Opportunities",
+        description:
+          "Graduate Route visa allows 2 years of work experience after completing your degree.",
+      },
+      {
+        title: "Historic Heritage",
+        description:
+          "Study in cities rich with history, culture, and world-famous landmarks.",
+      },
     ],
-    popularCourses: ["Business & Management", "Engineering", "Computer Science", "Law", "Medicine", "Arts & Design", "Finance", "Data Science"],
+    popularCourses: [
+      "Business & Management",
+      "Engineering",
+      "Computer Science",
+      "Law",
+      "Medicine",
+      "Arts & Design",
+      "Finance",
+      "Data Science",
+    ],
     requirements: [
       "Valid passport with minimum 6 months validity",
       "English proficiency (IELTS 6.0-7.0 or equivalent)",
@@ -86,9 +139,10 @@ export const countriesData: Record<string, CountryData> = {
     slug: "usa",
     name: "United States",
     flag: "🇺🇸",
-    heroImage: countryUSA,
+    heroImage: usa,
     tagline: "Land of Endless Opportunities & Innovation",
-    description: "The United States is home to the world's largest number of top-ranked universities and offers unparalleled opportunities for research, innovation, and career growth. With diverse programs and flexible education systems, the USA attracts students from every corner of the globe.",
+    description:
+      "The United States is home to the world's largest number of top-ranked universities and offers unparalleled opportunities for research, innovation, and career growth. With diverse programs and flexible education systems, the USA attracts students from every corner of the globe.",
     facts: {
       universities: "4,000+",
       internationalStudents: "1,000,000+",
@@ -96,22 +150,79 @@ export const countriesData: Record<string, CountryData> = {
       postStudyWork: "OPT up to 3 Years",
     },
     topUniversities: [
-      { name: "Massachusetts Institute of Technology", ranking: "#1 in USA", location: "Massachusetts" },
-      { name: "Harvard University", ranking: "#2 in USA", location: "Massachusetts" },
-      { name: "Stanford University", ranking: "#3 in USA", location: "California" },
-      { name: "California Institute of Technology", ranking: "#4 in USA", location: "California" },
-      { name: "University of Chicago", ranking: "#5 in USA", location: "Illinois" },
-      { name: "Princeton University", ranking: "#6 in USA", location: "New Jersey" },
+      {
+        name: "Massachusetts Institute of Technology",
+        ranking: "#1 in USA",
+        location: "Massachusetts",
+      },
+      {
+        name: "Harvard University",
+        ranking: "#2 in USA",
+        location: "Massachusetts",
+      },
+      {
+        name: "Stanford University",
+        ranking: "#3 in USA",
+        location: "California",
+      },
+      {
+        name: "California Institute of Technology",
+        ranking: "#4 in USA",
+        location: "California",
+      },
+      {
+        name: "University of Chicago",
+        ranking: "#5 in USA",
+        location: "Illinois",
+      },
+      {
+        name: "Princeton University",
+        ranking: "#6 in USA",
+        location: "New Jersey",
+      },
     ],
     whyStudy: [
-      { title: "World-Leading Universities", description: "Home to more top-ranked universities than any other country in the world." },
-      { title: "Cutting-Edge Research", description: "Access to state-of-the-art facilities and groundbreaking research opportunities." },
-      { title: "Flexible Education System", description: "Choose your major later and explore diverse subjects before specializing." },
-      { title: "Career Opportunities", description: "Strong industry connections and internship programs with leading companies." },
-      { title: "Cultural Melting Pot", description: "Experience diverse cultures and build a global network of connections." },
-      { title: "Innovation Hub", description: "Study in the land of Silicon Valley, Wall Street, and countless startups." },
+      {
+        title: "World-Leading Universities",
+        description:
+          "Home to more top-ranked universities than any other country in the world.",
+      },
+      {
+        title: "Cutting-Edge Research",
+        description:
+          "Access to state-of-the-art facilities and groundbreaking research opportunities.",
+      },
+      {
+        title: "Flexible Education System",
+        description:
+          "Choose your major later and explore diverse subjects before specializing.",
+      },
+      {
+        title: "Career Opportunities",
+        description:
+          "Strong industry connections and internship programs with leading companies.",
+      },
+      {
+        title: "Cultural Melting Pot",
+        description:
+          "Experience diverse cultures and build a global network of connections.",
+      },
+      {
+        title: "Innovation Hub",
+        description:
+          "Study in the land of Silicon Valley, Wall Street, and countless startups.",
+      },
     ],
-    popularCourses: ["Computer Science", "Business Administration", "Engineering", "Data Science", "Healthcare", "Finance", "Biotechnology", "Artificial Intelligence"],
+    popularCourses: [
+      "Computer Science",
+      "Business Administration",
+      "Engineering",
+      "Data Science",
+      "Healthcare",
+      "Finance",
+      "Biotechnology",
+      "Artificial Intelligence",
+    ],
     requirements: [
       "Valid passport",
       "SAT/ACT scores (for undergraduate)",
@@ -133,9 +244,10 @@ export const countriesData: Record<string, CountryData> = {
     slug: "australia",
     name: "Australia",
     flag: "🇦🇺",
-    heroImage: countryAustralia,
+    heroImage: aus,
     tagline: "Quality Education in a Beautiful Environment",
-    description: "Australia combines world-class education with an exceptional quality of life. Known for its welcoming culture, stunning landscapes, and strong economy, Australia offers international students a safe and enriching study experience with excellent post-study work opportunities.",
+    description:
+      "Australia combines world-class education with an exceptional quality of life. Known for its welcoming culture, stunning landscapes, and strong economy, Australia offers international students a safe and enriching study experience with excellent post-study work opportunities.",
     facts: {
       universities: "43+",
       internationalStudents: "750,000+",
@@ -143,22 +255,75 @@ export const countriesData: Record<string, CountryData> = {
       postStudyWork: "2-4 Years Post-Study Work",
     },
     topUniversities: [
-      { name: "University of Melbourne", ranking: "#1 in Australia", location: "Melbourne" },
-      { name: "University of Sydney", ranking: "#2 in Australia", location: "Sydney" },
-      { name: "Australian National University", ranking: "#3 in Australia", location: "Canberra" },
-      { name: "University of Queensland", ranking: "#4 in Australia", location: "Brisbane" },
+      {
+        name: "University of Melbourne",
+        ranking: "#1 in Australia",
+        location: "Melbourne",
+      },
+      {
+        name: "University of Sydney",
+        ranking: "#2 in Australia",
+        location: "Sydney",
+      },
+      {
+        name: "Australian National University",
+        ranking: "#3 in Australia",
+        location: "Canberra",
+      },
+      {
+        name: "University of Queensland",
+        ranking: "#4 in Australia",
+        location: "Brisbane",
+      },
       { name: "UNSW Sydney", ranking: "#5 in Australia", location: "Sydney" },
-      { name: "Monash University", ranking: "#6 in Australia", location: "Melbourne" },
+      {
+        name: "Monash University",
+        ranking: "#6 in Australia",
+        location: "Melbourne",
+      },
     ],
     whyStudy: [
-      { title: "High Quality of Life", description: "Australian cities consistently rank among the world's most livable cities." },
-      { title: "Work While Studying", description: "Work up to 48 hours per fortnight during term time with your student visa." },
-      { title: "Post-Study Work Rights", description: "Generous post-study work visas of 2-4 years depending on your qualification." },
-      { title: "Research Excellence", description: "Strong focus on research with significant government investment in innovation." },
-      { title: "Multicultural Society", description: "Welcoming and diverse community with students from around the world." },
-      { title: "Beautiful Environment", description: "Study surrounded by stunning beaches, unique wildlife, and natural wonders." },
+      {
+        title: "High Quality of Life",
+        description:
+          "Australian cities consistently rank among the world's most livable cities.",
+      },
+      {
+        title: "Work While Studying",
+        description:
+          "Work up to 48 hours per fortnight during term time with your student visa.",
+      },
+      {
+        title: "Post-Study Work Rights",
+        description:
+          "Generous post-study work visas of 2-4 years depending on your qualification.",
+      },
+      {
+        title: "Research Excellence",
+        description:
+          "Strong focus on research with significant government investment in innovation.",
+      },
+      {
+        title: "Multicultural Society",
+        description:
+          "Welcoming and diverse community with students from around the world.",
+      },
+      {
+        title: "Beautiful Environment",
+        description:
+          "Study surrounded by stunning beaches, unique wildlife, and natural wonders.",
+      },
     ],
-    popularCourses: ["Business & Management", "Engineering", "Information Technology", "Health Sciences", "Environmental Science", "Hospitality", "Education", "Creative Arts"],
+    popularCourses: [
+      "Business & Management",
+      "Engineering",
+      "Information Technology",
+      "Health Sciences",
+      "Environmental Science",
+      "Hospitality",
+      "Education",
+      "Creative Arts",
+    ],
     requirements: [
       "Valid passport",
       "English proficiency (IELTS 6.0-7.0)",
@@ -181,7 +346,8 @@ export const countriesData: Record<string, CountryData> = {
     flag: "🇨🇭",
     heroImage: countryGermany, // Using Germany image as placeholder
     tagline: "Excellence in Education Amidst Alpine Beauty",
-    description: "Switzerland is renowned for its exceptional quality of education, particularly in hospitality, finance, and engineering. With a multilingual environment and stunning Alpine scenery, Switzerland offers a unique and prestigious study experience in the heart of Europe.",
+    description:
+      "Switzerland is renowned for its exceptional quality of education, particularly in hospitality, finance, and engineering. With a multilingual environment and stunning Alpine scenery, Switzerland offers a unique and prestigious study experience in the heart of Europe.",
     facts: {
       universities: "12+",
       internationalStudents: "60,000+",
@@ -191,20 +357,68 @@ export const countriesData: Record<string, CountryData> = {
     topUniversities: [
       { name: "ETH Zurich", ranking: "#1 in Switzerland", location: "Zurich" },
       { name: "EPFL", ranking: "#2 in Switzerland", location: "Lausanne" },
-      { name: "University of Zurich", ranking: "#3 in Switzerland", location: "Zurich" },
-      { name: "University of Geneva", ranking: "#4 in Switzerland", location: "Geneva" },
-      { name: "University of Basel", ranking: "#5 in Switzerland", location: "Basel" },
-      { name: "EHL Hospitality", ranking: "#1 Hospitality School", location: "Lausanne" },
+      {
+        name: "University of Zurich",
+        ranking: "#3 in Switzerland",
+        location: "Zurich",
+      },
+      {
+        name: "University of Geneva",
+        ranking: "#4 in Switzerland",
+        location: "Geneva",
+      },
+      {
+        name: "University of Basel",
+        ranking: "#5 in Switzerland",
+        location: "Basel",
+      },
+      {
+        name: "EHL Hospitality",
+        ranking: "#1 Hospitality School",
+        location: "Lausanne",
+      },
     ],
     whyStudy: [
-      { title: "World-Class Institutions", description: "Home to ETH Zurich and EPFL, consistently ranked among the world's top universities." },
-      { title: "Multilingual Environment", description: "Study in German, French, Italian, or English in a truly international setting." },
-      { title: "Innovation Hub", description: "Switzerland leads in research and innovation with strong industry partnerships." },
-      { title: "Quality of Life", description: "One of the highest standards of living with safety and excellent infrastructure." },
-      { title: "Central Location", description: "Easy access to explore Europe during your studies." },
-      { title: "Hospitality Excellence", description: "World-renowned for hospitality and hotel management education." },
+      {
+        title: "World-Class Institutions",
+        description:
+          "Home to ETH Zurich and EPFL, consistently ranked among the world's top universities.",
+      },
+      {
+        title: "Multilingual Environment",
+        description:
+          "Study in German, French, Italian, or English in a truly international setting.",
+      },
+      {
+        title: "Innovation Hub",
+        description:
+          "Switzerland leads in research and innovation with strong industry partnerships.",
+      },
+      {
+        title: "Quality of Life",
+        description:
+          "One of the highest standards of living with safety and excellent infrastructure.",
+      },
+      {
+        title: "Central Location",
+        description: "Easy access to explore Europe during your studies.",
+      },
+      {
+        title: "Hospitality Excellence",
+        description:
+          "World-renowned for hospitality and hotel management education.",
+      },
     ],
-    popularCourses: ["Hospitality Management", "Finance & Banking", "Engineering", "International Relations", "Luxury Brand Management", "Computer Science", "Life Sciences", "Business Administration"],
+    popularCourses: [
+      "Hospitality Management",
+      "Finance & Banking",
+      "Engineering",
+      "International Relations",
+      "Luxury Brand Management",
+      "Computer Science",
+      "Life Sciences",
+      "Business Administration",
+    ],
     requirements: [
       "Valid passport",
       "Language proficiency (German/French/Italian or English)",
@@ -227,7 +441,8 @@ export const countriesData: Record<string, CountryData> = {
     flag: "🇩🇪",
     heroImage: countryGermany,
     tagline: "Free Education & Engineering Excellence",
-    description: "Germany is a top destination for international students, offering tuition-free education at public universities and world-renowned engineering and technology programs. With a strong economy and rich cultural heritage, Germany provides excellent career prospects for graduates.",
+    description:
+      "Germany is a top destination for international students, offering tuition-free education at public universities and world-renowned engineering and technology programs. With a strong economy and rich cultural heritage, Germany provides excellent career prospects for graduates.",
     facts: {
       universities: "400+",
       internationalStudents: "400,000+",
@@ -235,22 +450,71 @@ export const countriesData: Record<string, CountryData> = {
       postStudyWork: "18 Months Job Seeker Visa",
     },
     topUniversities: [
-      { name: "Technical University of Munich", ranking: "#1 in Germany", location: "Munich" },
+      {
+        name: "Technical University of Munich",
+        ranking: "#1 in Germany",
+        location: "Munich",
+      },
       { name: "LMU Munich", ranking: "#2 in Germany", location: "Munich" },
-      { name: "Heidelberg University", ranking: "#3 in Germany", location: "Heidelberg" },
-      { name: "Humboldt University Berlin", ranking: "#4 in Germany", location: "Berlin" },
+      {
+        name: "Heidelberg University",
+        ranking: "#3 in Germany",
+        location: "Heidelberg",
+      },
+      {
+        name: "Humboldt University Berlin",
+        ranking: "#4 in Germany",
+        location: "Berlin",
+      },
       { name: "RWTH Aachen", ranking: "#5 in Germany", location: "Aachen" },
-      { name: "Free University of Berlin", ranking: "#6 in Germany", location: "Berlin" },
+      {
+        name: "Free University of Berlin",
+        ranking: "#6 in Germany",
+        location: "Berlin",
+      },
     ],
     whyStudy: [
-      { title: "Tuition-Free Education", description: "Most public universities offer free tuition for international students." },
-      { title: "Engineering Excellence", description: "World-renowned for engineering, automotive, and technology education." },
-      { title: "Strong Economy", description: "Europe's largest economy with excellent job opportunities for graduates." },
-      { title: "Research Opportunities", description: "Significant investment in research and development across all fields." },
-      { title: "Central European Location", description: "Easy access to explore other European countries during your studies." },
-      { title: "Work Opportunities", description: "18-month post-study job seeker visa to find employment in Germany." },
+      {
+        title: "Tuition-Free Education",
+        description:
+          "Most public universities offer free tuition for international students.",
+      },
+      {
+        title: "Engineering Excellence",
+        description:
+          "World-renowned for engineering, automotive, and technology education.",
+      },
+      {
+        title: "Strong Economy",
+        description:
+          "Europe's largest economy with excellent job opportunities for graduates.",
+      },
+      {
+        title: "Research Opportunities",
+        description:
+          "Significant investment in research and development across all fields.",
+      },
+      {
+        title: "Central European Location",
+        description:
+          "Easy access to explore other European countries during your studies.",
+      },
+      {
+        title: "Work Opportunities",
+        description:
+          "18-month post-study job seeker visa to find employment in Germany.",
+      },
     ],
-    popularCourses: ["Engineering", "Computer Science", "Automotive Engineering", "Business Administration", "Natural Sciences", "Medicine", "Architecture", "Renewable Energy"],
+    popularCourses: [
+      "Engineering",
+      "Computer Science",
+      "Automotive Engineering",
+      "Business Administration",
+      "Natural Sciences",
+      "Medicine",
+      "Architecture",
+      "Renewable Energy",
+    ],
     requirements: [
       "Valid passport",
       "German or English proficiency (TestDaF/IELTS)",
@@ -273,7 +537,8 @@ export const countriesData: Record<string, CountryData> = {
     flag: "🇪🇺",
     heroImage: countryUK, // Using UK image as placeholder for Europe
     tagline: "Diverse Cultures, World-Class Education",
-    description: "Europe offers an incredible diversity of educational opportunities across multiple countries, cultures, and languages. From Scandinavia to the Mediterranean, European universities provide affordable, high-quality education with the added benefit of exploring the continent's rich history and culture.",
+    description:
+      "Europe offers an incredible diversity of educational opportunities across multiple countries, cultures, and languages. From Scandinavia to the Mediterranean, European universities provide affordable, high-quality education with the added benefit of exploring the continent's rich history and culture.",
     facts: {
       universities: "5,000+",
       internationalStudents: "2,500,000+",
@@ -281,22 +546,75 @@ export const countriesData: Record<string, CountryData> = {
       postStudyWork: "Varies by Country",
     },
     topUniversities: [
-      { name: "University of Amsterdam", ranking: "Top in Netherlands", location: "Netherlands" },
+      {
+        name: "University of Amsterdam",
+        ranking: "Top in Netherlands",
+        location: "Netherlands",
+      },
       { name: "KU Leuven", ranking: "Top in Belgium", location: "Belgium" },
-      { name: "Uppsala University", ranking: "Top in Sweden", location: "Sweden" },
-      { name: "University of Copenhagen", ranking: "Top in Denmark", location: "Denmark" },
-      { name: "Trinity College Dublin", ranking: "Top in Ireland", location: "Ireland" },
-      { name: "Politecnico di Milano", ranking: "Top in Italy", location: "Italy" },
+      {
+        name: "Uppsala University",
+        ranking: "Top in Sweden",
+        location: "Sweden",
+      },
+      {
+        name: "University of Copenhagen",
+        ranking: "Top in Denmark",
+        location: "Denmark",
+      },
+      {
+        name: "Trinity College Dublin",
+        ranking: "Top in Ireland",
+        location: "Ireland",
+      },
+      {
+        name: "Politecnico di Milano",
+        ranking: "Top in Italy",
+        location: "Italy",
+      },
     ],
     whyStudy: [
-      { title: "Affordable Education", description: "Many European countries offer low or no tuition fees for international students." },
-      { title: "Cultural Diversity", description: "Experience multiple cultures, languages, and traditions across the continent." },
-      { title: "Erasmus+ Programs", description: "Opportunity to study in multiple European countries during your degree." },
-      { title: "High Quality of Life", description: "European countries consistently rank high in quality of life indexes." },
-      { title: "Travel Opportunities", description: "Easy and affordable travel across the Schengen zone during your studies." },
-      { title: "English-Taught Programs", description: "Thousands of programs taught in English across non-English speaking countries." },
+      {
+        title: "Affordable Education",
+        description:
+          "Many European countries offer low or no tuition fees for international students.",
+      },
+      {
+        title: "Cultural Diversity",
+        description:
+          "Experience multiple cultures, languages, and traditions across the continent.",
+      },
+      {
+        title: "Erasmus+ Programs",
+        description:
+          "Opportunity to study in multiple European countries during your degree.",
+      },
+      {
+        title: "High Quality of Life",
+        description:
+          "European countries consistently rank high in quality of life indexes.",
+      },
+      {
+        title: "Travel Opportunities",
+        description:
+          "Easy and affordable travel across the Schengen zone during your studies.",
+      },
+      {
+        title: "English-Taught Programs",
+        description:
+          "Thousands of programs taught in English across non-English speaking countries.",
+      },
     ],
-    popularCourses: ["Business & Economics", "Engineering", "Arts & Humanities", "Social Sciences", "Natural Sciences", "Medicine", "Design", "Sustainability"],
+    popularCourses: [
+      "Business & Economics",
+      "Engineering",
+      "Arts & Humanities",
+      "Social Sciences",
+      "Natural Sciences",
+      "Medicine",
+      "Design",
+      "Sustainability",
+    ],
     requirements: [
       "Valid passport",
       "Language proficiency (English or local language)",

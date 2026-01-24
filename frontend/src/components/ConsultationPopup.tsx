@@ -19,7 +19,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { API } from "@/lib/bot";
+import { sendConsultationMail } from "@/lib/bot";
 
 interface ConsultationPopupProps {
   isOpen: boolean;
@@ -89,20 +89,20 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
     }
 
     try {
-      const res = await fetch(API.consultationMail, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      await sendConsultationMail({
+        fullName: formData.fullName,
+        email: formData.email,
+        contact: formData.contact,
+        destination: formData.destination,
+        timeline: formData.timeline,
+        counsellingMode: formData.counsellingMode,
+        studyLevel: formData.studyLevel,
+        course: formData.course,
+        funding: formData.funding,
       });
 
-      if (!res.ok) {
-        throw new Error("Failed to send consultation request");
-      }
-
       toast({
-        title: "Request Submitted!",
+        title: "Request Submitted! 🎉",
         description: "Our counselor will contact you within 24 hours.",
       });
 
@@ -120,7 +120,7 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
         agreeTerms: false,
       });
     } catch (error) {
-      console.error(error);
+      console.error("Consultation submit error:", error);
       toast({
         title: "Something went wrong",
         description: "Please try again later.",

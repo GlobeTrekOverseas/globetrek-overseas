@@ -8,6 +8,7 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ConsultationPopup from "@/components/ConsultationPopup";
+import ChatbotWidget from "@/components/ChatbotWidget";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -40,6 +41,8 @@ const Index = () => {
         isOpen={isConsultationOpen} 
         onClose={() => setIsConsultationOpen(false)} 
       />
+      
+      <ChatbotWidget />
     </div>
   );
 };

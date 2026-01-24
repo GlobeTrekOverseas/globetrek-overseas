@@ -22,7 +22,7 @@ import companyEventsCollage from "@/assets/company-events-collage.jpg";
 import { cn } from "@/lib/utils";
 
 const stats = [
-  { value: "3+", label: "Years Experience" },
+  { value: "350+", label: "Partner Universities" },
   { value: "500+", label: "Students Placed" },
   { value: "20+", label: "Countries" },
   { value: "98%", label: "Visa Success" },
@@ -100,7 +100,7 @@ const teamMembers = [
   {
     name: "Ishita Gulati",
     role: "Director",
-    description: "3+ years of experience in overseas education consulting",
+    description: "Ishita founded GlobeTrek Overseas to guide Indian students toward world-class global education opportunities with care and expertise.",
     image: teamCeo,
   },
   {
@@ -112,30 +112,30 @@ const teamMembers = [
   {
     name: "Suhani Gulati",
     role: "Chief Operations Officer",
-    description: "Specialized in complex visa cases with 98% success rate",
+    description: "A postgraduate in English and PhD scholar, Suhani combines academic excellence with a passion for mentoring students toward holistic growth and global exposure.",
     image: teamVisa,
   },
   {
     name: "Aditya Sharma",
     role: "Business Development Manager",
-    description: "Manages relationships with 350+ university partners",
+    description: "Leads business growth by building strong partnerships and creating new opportunities for success.Aditya Sharma spearheads strategic growth and high-value partnerships, transforming opportunities into sustainable, long-term success.",
     image: teamPartnership,
   },
   {
     name: "Nidamanuri Chandana",
     role: "IT Head",
-    description: "Manages relationships with 350+ university partners",
+    description: "Drives streamlined and dependable IT solutions across the organization.",
     image: teamitHead,
   },
 ];
 
 const partnerCountries = [
-  { name: "USA", universities: "100+" },
-  { name: "UK", universities: "80+" },
+  { name: "UK", universities: "100+" },
+  { name: "USA", universities: "80+" },
   { name: "Canada", universities: "75+" },
-  { name: "Australia", universities: "60+" },
-  { name: "Germany", universities: "50+" },
-  { name: "New Zealand", universities: "40+" },
+  { name: "Australia", universities: "85+" },
+  { name: "Germany", universities: "90+" },
+  { name: "Europe", universities: "70+" },
 ];
 
 const achievementsList = [
@@ -247,9 +247,8 @@ const AboutUs = () => {
             </h1>
 
             <p className="text-lg text-white/90 mb-8 leading-relaxed">
-              For over 15 years, we've been the trusted partner for thousands of
-              students embarking on their international education journey. Your
-              success is our story.
+              Trusted by students for reliable guidance and successful study-abroad outcomes.
+               We simplify the process and support every step of the journey.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -328,30 +327,21 @@ const AboutUs = () => {
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   <strong className="text-foreground">
-                    GlobeTrek Overseas was born out of a shared dream
+                   GlobeTrek Overseas was founded with a singular vision
                   </strong>{" "}
-                  — to make global education simple, accessible, and transparent
-                  for every student.
+                  — to make global education seamless, transparent, and accessible for ambitious students worldwide.
                 </p>
                 <p>
-                  Founded in 2009, we started as a small team of passionate
-                  educators who believed that every student deserves access to
-                  world-class education regardless of their background.
+                 What began as a focused team of dedicated education professionals has evolved into a trusted partner for students seeking world-class academic opportunities across the globe.
                 </p>
                 <p>
-                  Over the years, we have guided aspiring learners to
-                  universities across continents, helping them shape their
-                  careers and futures with confidence.
+                  With a strong understanding of international education systems, we have guided students to leading universities worldwide, helping them build confident, future-ready careers.
                 </p>
                 <p>
-                  What sets us apart is not just our network of global
-                  universities, but the{" "}
-                  <strong className="text-foreground">personal touch</strong> we
-                  bring to each student's journey.
+                  Our distinction lies not only in our global university network, but in the personalized guidance and thoughtful mentorship we offer at every stage of the journey.{" "}
                 </p>
                 <p>
-                  For us, every success story is personal — because when a
-                  student achieves their dream, it becomes our achievement too.
+                At GlobeTrek Overseas, every success story reflects our commitment  because a student’s achievement is the true measure of our excellence.
                 </p>
               </div>
             </motion.div>
@@ -932,9 +922,8 @@ const AboutUs = () => {
                 Why Students <span className="text-accent">Choose Us</span>
               </h2>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                With over 15 years of experience and a proven track record,
-                we've helped thousands of students achieve their dreams of
-                studying abroad. Here's what makes us different.
+               Known for dependable guidance and proven results.
+               We empower students to pursue global education opportunities with clarity and confidence.
               </p>
               <motion.a
                 href="/#contact"

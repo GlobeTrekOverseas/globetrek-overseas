@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  BookOpen,
   Clock,
   Users,
   Trophy,
@@ -10,6 +9,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { useState } from "react";
+
 const MotionLink = motion(Link);
 
 const courses = [
@@ -29,6 +29,7 @@ const courses = [
     gradient: "from-blue-500 to-cyan-400",
     bgGradient: "from-blue-500/10 to-cyan-400/10",
     icon: "🎯",
+    comingSoon: false,
   },
   {
     name: "PTE",
@@ -36,7 +37,7 @@ const courses = [
     description:
       "Computer-based test preparation with AI-powered practice for quick results.",
     duration: "4-6 Weeks",
-    batchSize: "8-12 Students",
+    batchSize: "15+ Students",
     features: [
       "Score 79+ Strategy",
       "Computer Lab Access",
@@ -46,6 +47,7 @@ const courses = [
     gradient: "from-purple-500 to-pink-400",
     bgGradient: "from-purple-500/10 to-pink-400/10",
     icon: "💻",
+    comingSoon: true,
   },
   {
     name: "GMAT",
@@ -53,7 +55,7 @@ const courses = [
     description:
       "Excel in Quantitative, Verbal, and Analytical Writing for top MBA programs.",
     duration: "8-12 Weeks",
-    batchSize: "6-10 Students",
+    batchSize: "15+ Students",
     features: [
       "700+ Score Strategy",
       "AWA Techniques",
@@ -63,6 +65,7 @@ const courses = [
     gradient: "from-orange-500 to-amber-400",
     bgGradient: "from-orange-500/10 to-amber-400/10",
     icon: "📊",
+    comingSoon: true,
   },
   {
     name: "GRE",
@@ -70,7 +73,7 @@ const courses = [
     description:
       "Comprehensive preparation for graduate school admissions worldwide.",
     duration: "8-12 Weeks",
-    batchSize: "8-12 Students",
+    batchSize: "15+ Students",
     features: [
       "320+ Score Target",
       "Vocabulary Building",
@@ -80,11 +83,13 @@ const courses = [
     gradient: "from-emerald-500 to-teal-400",
     bgGradient: "from-emerald-500/10 to-teal-400/10",
     icon: "🎓",
+    comingSoon: true,
   },
 ];
 
 const Courses = () => {
-  const [activeCourse, setActiveCourse] = useState(courses[0]);
+  const [activeCourse] = useState(courses[0]);
+
   return (
     <section
       id="courses"
@@ -113,16 +118,17 @@ const Courses = () => {
             <Sparkles size={16} />
             Test Preparation Courses
           </motion.span>
+
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-6">
             Ace Your{" "}
             <span className="bg-gradient-to-r from-accent to-globe-green-light bg-clip-text text-transparent">
               Language Tests
             </span>
           </h2>
+
           <p className="text-lg text-muted-foreground">
             Expert-led coaching for all major English proficiency and aptitude
-            tests. Join thousands of successful students who achieved their
-            dream scores.
+            tests.
           </p>
         </motion.div>
 
@@ -138,12 +144,10 @@ const Courses = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8 }}
             >
-              {/* Gradient Background */}
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${course.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
               />
 
-              {/* Content */}
               <div className="relative p-8">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-6">
@@ -156,8 +160,13 @@ const Courses = () => {
                       {course.icon}
                     </motion.div>
                     <div>
-                      <h3 className="text-2xl font-heading font-bold">
+                      <h3 className="text-2xl font-heading font-bold flex items-center gap-2">
                         {course.name}
+                        {course.comingSoon && (
+                          <span className="px-3 py-1 text-xs rounded-full bg-muted text-muted-foreground">
+                            Coming Soon
+                          </span>
+                        )}
                       </h3>
                       <p className="text-sm text-muted-foreground">
                         {course.fullName}
@@ -171,7 +180,7 @@ const Courses = () => {
                   {course.description}
                 </p>
 
-                {/* Meta Info */}
+                {/* Meta */}
                 <div className="flex items-center gap-6 mb-6 pb-6 border-b border-border">
                   <div className="flex items-center gap-2 text-sm">
                     <Clock size={16} className="text-accent" />
@@ -203,7 +212,7 @@ const Courses = () => {
                   ))}
                 </div>
 
-                {/* CTA */}
+                {/* CTA — ALWAYS SCROLLS */}
                 <MotionLink
                   to="/#contact"
                   onClick={(e) => {
@@ -212,15 +221,16 @@ const Courses = () => {
                       .getElementById("contact")
                       ?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className={`flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-gradient-to-r ${course.gradient} text-white font-semibold group-hover:shadow-lg transition-all`}
+                  className={`flex items-center justify-center gap-2 w-full py-4 rounded-xl font-semibold transition-all ${
+                    course.comingSoon
+                      ? "bg-muted text-muted-foreground"
+                      : `bg-gradient-to-r ${course.gradient} text-white group-hover:shadow-lg`
+                  }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Enroll Now
-                  <ArrowRight
-                    size={18}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
+                  {course.comingSoon ? "Coming Soon" : "Enroll Now"}
+                  <ArrowRight size={18} />
                 </MotionLink>
               </div>
             </motion.div>

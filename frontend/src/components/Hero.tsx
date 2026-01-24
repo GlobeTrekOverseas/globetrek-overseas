@@ -58,7 +58,7 @@ const Hero = () => {
             >
               <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent/10 text-accent font-semibold text-sm mb-8 border border-accent/20">
                 <Sparkles size={16} />
-                Trusted by 10,000+ Students Worldwide
+                Trusted by 500+ Students Worldwide
               </span>
             </motion.div>
 

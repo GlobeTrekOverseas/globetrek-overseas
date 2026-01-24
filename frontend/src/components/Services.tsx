@@ -55,7 +55,7 @@ const services = [
     gradient: "from-accent to-accent/60",
   },
   {
-    icon: Users,
+    icon: Users,   
     title: "Channel Partner Support",
     href: "/channel-partner",
     description:
