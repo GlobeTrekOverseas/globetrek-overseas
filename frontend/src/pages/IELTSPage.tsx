@@ -588,7 +588,7 @@ const IELTSPage = () => {
               </Button>
               <Button size="lg" variant="outline" className="gap-2">
                 <Phone className="w-5 h-5" />
-                Call Us: +91 XXXXX XXXXX
+                Call Us: +91 92113 13899
               </Button>
             </div>
             

@@ -10,7 +10,7 @@ import teamCeo from "@/assets/team- director.jpeg";
 import teamCounseling from "@/assets/team-co-founder.jpeg";
 import teamVisa from "@/assets/team-coo.jpeg";
 import teamPartnership from "@/assets/team-bdm.jpeg";
-import teamitHead from "@/assets/team-it-head.jpeg";
+import teamitHead from "@/assets/team-it-head.jpg";
 import student1 from "@/assets/student-1.jpg";
 import student2 from "@/assets/student-2.jpg";
 import student3 from "@/assets/student-3.jpg";
@@ -18,7 +18,7 @@ import partnerships from "@/assets/partnerships.jpg";
 import universityPartnersNew from "@/assets/university-partners-new.jpg";
 import globalNetwork from "@/assets/global-network.jpg";
 import studentSuccess from "@/assets/student-success.jpg";
-import companyEventsCollage from "@/assets/company-events-collage.jpg";
+import companyEventsCollage from "@/assets/company-events-collage.png";
 import { cn } from "@/lib/utils";
 
 const stats = [
@@ -106,25 +106,25 @@ const teamMembers = [
   {
     name: "Barun Gulati",
     role: "CO-Founder",
-    description: "Expert in UK & Australia student placements",
+    description: "Co-founder at Globetrek Overseas, architecting a new global education infrastructure that makes studying abroad seamless, scalable, and truly transformative.",
     image: teamCounseling,
   },
   {
     name: "Suhani Gulati",
-    role: "Chief Operations Officer",
+    role: "Director and founder ",
     description: "A postgraduate in English and PhD scholar, Suhani combines academic excellence with a passion for mentoring students toward holistic growth and global exposure.",
     image: teamVisa,
   },
   {
     name: "Aditya Sharma",
     role: "Business Development Manager",
-    description: "Leads business growth by building strong partnerships and creating new opportunities for success.Aditya Sharma spearheads strategic growth and high-value partnerships, transforming opportunities into sustainable, long-term success.",
+    description: "Aditya Sharma spearheads strategic growth and high-value partnerships, transforming opportunities into sustainable, long-term success.",
     image: teamPartnership,
   },
   {
     name: "Nidamanuri Chandana",
     role: "IT Head",
-    description: "Drives streamlined and dependable IT solutions across the organization.",
+    description: "Drives streamlined, dependable IT solutions across the organization.Ensures systems are scalable, secure, and built to support rapid growth.",
     image: teamitHead,
   },
 ];
@@ -166,7 +166,7 @@ const studentTestimonials = [
     name: "Ananya Gupta",
     university: "University of Toronto, Canada",
     quote:
-      "GlobeTrek made my dream of studying in Canada a reality. Their guidance was invaluable throughout the process.",
+      "GlobeTrek guided me every step of the way and made studying in Canada possible.",
     rating: 5,
     image: student1,
   },
@@ -174,7 +174,7 @@ const studentTestimonials = [
     name: "Rahul Verma",
     university: "University of Melbourne, Australia",
     quote:
-      "The team's expertise in visa processing helped me secure my student visa in record time. Highly recommended!",
+      "The team’s visa guidance was excellent and helped me get my student visa quickly.",
     rating: 5,
     image: student2,
   },
@@ -182,7 +182,7 @@ const studentTestimonials = [
     name: "Pooja Singh",
     university: "University of Manchester, UK",
     quote:
-      "From course selection to pre-departure, GlobeTrek was with me every step of the way. Forever grateful!",
+      "From start to finish, GlobeTrek guided me through everything with care.",
     rating: 5,
     image: student3,
   },
@@ -369,8 +369,8 @@ const AboutUs = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, type: "spring" }}
               >
-                <div className="text-3xl font-bold">3+</div>
-                <div className="text-sm">Years of Excellence</div>
+                <div className="text-3xl font-bold">500+</div>
+                <div className="text-sm">Onboarded</div>
               </motion.div>
             </motion.div>
           </div>
