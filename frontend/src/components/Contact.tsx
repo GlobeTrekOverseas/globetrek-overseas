@@ -9,7 +9,7 @@ import {
   MessageCircle,
   ArrowRight,
 } from "lucide-react";
-
+import { sendConsultationMail } from "@/lib/bot";
 const contactInfo = [
   {
     icon: MapPin,
@@ -32,7 +32,7 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Working Hours",
-    details: ["Mon - Sat: 9:00 AM - 7:00 PM", "Sunday: By Appointment"],
+    details: ["Mon - Sat: 10:00 AM - 6:00 PM", "Sunday: By Appointment"],
   },
 ];
 
@@ -45,10 +45,23 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  //will be changed later
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+
+    const payload = {
+      fullName: formData.name,
+      email: formData.email,
+      contact: formData.phone,
+      destination: formData.country || "Not specified",
+      timeline: "Not specified",
+      counsellingMode: "Contact Page",
+      studyLevel: "Not specified",
+      course: "Not specified",
+      funding: "Not specified",
+    };
+
+    await sendConsultationMail(payload);
   };
 
   return (

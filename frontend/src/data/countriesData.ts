@@ -5,7 +5,9 @@ import countryGermany from "@/assets/country-germany.jpg";
 import london from "@/assets/London.jpeg";
 import usa from "@/assets/USA.jpeg";
 import aus from "@/assets/aus.jpeg";
-
+import swiz from "@/assets/swiz.jpeg";
+import germany from "@/assets/germany.jpeg";
+import eur from "@/assets/eur.jpeg";
 export interface CountryData {
   slug: string;
   name: string;
@@ -344,7 +346,7 @@ export const countriesData: Record<string, CountryData> = {
     slug: "switzerland",
     name: "Switzerland",
     flag: "🇨🇭",
-    heroImage: countryGermany, // Using Germany image as placeholder
+    heroImage: swiz,
     tagline: "Excellence in Education Amidst Alpine Beauty",
     description:
       "Switzerland is renowned for its exceptional quality of education, particularly in hospitality, finance, and engineering. With a multilingual environment and stunning Alpine scenery, Switzerland offers a unique and prestigious study experience in the heart of Europe.",
@@ -439,7 +441,7 @@ export const countriesData: Record<string, CountryData> = {
     slug: "germany",
     name: "Germany",
     flag: "🇩🇪",
-    heroImage: countryGermany,
+    heroImage: germany,
     tagline: "Free Education & Engineering Excellence",
     description:
       "Germany is a top destination for international students, offering tuition-free education at public universities and world-renowned engineering and technology programs. With a strong economy and rich cultural heritage, Germany provides excellent career prospects for graduates.",
@@ -535,7 +537,7 @@ export const countriesData: Record<string, CountryData> = {
     slug: "europe",
     name: "Europe",
     flag: "🇪🇺",
-    heroImage: countryUK, // Using UK image as placeholder for Europe
+    heroImage: eur, // Using UK image as placeholder for Europe
     tagline: "Diverse Cultures, World-Class Education",
     description:
       "Europe offers an incredible diversity of educational opportunities across multiple countries, cultures, and languages. From Scandinavia to the Mediterranean, European universities provide affordable, high-quality education with the added benefit of exploring the continent's rich history and culture.",

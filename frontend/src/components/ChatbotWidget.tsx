@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import chatbotIcon from "@/assets/chatbot-icon.png";
 import { startChat, sendBotMessage, endChat } from "@/lib/bot";
+import favicon from "@/assets/favicon.png";
+import globot from "@/assets/globot.gif";
 interface Message {
   id: number;
   text: string;
@@ -163,7 +165,15 @@ const ChatbotWidget = () => {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-muted/30">
+            <div className="relative flex-1 overflow-y-auto p-4 space-y-4 bg-muted/30">
+              {/* Watermark Logo */}
+              <div
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                aria-hidden
+              >
+                <img src={favicon} alt="" className="w-50 opacity-[0.10]" />
+              </div>
+
               {messages.map((message) => (
                 <motion.div
                   key={message.id}
