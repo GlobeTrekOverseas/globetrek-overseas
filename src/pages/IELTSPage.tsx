@@ -23,6 +23,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import IELTSTabs from "@/components/ielts/IELTSTabs";
 
 import ieltsHero from "@/assets/ielts-hero.jpg";
 import ieltsListening from "@/assets/ielts-listening.jpg";
@@ -256,6 +257,9 @@ const IELTSPage = () => {
           </div>
         </div>
       </section>
+
+      {/* IELTS Tabs Section */}
+      <IELTSTabs />
 
       {/* What is IELTS */}
       <section className="section-padding bg-background">
