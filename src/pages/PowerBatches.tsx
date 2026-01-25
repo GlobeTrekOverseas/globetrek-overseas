@@ -196,8 +196,8 @@ const PowerBatches = () => {
                   <Trophy className="w-6 h-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <p className="text-2xl font-bold text-foreground">12,000+</p>
-                  <p className="text-sm text-muted-foreground">Students Trained</p>
+                  <p className="text-2xl font-bold text-foreground">500+</p>
+                  <p className="text-sm text-muted-foreground">Students Guided</p>
                 </div>
               </motion.div>
               
@@ -226,8 +226,8 @@ const PowerBatches = () => {
                   <Award className="w-6 h-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <p className="text-2xl font-bold text-foreground">15+ Years</p>
-                  <p className="text-sm text-muted-foreground">Experience</p>
+                  <p className="text-2xl font-bold text-foreground">100%</p>
+                  <p className="text-sm text-muted-foreground">Student Satisfaction</p>
                 </div>
               </motion.div>
             </div>
