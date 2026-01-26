@@ -17,6 +17,7 @@ import CountryPage from "./pages/CountryPage";
 import IELTSPage from "./pages/IELTSPage";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,11 @@ const App = () => (
             path="/career-counseling"
             element={<AcademicCounselingPage />}
           />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          />
+
           <Route path="/channel-partner" element={<ChannelPartnerPage />} />
           {/* Country pages */}
           <Route path="/country/:countrySlug" element={<CountryPage />} />

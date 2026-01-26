@@ -19,6 +19,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
 import { sendConsultationMail } from "@/lib/bot";
 
 interface ConsultationPopupProps {
@@ -372,18 +373,18 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
               }
               className="mt-0.5"
             />
+
             <Label
               htmlFor="terms"
               className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
             >
               I agree to the{" "}
-              <a href="#" className="text-accent hover:underline font-medium">
+              <Link
+                to="/terms-and-conditions"
+                className="text-accent hover:underline font-medium"
+              >
                 Terms and Conditions
-              </a>{" "}
-              and{" "}
-              <a href="#" className="text-accent hover:underline font-medium">
-                Privacy Policy
-              </a>
+              </Link>
               . I consent to receiving communications regarding my inquiry.
             </Label>
           </div>
