@@ -744,7 +744,7 @@ const AboutUs = () => {
             <img
               src={partnerships}
               alt="Partnership Meeting"
-              className="w-full h-[350px] object-cover"
+              className="w-full h-[350px] object-cover object-[center_-50px]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">
