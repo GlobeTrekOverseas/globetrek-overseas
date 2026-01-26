@@ -15,7 +15,7 @@ import student1 from "@/assets/student-1.jpg";
 import student2 from "@/assets/student-2.jpg";
 import student3 from "@/assets/student-3.jpg";
 import partnerships from "@/assets/partnerships.jpg";
-import universityPartnersNew from "@/assets/university-partners-new.jpg";
+import universityPartnersNew from "@/assets/university-partners-new.png";
 import globalNetwork from "@/assets/global-network.jpg";
 import studentSuccess from "@/assets/student-success.jpg";
 import companyEventsCollage from "@/assets/company-events-collage.png";
@@ -131,11 +131,11 @@ const teamMembers = [
 
 const partnerCountries = [
   { name: "UK", universities: "100+" },
-  { name: "USA", universities: "80+" },
-  { name: "Canada", universities: "75+" },
+  { name: "Eroupe", universities: "89+" },
+  { name: "Switzerland", universities: "75+" },
   { name: "Australia", universities: "85+" },
   { name: "Germany", universities: "90+" },
-  { name: "Europe", universities: "70+" },
+  { name: "USA", universities: "70+" },
 ];
 
 const achievementsList = [
@@ -709,7 +709,7 @@ const AboutUs = () => {
                 Our partnerships span across the globe's most prestigious
                 institutions, from Ivy League universities in the USA to Russell
                 Group universities in the UK, Group of Eight in Australia, and
-                top-ranked institutions in Canada, Germany, and beyond.
+                top-ranked institutions in switzerland, Germany, and beyond.
               </p>
               <div className="space-y-4">
                 {[
@@ -744,7 +744,7 @@ const AboutUs = () => {
             <img
               src={partnerships}
               alt="Partnership Meeting"
-              className="w-full h-[350px] object-cover"
+              className="w-full h-[350px] object-cover object-[center_-50px]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">

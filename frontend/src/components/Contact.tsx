@@ -236,7 +236,7 @@ const Contact = () => {
 
             {/* WhatsApp CTA */}
             <motion.a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/919311331899"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between p-6 bg-accent text-accent-foreground rounded-2xl group"

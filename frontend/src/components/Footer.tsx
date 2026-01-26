@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import {
   Facebook,
-  Twitter,
   Instagram,
   Linkedin,
   Youtube,
@@ -40,11 +39,10 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Facebook, href: "https://www.facebook.com/globetrekoverseas?rdid=08p2MhX3ThuGRGNh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BhTFGoreF%2F#", label: "Facebook" },
   { icon: Instagram, href: "https://www.instagram.com/globetrekieltspathway?igsh=MXZvMzUwZHAybXhpYg==", label: "Instagram" },
   { icon: Linkedin, href: "https://www.linkedin.com/company/globetrek-overseas/", label: "LinkedIn" },
-  { icon: Youtube, href: "https://www.instagram.com/globetrekieltspathway?igsh=MXZvMzUwZHAybXhpYg==", label: "YouTube" },
+  { icon: Youtube, href: "https://www.youtube.com/@GlobeTrekOverseasPathway", label: "YouTube" },
 ];
 
 const Footer = () => {
