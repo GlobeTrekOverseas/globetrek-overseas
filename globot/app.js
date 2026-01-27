@@ -7,8 +7,24 @@ import mailRoutes from "./modules/mail/mail.route.js";
 import consultationRoutes from "./modules/consultation/consultation.routes.js";
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://www.globetrekoverseas.com",
+];
+
 //global midddleware
-app.use(cors());
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true); // Allow the request
+      } else {
+        callback(new Error("Not allowed by CORS")); // Deny the request
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  }),
+);
 app.use(express.json());
 
 //health check route
