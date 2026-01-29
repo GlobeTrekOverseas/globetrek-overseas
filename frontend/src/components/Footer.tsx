@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Youtube,
-  ArrowUp,
-} from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube, ArrowUp } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { Link } from "react-router-dom";
 
@@ -39,10 +33,26 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Facebook, href: "https://www.facebook.com/globetrekoverseas?rdid=08p2MhX3ThuGRGNh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BhTFGoreF%2F#", label: "Facebook" },
-  { icon: Instagram, href: "https://www.instagram.com/globetrekieltspathway?igsh=MXZvMzUwZHAybXhpYg==", label: "Instagram" },
-  { icon: Linkedin, href: "https://www.linkedin.com/company/globetrek-overseas/", label: "LinkedIn" },
-  { icon: Youtube, href: "https://www.youtube.com/@GlobeTrekOverseasPathway", label: "YouTube" },
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/globetrekoverseas?rdid=08p2MhX3ThuGRGNh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BhTFGoreF%2F#",
+    label: "Facebook",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/globetrekieltspathway?igsh=MXZvMzUwZHAybXhpYg==",
+    label: "Instagram",
+  },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/globetrek-overseas/",
+    label: "LinkedIn",
+  },
+  {
+    icon: Youtube,
+    href: "https://www.youtube.com/@GlobeTrekOverseasPathway",
+    label: "YouTube",
+  },
 ];
 
 const Footer = () => {
@@ -153,18 +163,12 @@ const Footer = () => {
             reserved.
           </p>
           <div className="flex items-center gap-6 text-sm">
-            <a
-              href="#"
+            <Link
+              to="/terms-and-conditions"
               className="text-primary-foreground/60 hover:text-accent transition-colors"
             >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-primary-foreground/60 hover:text-accent transition-colors"
-            >
-              Terms of Service
-            </a>
+              Terms & Conditions
+            </Link>
           </div>
         </div>
       </div>
