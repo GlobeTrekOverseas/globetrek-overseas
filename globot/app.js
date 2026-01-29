@@ -8,7 +8,7 @@ import consultationRoutes from "./modules/consultation/consultation.routes.js";
 const app = express();
 
 const allowedOrigins = [
-  "http://localhost:3000",
+  "http://localhost:8080",
   "https://www.globetrekoverseas.com",
 ];
 

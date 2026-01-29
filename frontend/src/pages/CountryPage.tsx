@@ -1,17 +1,17 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  GraduationCap, 
-  Users, 
-  DollarSign, 
-  Briefcase, 
-  MapPin, 
-  CheckCircle, 
+import {
+  GraduationCap,
+  Users,
+  DollarSign,
+  Briefcase,
+  MapPin,
+  CheckCircle,
   ArrowRight,
   Building2,
   FileText,
   Clock,
-  BookOpen
+  BookOpen,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -29,13 +29,13 @@ const CountryPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
-            src={country.heroImage} 
+          <img
+            src={country.heroImage}
             alt={`Study in ${country.name}`}
             className="w-full h-full object-cover"
           />
@@ -50,14 +50,14 @@ const CountryPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Link 
-              to="/#countries" 
+            <Link
+              to="/#countries"
               className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground mb-6 transition-colors"
             >
               <ArrowRight size={16} className="rotate-180" />
               Back to Countries
             </Link>
-            
+
             <div className="flex items-center gap-4 mb-6">
               <span className="text-6xl">{country.flag}</span>
               <div>
@@ -66,17 +66,17 @@ const CountryPage = () => {
                 </h1>
               </div>
             </div>
-            
+
             <p className="text-xl text-primary-foreground/90 italic font-heading mb-6">
               {country.tagline}
             </p>
-            
+
             <p className="text-lg text-primary-foreground/80 leading-relaxed mb-8">
               {country.description}
             </p>
 
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8"
               asChild
             >
@@ -97,10 +97,26 @@ const CountryPage = () => {
             transition={{ duration: 0.6 }}
           >
             {[
-              { icon: GraduationCap, label: "Universities", value: country.facts.universities },
-              { icon: Users, label: "International Students", value: country.facts.internationalStudents },
-              { icon: DollarSign, label: "Average Tuition", value: country.facts.avgTuition },
-              { icon: Briefcase, label: "Post-Study Work", value: country.facts.postStudyWork },
+              {
+                icon: GraduationCap,
+                label: "Universities",
+                value: country.facts.universities,
+              },
+              {
+                icon: Users,
+                label: "International Students",
+                value: country.facts.internationalStudents,
+              },
+              {
+                icon: DollarSign,
+                label: "Average Tuition",
+                value: country.facts.avgTuition,
+              },
+              {
+                icon: Briefcase,
+                label: "Post-Study Work",
+                value: country.facts.postStudyWork,
+              },
             ].map((fact, index) => (
               <motion.div
                 key={fact.label}
@@ -113,7 +129,9 @@ const CountryPage = () => {
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <fact.icon className="w-7 h-7 text-primary" />
                 </div>
-                <p className="text-2xl font-bold text-foreground mb-1">{fact.value}</p>
+                <p className="text-2xl font-bold text-foreground mb-1">
+                  {fact.value}
+                </p>
                 <p className="text-muted-foreground">{fact.label}</p>
               </motion.div>
             ))}
@@ -155,8 +173,12 @@ const CountryPage = () => {
                     <CheckCircle className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">{reason.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{reason.description}</p>
+                    <h3 className="text-lg font-semibold text-foreground mb-2">
+                      {reason.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {reason.description}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -276,7 +298,7 @@ const CountryPage = () => {
                   Admission Requirements
                 </h2>
               </div>
-              
+
               <div className="space-y-4">
                 {country.requirements.map((req, index) => (
                   <motion.div
@@ -308,14 +330,30 @@ const CountryPage = () => {
                   Visa Information
                 </h2>
               </div>
-              
+
               <div className="bg-background rounded-2xl p-6 border border-border/50 shadow-lg">
                 <div className="space-y-6">
                   {[
-                    { label: "Visa Type", value: country.visaInfo.type, icon: FileText },
-                    { label: "Duration", value: country.visaInfo.duration, icon: Clock },
-                    { label: "Processing Time", value: country.visaInfo.processingTime, icon: Clock },
-                    { label: "Work Rights", value: country.visaInfo.workRights, icon: Briefcase },
+                    {
+                      label: "Visa Type",
+                      value: country.visaInfo.type,
+                      icon: FileText,
+                    },
+                    {
+                      label: "Duration",
+                      value: country.visaInfo.duration,
+                      icon: Clock,
+                    },
+                    {
+                      label: "Processing Time",
+                      value: country.visaInfo.processingTime,
+                      icon: Clock,
+                    },
+                    {
+                      label: "Work Rights",
+                      value: country.visaInfo.workRights,
+                      icon: Briefcase,
+                    },
                   ].map((item, index) => (
                     <motion.div
                       key={item.label}
@@ -329,8 +367,12 @@ const CountryPage = () => {
                         <item.icon className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground">{item.label}</p>
-                        <p className="font-semibold text-foreground">{item.value}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {item.label}
+                        </p>
+                        <p className="font-semibold text-foreground">
+                          {item.value}
+                        </p>
                       </div>
                     </motion.div>
                   ))}
@@ -354,20 +396,28 @@ const CountryPage = () => {
               Ready to Study in {country.name}?
             </h2>
             <p className="text-lg text-primary-foreground/80 mb-8">
-              Get personalized guidance from our expert counselors and start your journey today.
+              Get personalized guidance from our expert counselors and start
+              your journey today.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8"
                 asChild
               >
                 <a href="#contact">Schedule Free Consultation</a>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-8"
+              <Button
+                size="lg"
+                className="
+    bg-primary-foreground/10
+    text-primary-foreground
+    border border-primary-foreground/30
+    hover:bg-primary-foreground/20
+    hover:border-primary-foreground/50
+    font-semibold
+    px-8
+  "
                 asChild
               >
                 <Link to="/services">Explore Our Services</Link>
