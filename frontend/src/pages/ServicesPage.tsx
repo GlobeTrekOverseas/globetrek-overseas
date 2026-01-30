@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {
@@ -125,9 +126,9 @@ const ServicesPage = () => {
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
-            src={servicesHero} 
-            alt="Our Services" 
+          <img
+            src={servicesHero}
+            alt="Our Services"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background" />
@@ -148,11 +149,13 @@ const ServicesPage = () => {
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold mb-6">
               Comprehensive Support for Your{" "}
-              <span className="text-accent italic">Global Education</span> Journey
+              <span className="text-accent italic">Global Education</span>{" "}
+              Journey
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              From choosing the right course to settling in your dream country, we provide
-              end-to-end assistance at every step of your international education journey.
+              From choosing the right course to settling in your dream country,
+              we provide end-to-end assistance at every step of your
+              international education journey.
             </p>
           </motion.div>
         </div>
@@ -171,16 +174,24 @@ const ServicesPage = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <div className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? "" : ""
-                }`}>
+                <div
+                  className={`grid lg:grid-cols-2 gap-12 items-center ${
+                    index % 2 === 1 ? "" : ""
+                  }`}
+                >
                   {/* Image Section */}
-                  <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                  <div
+                    className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}
+                  >
                     <div className="relative group">
                       {/* Decorative Elements */}
-                      <div className={`absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br ${service.gradient} rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500`} />
-                      <div className={`absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br ${service.gradient} rounded-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
-                      
+                      <div
+                        className={`absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br ${service.gradient} rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
+                      />
+                      <div
+                        className={`absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br ${service.gradient} rounded-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500`}
+                      />
+
                       {/* Main Image */}
                       <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                         <img
@@ -189,11 +200,18 @@ const ServicesPage = () => {
                           className="w-full h-[350px] object-cover transform group-hover:scale-105 transition-transform duration-700"
                         />
                         {/* Gradient Overlay */}
-                        <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-20`} />
-                        
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-20`}
+                        />
+
                         {/* Icon Badge */}
-                        <div className={`absolute top-6 left-6 w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-xl`}>
-                          <service.icon size={32} className="text-primary-foreground" />
+                        <div
+                          className={`absolute top-6 left-6 w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-xl`}
+                        >
+                          <service.icon
+                            size={32}
+                            className="text-primary-foreground"
+                          />
                         </div>
                       </div>
                     </div>
@@ -213,7 +231,7 @@ const ServicesPage = () => {
                       <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                         {service.description}
                       </p>
-                      
+
                       {/* Features Grid */}
                       <div className="grid sm:grid-cols-2 gap-3 mb-8">
                         {service.features.map((feature, idx) => (
@@ -225,19 +243,26 @@ const ServicesPage = () => {
                             transition={{ delay: idx * 0.1 }}
                             className="flex items-center gap-3 bg-muted/50 rounded-xl px-4 py-3"
                           >
-                            <CheckCircle2 size={18} className="text-accent flex-shrink-0" />
-                            <span className="text-sm text-foreground">{feature}</span>
+                            <CheckCircle2
+                              size={18}
+                              className="text-accent flex-shrink-0"
+                            />
+                            <span className="text-sm text-foreground">
+                              {feature}
+                            </span>
                           </motion.div>
                         ))}
                       </div>
-                      
-                      <a
-                        href={service.link || "/#contact"}
+                      <Link
+                        to={service.link}
                         className="btn-accent inline-flex items-center gap-2 group"
                       >
                         Get Started
-                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                      </a>
+                        <ArrowRight
+                          size={18}
+                          className="group-hover:translate-x-1 transition-transform"
+                        />
+                      </Link>
                     </motion.div>
                   </div>
                 </div>
@@ -270,17 +295,18 @@ const ServicesPage = () => {
               Ready to Start Your Journey?
             </h2>
             <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed">
-              Get in touch with our expert counselors today and take the first step towards
-              your international education dream.
+              Get in touch with our expert counselors today and take the first
+              step towards your international education dream.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/#contact"
+              <Link
+                to="/#contact"
                 className="px-8 py-4 bg-accent text-accent-foreground rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 shadow-lg inline-flex items-center justify-center gap-2"
               >
                 Book Free Consultation
                 <ArrowRight size={18} />
-              </a>
+              </Link>
+
               <a
                 href="tel:+91 93113 31899"
                 className="px-8 py-4 bg-primary-foreground/10 text-primary-foreground rounded-full font-semibold hover:bg-primary-foreground/20 transition-all duration-300 border border-primary-foreground/20 inline-flex items-center justify-center"
