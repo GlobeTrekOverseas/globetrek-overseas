@@ -37,7 +37,7 @@ const services = [
     ],
     gradient: "from-accent to-accent/60",
     image: serviceCounseling,
-    link: "/academic-counseling",
+    link: "/career-counseling", //wrong route path ;#fixed >>
   },
   {
     icon: Building2,
@@ -253,6 +253,7 @@ const ServicesPage = () => {
                           </motion.div>
                         ))}
                       </div>
+                      {/*href reloads the page. Link changes the URL without reloading. */}
                       <Link
                         to={service.link}
                         className="btn-accent inline-flex items-center gap-2 group"
