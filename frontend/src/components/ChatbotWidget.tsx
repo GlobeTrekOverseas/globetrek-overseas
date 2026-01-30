@@ -22,15 +22,18 @@ const ChatbotWidget = () => {
   const [isSending, setIsSending] = useState(false);
   const [isStartingChat, setIsStartingChat] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const hasOpenedBefore = sessionStorage.getItem("globot_auto_opened");
+  const [showPopup, setShowPopup] = useState(false);
 
-    if (!hasOpenedBefore) {
-      const timer = setTimeout(async () => {
-        await initializeSession();
-        setIsOpen(true);
-        sessionStorage.setItem("globot_auto_opened", "true");
-      }, 5000); // ⏱ 5 seconds
+  useEffect(() => {
+    const hasSeenPopup = sessionStorage.getItem("globot_popup_seen");
+
+    if (!hasSeenPopup) {
+      setShowPopup(true);
+
+      const timer = setTimeout(() => {
+        setShowPopup(false);
+        sessionStorage.setItem("globot_popup_seen", "true");
+      }, 10000); // popup visible for 10s
 
       return () => clearTimeout(timer);
     }
@@ -107,6 +110,35 @@ const ChatbotWidget = () => {
 
   return (
     <>
+      <AnimatePresence>
+        {showPopup && !isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="
+        fixed z-50
+        bottom-20 right-4 md:bottom-28 md:right-6
+        bg-card border shadow-lg
+        px-4 py-2 rounded-xl
+        text-sm max-w-[220px]
+      "
+          >
+            🚀 Planning to study abroad? Let’s get started.
+            {/* Arrow */}
+            <div
+              className="
+          absolute bottom-[-6px] right-6
+          w-3 h-3 bg-card
+          border-r border-b
+          rotate-45
+        "
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Floating Button */}
       <motion.button
         onClick={toggleChat}
