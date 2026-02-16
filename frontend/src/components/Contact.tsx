@@ -225,11 +225,40 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-heading font-bold mb-2">{info.title}</h4>
-                  {info.details.map((detail, i) => (
-                    <p key={i} className="text-muted-foreground">
-                      {detail}
-                    </p>
-                  ))}
+                  {info.details.map((detail, i) => {
+                    // Phone clickable
+                    if (info.title === "Call Us") {
+                      return (
+                        <a
+                          key={i}
+                          href={`tel:${detail.replace(/\s+/g, "")}`}
+                          className="block text-muted-foreground hover:text-accent transition-colors"
+                        >
+                          {detail}
+                        </a>
+                      );
+                    }
+
+                    // Email clickable
+                    if (info.title === "Email Us") {
+                      return (
+                        <a
+                          key={i}
+                          href={`mailto:${detail}`}
+                          className="block text-muted-foreground hover:text-accent transition-colors"
+                        >
+                          {detail}
+                        </a>
+                      );
+                    }
+
+                    // Default text
+                    return (
+                      <p key={i} className="text-muted-foreground">
+                        {detail}
+                      </p>
+                    );
+                  })}
                 </div>
               </motion.div>
             ))}
