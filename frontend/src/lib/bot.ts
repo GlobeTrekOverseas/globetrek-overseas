@@ -63,3 +63,12 @@ export const sendConsultationMail = async (payload: {
   const { data } = await mailAxios.post("/consultation", payload);
   return data;
 };
+
+//blogs
+export const blogAxios = axios.create({
+  baseURL: `${API_BASE_URL}/api/blogs`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+  timeout: 15000,
+});

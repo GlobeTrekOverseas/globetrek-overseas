@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -50,10 +50,26 @@
     --globe-gray-dark: 215 20% 65%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(215 50% 23%) 0%, hsl(210 45% 35%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(145 55% 36%) 0%, hsl(145 50% 45%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(215 50% 23%) 0%,
+      hsl(210 45% 35%) 100%
+    );
+    --gradient-accent: linear-gradient(
+      135deg,
+      hsl(145 55% 36%) 0%,
+      hsl(145 50% 45%) 100%
+    );
+    --gradient-hero: linear-gradient(
+      180deg,
+      hsl(0 0% 100%) 0%,
+      hsl(210 40% 98%) 100%
+    );
+    --gradient-card: linear-gradient(
+      180deg,
+      hsl(0 0% 100%) 0%,
+      hsl(210 20% 98%) 100%
+    );
 
     /* Shadows */
     --shadow-sm: 0 2px 8px -2px hsl(215 50% 23% / 0.08);
@@ -120,7 +136,12 @@
     @apply bg-background text-foreground font-body antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading font-bold tracking-tight;
   }
 }
@@ -197,7 +218,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -206,7 +228,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
   }
   50% {
@@ -231,4 +254,42 @@
 
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
+}
+/* Blog Content Styling */
+
+.blog-content h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.blog-content h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.blog-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: #1e293b;
+}
+
+.blog-content p {
+  margin-bottom: 16px;
+}
+
+.blog-content ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.blog-content li {
+  margin-bottom: 8px;
 }

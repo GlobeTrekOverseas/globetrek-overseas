@@ -1,7 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Phone, Mail, MapPin, Sparkles, CalendarCheck } from "lucide-react";
+import {
+  Menu,
+  X,
+  Phone,
+  Mail,
+  MapPin,
+  Sparkles,
+  CalendarCheck,
+} from "lucide-react";
 import logo from "@/assets/logo.png";
 
 // Create motion-enabled Link component
@@ -17,6 +25,7 @@ const navLinks = [
   { name: "Services", href: "/services", isHash: false },
   { name: "Power Batches", href: "/power-batches", isHash: false },
   { name: "Countries", href: "/#countries", isHash: true },
+  { name: "Blogs", href: "/blog-live" },
   { name: "Contact", href: "/#contact", isHash: true },
 ];
 
@@ -28,12 +37,15 @@ const Navbar = ({ onOpenConsultation }: NavbarProps) => {
 
   const handleNavClick = (href: string, isHash: boolean) => {
     if (isHash) {
-      const [path, hash] = href.split('#');
-      if (location.pathname === path || (path === '/' && location.pathname === '/')) {
+      const [path, hash] = href.split("#");
+      if (
+        location.pathname === path ||
+        (path === "/" && location.pathname === "/")
+      ) {
         // Same page, just scroll to hash
         const element = document.getElementById(hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: "smooth" });
         }
       } else {
         // Different page, navigate then scroll
