@@ -18,7 +18,8 @@ import IELTSPage from "./pages/IELTSPage";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import TermsAndConditions from "./pages/TermsAndConditions";
-
+import BlogLive from "./pages/BlogListingLive";
+import BlogPost from "./pages/BlogPost";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/visa-assistance" element={<VisaAssistancePage />} />
           <Route path="/scholarships" element={<ScholarshipsPage />} />
           <Route path="/pre-departure" element={<PreDeparturePage />} />
+          <Route path="/blog-live" element={<BlogLive />} />
           <Route
             path="/career-counseling"
             element={<AcademicCounselingPage />}
@@ -49,7 +51,7 @@ const App = () => (
             path="/terms-and-conditions"
             element={<TermsAndConditions />}
           />
-
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/channel-partner" element={<ChannelPartnerPage />} />
           {/* Country pages */}
           <Route path="/country/:countrySlug" element={<CountryPage />} />

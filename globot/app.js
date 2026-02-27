@@ -8,7 +8,10 @@ import consultationRoutes from "./modules/consultation/consultation.routes.js";
 // import { MongoClient, ServerApiVersion } from "mongodb";
 import mongoose from "mongoose";
 import "dotenv/config";
-
+import blogsRoutes from "./modules/blogs/blogs.routes.js";
+import categoryRoutes from "./modules/categories/category.routes.js";
+import countryRoutes from "./modules/countries/country.routes.js";
+import sitemapRoutes from "./modules/seo/sitemap.routes.js";
 const app = express();
 
 const allowedOrigins = [
@@ -73,6 +76,15 @@ app.use("/api/student", studentRoutes);
 app.use("/api/mail", mailRoutes);
 
 app.use("/api/consultation", consultationRoutes);
+
+app.use("/api/blogs", blogsRoutes);
+
+app.use("/api/categories", categoryRoutes);
+
+app.use("/api/countries", countryRoutes);
+
+//sitemap for xml
+app.use("/api", sitemapRoutes);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
