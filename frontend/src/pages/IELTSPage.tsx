@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import {
   Headphones,
   BookOpen,
@@ -24,13 +25,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import IELTSTabs from "@/components/ielts/IELTSTabs";
-
+import brochure from "../assets/brochure .pdf";
 import ieltsHero from "@/assets/ielts-hero.jpg";
 import ieltsListening from "@/assets/ielts-listening.jpg";
 import ieltsReading from "@/assets/ielts-reading.jpg";
 import ieltsWriting from "@/assets/ielts-writing.jpg";
 import ieltsSpeaking from "@/assets/ielts-speaking.jpg";
-
+import IELTSEnrollModal from "@/components/IELTSEnrollModal";
 const modules = [
   {
     title: "Listening",
@@ -228,6 +229,7 @@ const additionalInclusions = [
 ];
 
 const IELTSPage = () => {
+  const [openEnroll, setOpenEnroll] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -269,31 +271,27 @@ const IELTSPage = () => {
             <div className="flex flex-wrap gap-4">
               <Button
                 size="lg"
+                onClick={() => setOpenEnroll(true)}
                 className="min-w-[180px] bg-white text-primary hover:bg-white/90"
               >
                 Enroll Now
               </Button>
 
-              <Button
-                size="lg"
-                className="min-w-[180px] bg-white/10 text-white border border-white/40 backdrop-blur hover:bg-white/20"
-              >
-                Book a Test
-              </Button>
-
-              <Button
-                size="lg"
-                className="min-w-[180px] bg-white/10 text-white border border-white/40 backdrop-blur hover:bg-white/20"
-              >
-                View Brochure
-              </Button>
+              <a href={brochure} download>
+                <Button
+                  size="lg"
+                  className="min-w-[180px] bg-white/10 text-white border border-white/40 backdrop-blur hover:bg-white/20"
+                >
+                  Download Brochure
+                </Button>
+              </a>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Quick Links */}
-      <section className="py-12 bg-muted/30">
+      {/* <section className="py-12 bg-muted/30">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -343,7 +341,7 @@ const IELTSPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* IELTS Tabs Section */}
       <IELTSTabs />
@@ -730,7 +728,10 @@ const IELTSPage = () => {
           </motion.div>
         </div>
       </section>
-
+      <IELTSEnrollModal
+        open={openEnroll}
+        onClose={() => setOpenEnroll(false)}
+      />
       <Footer />
     </div>
   );
