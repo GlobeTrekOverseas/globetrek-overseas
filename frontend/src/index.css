@@ -70,7 +70,11 @@
       hsl(0 0% 100%) 0%,
       hsl(210 20% 98%) 100%
     );
-
+    .form-input {
+      @apply w-full px-4 py-3 rounded-xl border border-input bg-background
+  focus:outline-none focus:ring-2 focus:ring-accent
+  transition-all duration-200;
+    }
     /* Shadows */
     --shadow-sm: 0 2px 8px -2px hsl(215 50% 23% / 0.08);
     --shadow-md: 0 8px 24px -8px hsl(215 50% 23% / 0.12);
