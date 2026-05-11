@@ -1,5 +1,5 @@
 import express from "express";
-import { submitConsultation } from "./mail.controller.js";
+import { submitConsultation, submitIELTSEnrollment } from "./mail.controller.js";
 
 const router = express.Router();
 

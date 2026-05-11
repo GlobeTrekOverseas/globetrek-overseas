@@ -1,4 +1,4 @@
-import { sendConsultationMail } from "./mail.service.js";
+import { sendConsultationMail, sendIELTSEnrollmentMail } from "./mail.service.js";
 
 export const submitConsultation = async (req, res) => {
   try {
