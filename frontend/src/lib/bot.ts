@@ -72,3 +72,16 @@ export const blogAxios = axios.create({
   },
   timeout: 15000,
 });
+
+export const sendIELTSEnrollmentMail = async (payload: {
+  name: string;
+  dob: string;
+  gender: string;
+  nationality: string;
+  email: string;
+  phone: string;
+}) => {
+  const { data } = await mailAxios.post("/ielts-enrollment", payload);
+
+  return data;
+};

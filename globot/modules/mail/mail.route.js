@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.post("/consultation", submitConsultation);
 
+router.post("/ielts-enrollment", submitIELTSEnrollment);
+
 export default router;

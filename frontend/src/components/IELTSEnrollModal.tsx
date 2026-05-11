@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { X } from "lucide-react";
 import qrcode from "../assets/qrcode.jpeg";
+import { sendIELTSEnrollmentMail } from "@/lib/bot";
 type Props = {
   open: boolean;
   onClose: () => void;
@@ -46,6 +47,27 @@ export default function IELTSEnrollModal({ open, onClose }: Props) {
 
     onClose();
   };
+
+  const handlePersonalSubmit = async () => {
+  try {
+    const payload = {
+      name: form.name,
+      dob: form.dob,
+      gender: form.gender,
+      nationality: form.nationality,
+      email: form.email,
+      phone: form.phone,
+    };
+
+    await sendIELTSEnrollmentMail(payload);
+
+    setStep(2);
+  } catch (error) {
+    console.error(error);
+
+    alert("Failed to send enrollment details");
+  }
+};
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur overflow-y-auto p-4">
@@ -128,7 +150,7 @@ export default function IELTSEnrollModal({ open, onClose }: Props) {
             />
 
             <button
-              onClick={() => setStep(2)}
+              onClick={handlePersonalSubmit}
               className="btn-accent col-span-2 mt-3"
             >
               Next

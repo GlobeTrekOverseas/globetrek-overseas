@@ -40,3 +40,41 @@ export const submitConsultation = async (req, res) => {
     });
   }
 };
+
+export const submitIELTSEnrollment = async (req, res) => {
+  try {
+    const data = req.body;
+
+    const requiredFields = [
+      "name",
+      "dob",
+      "gender",
+      "nationality",
+      "email",
+      "phone",
+    ];
+
+    for (const field of requiredFields) {
+      if (!data[field]) {
+        return res.status(400).json({
+          success: false,
+          message: `${field} is required`,
+        });
+      }
+    }
+
+    await sendIELTSEnrollmentMail(data);
+
+    return res.status(200).json({
+      success: true,
+      message: "IELTS enrollment submitted successfully",
+    });
+  } catch (error) {
+    console.error("IELTS Mail error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Failed to submit IELTS enrollment",
+    });
+  }
+};
