@@ -7,7 +7,7 @@ const testimonials = [
     role: "MS in Computer Science",
     university: "Geneva School of Diplomacy",
     country: "Switzerland",
-    image: "PS",
+    image: "AR",
     content:
       "Globetrek helped me find the perfect international relations program in Switzerland and supported me from application to accommodation. I’m now studying in one of the world’s top diplomatic hubs!",
     rating: 5,
@@ -18,7 +18,7 @@ const testimonials = [
     role: "MBA Graduate",
     university: "University of Portsmouth",
     country: "UK",
-    image: "RM",
+    image: "KM",
     content:
       "Coming from a technical background, I wanted a fast-track top-up program in the UK. Globetrek guided me to the perfect fit at Portsmouth London campus. I had an offer within 10 days, and my visa was approved in under 3 weeks.",
     rating: 5,
@@ -29,7 +29,7 @@ const testimonials = [
     role: "Bachelor's in Medicine",
     university: "Seneca College",
     country: "Canada",
-    image: "AP",
+    image: "SK",
     content:
       "Globetrek supported me from course selection to SOPs and GIC funding with complete honesty and clear communication. Thanks to them, I’m now happily pursuing a business diploma in Toronto.",
     rating: 5,
@@ -40,7 +40,7 @@ const testimonials = [
     role: "Masters in Data Science",
     university: "Deakin University",
     country: "Australia",
-    image: "VS",
+    image: "AP",
     content:
       "After multiple refusals, Globetrek helped rebuild my profile and guided me to the right course. I secured admission along with a partial scholarship! Their team made the process simple and stress-free.",
     rating: 5,
