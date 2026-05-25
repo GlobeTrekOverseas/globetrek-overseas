@@ -101,7 +101,7 @@ const Navbar = ({ onOpenConsultation }: NavbarProps) => {
               <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center">
                 <MapPin size={12} />
               </div>
-              <span>Sector 135, Noida, Uttar Pradesh</span>
+              <span>Sector 90, Noida, Uttar Pradesh</span>
             </div>
           </div>
           <motion.div
