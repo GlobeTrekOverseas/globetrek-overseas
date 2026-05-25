@@ -15,8 +15,7 @@ const contactInfo = [
     icon: MapPin,
     title: "Visit Us",
     details: [
-      `Tower 4 - 1210 Asshotech business cresterra,
-      Sector 135 Noida, Uttar Pradesh 201304`,
+      `1203, Tower C, Bhutani Alphanthum, Sector 90, Noida,Uttar Pradesh 201304,`,
     ],
   },
   {
