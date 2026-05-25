@@ -15,8 +15,7 @@ const contactInfo = [
     icon: MapPin,
     title: "Visit Us",
     details: [
-      `1203, Tower C, Bhutani Alphanthum, Sector 90, Noida,Uttar Pradesh 201304`
-      `Bypass, Rawalpora Colony, Hyderpora, Srinagar, Jammu and Kashmir 190014`,
+      `1203, Tower C, Bhutani Alphanthum, Sector 90, Noida,Uttar Pradesh 201304`,
     
     ],
   },
