@@ -19,6 +19,14 @@ const contactInfo = [
     "Bypass, Rawalpora Colony, Hyderpora, Srinagar, Jammu and Kashmir 190014",
   ],
 },
+ {
+  icon: MapPin,
+  title: "Visit Us",
+  details: [
+    "Bypass, Rawalpora Colony, Hyderpora, Srinagar, Jammu and Kashmir 190014",
+  ],
+},
+
   {
     icon: Phone,
     title: "Call Us",
