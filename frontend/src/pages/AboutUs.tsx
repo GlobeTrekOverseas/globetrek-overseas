@@ -96,38 +96,7 @@ const services = [
   },
 ];
 
-const teamMembers = [
-  {
-    name: "Ishita Gulati",
-    role: "Director",
-    description: "Ishita founded GlobeTrek Overseas to guide Indian students toward world-class global education opportunities with care and expertise.",
-    image: teamCeo,
-  },
-  {
-    name: "Barun Gulati",
-    role: "CO-Founder",
-    description: "Co-founder at Globetrek Overseas, architecting a new global education infrastructure that makes studying abroad seamless, scalable, and truly transformative.",
-    image: teamCounseling,
-  },
-  {
-    name: "Suhani Gulati",
-    role: "Director and founder ",
-    description: "A postgraduate in English and PhD scholar, Suhani combines academic excellence with a passion for mentoring students toward holistic growth and global exposure.",
-    image: teamVisa,
-  },
-  {
-    name: "Aditya Sharma",
-    role: "Business Development Manager",
-    description: "Aditya Sharma spearheads strategic growth and high-value partnerships, transforming opportunities into sustainable, long-term success.",
-    image: teamPartnership,
-  },
-  {
-    name: "Nidamanuri Chandana",
-    role: "IT Head",
-    description: "Drives streamlined, dependable IT solutions across the organization.Ensures systems are scalable, secure, and built to support rapid growth.",
-    image: teamitHead,
-  },
-];
+
 
 const partnerCountries = [
   { name: "UK", universities: "100+" },
@@ -545,83 +514,6 @@ const AboutUs = () => {
             </div>
           </motion.div>
 
-          {/* Individual Team Members - 5 cards with proper layout */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.slice(0, 3).map((member, index) => (
-              <motion.div
-                key={member.name}
-                className="group bg-background rounded-2xl overflow-hidden border border-border shadow-elegant"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className={cn(
-                      "w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500",
-                      index === 0 && "object-[center_-80px]",
-                    )}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-heading font-bold">
-                    {member.name}
-                  </h3>
-                  <p className="text-accent text-sm font-medium mb-2">
-                    {member.role}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {member.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Second row with 2 cards centered */}
-          <div className="grid sm:grid-cols-2 gap-8 mt-8 max-w-2xl mx-auto">
-            {teamMembers.slice(3).map((member, index) => (
-              <motion.div
-                key={member.name}
-                className="group bg-background rounded-2xl overflow-hidden border border-border shadow-elegant"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (index + 3) * 0.1 }}
-                whileHover={{ y: -8 }}
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className={cn(
-                      "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500",
-                      index === 1 && "object-[center_0px]",
-                    )}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-heading font-bold">
-                    {member.name}
-                  </h3>
-                  <p className="text-accent text-sm font-medium mb-2">
-                    {member.role}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {member.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Global Partnerships Section */}
       <section className="section-padding bg-background">
