@@ -508,6 +508,8 @@ const AboutUs = () => {
               </p>
             </div>
           </motion.div>
+        </div>
+      </section>
 
 
       {/* Global Partnerships Section */}
