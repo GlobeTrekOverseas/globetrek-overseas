@@ -132,7 +132,10 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-background via-background to-primary/5 border-primary/20">
+      <DialogContent
+        // Don't focus the first field on open: on phones that pops up the keyboard over the page.
+        onOpenAutoFocus={(e) => e.preventDefault()}
+        className="w-[calc(100%-2rem)] outline-none max-w-2xl max-h-[60dvh] sm:max-h-[90vh] overflow-y-auto rounded-2xl p-4 sm:p-6 gap-2 sm:gap-4 bg-gradient-to-br from-background via-background to-primary/5 border-primary/20">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary/20 to-transparent rounded-full blur-2xl" />
@@ -141,11 +144,11 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            className="mx-auto mb-2 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center"
+            className="mx-auto mb-2 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent hidden sm:flex items-center justify-center"
           >
             <GraduationCap className="w-8 h-8 text-white" />
           </motion.div>
-          <DialogTitle className="text-center text-2xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+          <DialogTitle className="text-center text-xl sm:text-2xl font-bold pr-6 sm:pr-0 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
             Free Career Consultation
           </DialogTitle>
           <p className="text-center text-muted-foreground text-sm">
@@ -153,9 +156,9 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
           </p>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4 relative z-10 mt-4">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 relative z-10 mt-2 sm:mt-4">
           {/* Row 1: Name & Email */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             <div className="space-y-2">
               <Label htmlFor="fullName" className="text-sm font-medium">
                 Full Name <span className="text-destructive">*</span>
@@ -190,7 +193,7 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
           </div>
 
           {/* Row 2: Contact & Destination */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             <div className="space-y-2">
               <Label htmlFor="contact" className="text-sm font-medium">
                 Contact Number <span className="text-destructive">*</span>
@@ -234,7 +237,7 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
           </div>
 
           {/* Row 3: Timeline & Counselling Mode */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             <div className="space-y-2">
               <Label className="text-sm font-medium">
                 When would you like to start?{" "}
@@ -286,7 +289,7 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
           </div>
 
           {/* Row 4: Study Level & Course */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             <div className="space-y-2">
               <Label className="text-sm font-medium">
                 Preferred Study Level{" "}
@@ -364,7 +367,7 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
           </div>
 
           {/* Terms Checkbox */}
-          <div className="flex items-start space-x-3 p-4 bg-primary/5 rounded-lg border border-primary/10">
+          <div className="flex items-start space-x-3 p-3 sm:p-4 bg-primary/5 rounded-lg border border-primary/10">
             <Checkbox
               id="terms"
               checked={formData.agreeTerms}
@@ -393,7 +396,7 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-accent to-globe-green-light hover:from-accent/90 hover:to-globe-green-light/90 text-white font-semibold py-6 rounded-xl shadow-lg"
+              className="w-full bg-gradient-to-r from-accent to-globe-green-light hover:from-accent/90 hover:to-globe-green-light/90 text-white font-semibold py-5 sm:py-6 rounded-xl shadow-lg"
             >
               <Sparkles className="w-5 h-5 mr-2" />
               Book Your Free Consultation

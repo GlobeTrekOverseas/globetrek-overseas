@@ -14,7 +14,28 @@ import { useEffect, useState } from "react";
 
 const Index = () => {
   const location = useLocation();
-  const [isConsultationOpen, setIsConsultationOpen] = useState(true);
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+
+  // Show the consultation popup once per visit, a few seconds after landing,
+  // so visitors see the page first. Skip it when they arrived on a section
+  // link such as /#contact.
+  useEffect(() => {
+    if (window.location.hash) return;
+    try {
+      if (sessionStorage.getItem("consultation_popup_seen")) return;
+    } catch {
+      /* storage unavailable: still show the popup */
+    }
+    const timer = setTimeout(() => {
+      setIsConsultationOpen(true);
+      try {
+        sessionStorage.setItem("consultation_popup_seen", "1");
+      } catch {
+        /* ignore */
+      }
+    }, 3500);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (location.hash) {
