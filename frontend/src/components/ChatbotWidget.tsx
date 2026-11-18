@@ -4,9 +4,9 @@ import { X, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import chatbotIcon from "@/assets/chatbot-icon.png";
-import userIcon from "@/assets/user-icon.png"; // ADD A SIMPLE USER ICON
-import { startChat, sendBotMessage } from "@/lib/bot";
-import favicon from "@/assets/favicon.png";
+import userIcon from "@/assets/user-icon.webp"; // ADD A SIMPLE USER ICON
+// API client (axios) is loaded on demand so it is not part of the initial page download.
+import favicon from "@/assets/favicon.webp";
 
 interface Message {
   id: number;
@@ -50,12 +50,20 @@ const ChatbotWidget = () => {
 
     setIsStartingChat(true);
     try {
-      const res = await startChat();
+      const res = await (await import("@/lib/bot")).startChat();
       setSessionId(res.sessionId);
       setMessages([
         {
           id: Date.now(),
           text: "Hi 👋 I’m GlobeGuide. What’s your name?",
+          sender: "bot",
+        },
+      ]);
+    } catch {
+      setMessages([
+        {
+          id: Date.now(),
+          text: "Sorry, the assistant is unavailable right now. Please call +91 93113 31899 or use the contact form.",
           sender: "bot",
         },
       ]);
@@ -89,7 +97,7 @@ const ChatbotWidget = () => {
     setIsSending(true);
 
     try {
-      const res = await sendBotMessage(sessionId, text);
+      const res = await (await import("@/lib/bot")).sendBotMessage(sessionId, text);
       setMessages((prev) => [
         ...prev,
         { id: Date.now() + 1, text: res.reply, sender: "bot" },
@@ -142,6 +150,8 @@ const ChatbotWidget = () => {
       {/* Floating Button */}
       <motion.button
         onClick={toggleChat}
+        aria-label={isOpen ? "Close chat assistant" : "Open chat assistant"}
+        aria-expanded={isOpen}
         className="
           fixed z-50 bg-primary shadow-lg rounded-full
           flex items-center justify-center
@@ -153,7 +163,7 @@ const ChatbotWidget = () => {
         {isOpen ? (
           <X className="text-primary-foreground w-6 h-6" />
         ) : (
-          <img src={chatbotIcon} className="w-10 h-10" />
+          <img src={chatbotIcon} alt="Chat with us" width={40} height={40} className="w-10 h-10" />
         )}
       </motion.button>
 
@@ -172,7 +182,7 @@ const ChatbotWidget = () => {
           >
             {/* Header */}
             <div className="bg-primary px-4 py-3 flex items-center gap-3">
-              <img src={chatbotIcon} className="w-8 h-8" />
+              <img loading="lazy" decoding="async" src={chatbotIcon} alt="" className="w-8 h-8" />
               <div className="flex-1">
                 <p className="text-primary-foreground font-semibold">
                   GlobeTrek Assistant
@@ -181,7 +191,7 @@ const ChatbotWidget = () => {
                   Online • Ready to help
                 </p>
               </div>
-              <button onClick={() => setIsOpen(false)}>
+              <button onClick={() => setIsOpen(false)} aria-label="Close chat">
                 <X className="text-primary-foreground w-5 h-5" />
               </button>
             </div>
@@ -190,8 +200,9 @@ const ChatbotWidget = () => {
             <div className="relative flex-1 overflow-y-auto p-4 space-y-4 bg-muted/30">
               {/* watermark */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <img
+                <img loading="lazy" decoding="async"
                   src={favicon}
+                  alt=""
                   className="w-48 opacity-[0.04] hidden md:block"
                 />
               </div>
@@ -204,7 +215,7 @@ const ChatbotWidget = () => {
                   }`}
                 >
                   {m.sender === "bot" && (
-                    <img src={chatbotIcon} className="w-7 h-7 mt-1" />
+                    <img loading="lazy" decoding="async" src={chatbotIcon} alt="" className="w-7 h-7 mt-1" />
                   )}
 
                   <div
@@ -218,7 +229,7 @@ const ChatbotWidget = () => {
                   </div>
 
                   {m.sender === "user" && (
-                    <img src={userIcon} className="w-7 h-7 mt-1" />
+                    <img loading="lazy" decoding="async" src={userIcon} alt="" className="w-7 h-7 mt-1" />
                   )}
                 </div>
               ))}
@@ -226,7 +237,7 @@ const ChatbotWidget = () => {
               {/* Typing Indicator */}
               {isSending && (
                 <div className="flex gap-2 items-center">
-                  <img src={chatbotIcon} className="w-7 h-7" />
+                  <img loading="lazy" decoding="async" src={chatbotIcon} alt="" className="w-7 h-7" />
                   <div className="flex gap-1 bg-card px-4 py-2 rounded-2xl border">
                     <span className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" />
                     <span className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce delay-150" />
@@ -242,12 +253,13 @@ const ChatbotWidget = () => {
             <div className="sticky bottom-0 p-4 bg-card border-t">
               <div className="flex gap-2">
                 <Input
+                  aria-label="Type your message"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Type your message..."
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
                 />
-                <Button onClick={handleSend} disabled={isSending}>
+                <Button onClick={handleSend} disabled={isSending} aria-label="Send message">
                   {isSending ? (
                     <Loader2 className="animate-spin w-4 h-4" />
                   ) : (

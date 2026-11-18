@@ -217,7 +217,7 @@ export default function IELTSEnrollModal({ open, onClose }: Props) {
               <p className="text-sm text-muted-foreground mb-4">
                 Scan the QR code below to complete payment
               </p>
-              <img
+              <img loading="lazy" decoding="async"
                 src={qrcode}
                 alt="UPI QR"
                 className="w-44 mx-auto mb-6 border rounded-lg"

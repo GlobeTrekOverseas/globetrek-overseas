@@ -1,9 +1,9 @@
-import london from "@/assets/London.jpeg";
-import usa from "@/assets/usa.jpeg";
-import aus from "@/assets/aus.jpeg";
-import swiz from "@/assets/swiz.jpeg";
-import germany from "@/assets/germany.jpeg";
-import eur from "@/assets/eur.jpeg";
+import london from "@/assets/London.webp";
+import usa from "@/assets/usa.webp";
+import aus from "@/assets/aus.webp";
+import swiz from "@/assets/swiz.webp";
+import germany from "@/assets/germany.webp";
+import eur from "@/assets/eur.webp";
 export interface CountryData {
   slug: string;
   name: string;

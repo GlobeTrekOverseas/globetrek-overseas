@@ -151,7 +151,7 @@ const PowerBatches = () => {
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
+          <img decoding="async" 
             src={powerBatchesHero} 
             alt="Power Batches" 
             className="w-full h-full object-cover"
@@ -259,7 +259,7 @@ const PowerBatches = () => {
                       
                       {/* Main image container */}
                       <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                        <img 
+                        <img loading="lazy" decoding="async" 
                           src={batch.image} 
                           alt={batch.name}
                           className="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700"
@@ -518,7 +518,7 @@ const PowerBatches = () => {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a 
-                href="tel:+91 93113 31899"
+                href="tel:+919311331899"
                 className="px-8 py-4 bg-primary-foreground/10 text-primary-foreground rounded-full font-semibold hover:bg-primary-foreground/20 transition-all duration-300 border border-primary-foreground/20 inline-flex items-center justify-center"
               >
                 Call:+91 93113 31899

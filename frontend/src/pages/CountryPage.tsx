@@ -34,7 +34,7 @@ const CountryPage = () => {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img
+          <img decoding="async"
             src={country.heroImage}
             alt={`Study in ${country.name}`}
             className="w-full h-full object-cover"
@@ -80,7 +80,7 @@ const CountryPage = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8"
               asChild
             >
-              <a href="#contact">Get Free Counseling</a>
+              <Link to="/#contact">Get Free Counseling</Link>
             </Button>
           </motion.div>
         </div>
@@ -405,7 +405,7 @@ const CountryPage = () => {
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8"
                 asChild
               >
-                <a href="#contact">Schedule Free Consultation</a>
+                <Link to="/#contact">Schedule Free Consultation</Link>
               </Button>
               <Button
                 size="lg"

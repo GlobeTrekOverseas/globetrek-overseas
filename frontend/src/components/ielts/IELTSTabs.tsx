@@ -297,7 +297,7 @@ const IELTSTabs = () => {
             >
               {/* Tab Header with Image */}
               <div className="relative h-48 md:h-64 bg-gradient-to-r from-primary to-accent">
-                <img
+                <img loading="lazy" decoding="async"
                   src={ieltsHero}
                   alt={activeTabData?.label}
                   className="w-full h-full object-cover mix-blend-overlay opacity-30"

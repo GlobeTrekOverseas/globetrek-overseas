@@ -10,10 +10,10 @@ import student1 from "@/assets/student-1.jpg";
 import student2 from "@/assets/student-2.jpg";
 import student3 from "@/assets/student-3.jpg";
 import partnerships from "@/assets/partnerships.jpg";
-import universityPartnersNew from "@/assets/university-partners-new.png";
+import universityPartnersNew from "@/assets/university-partners-new.webp";
 import globalNetwork from "@/assets/global-network.jpg";
 import studentSuccess from "@/assets/student-success.jpg";
-import companyEventsCollage from "@/assets/company-events-collage.png";
+import companyEventsCollage from "@/assets/company-events-collage.webp";
 import { cn } from "@/lib/utils";
 
 const stats = [
@@ -173,7 +173,7 @@ const AboutUs = () => {
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img
+          <img decoding="async"
             src={aboutHero}
             alt="Students celebrating graduation"
             className="w-full h-full object-cover"
@@ -318,7 +318,7 @@ const AboutUs = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="relative rounded-2xl overflow-hidden shadow-elegant">
-                <img
+                <img loading="lazy" decoding="async"
                   src={aboutTeam}
                   alt="GlobeTrek Team"
                   className="w-full h-auto"
@@ -493,7 +493,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <img
+            <img loading="lazy" decoding="async"
               src={teamPhoto}
               alt="GlobeTrek Professional Team"
               className="w-full h-[400px] object-cover"
@@ -542,7 +542,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <img
+            <img loading="lazy" decoding="async"
               src={globalNetwork}
               alt="Global Education Network"
               className="w-full h-[400px] object-cover"
@@ -578,7 +578,7 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <img
+              <img loading="lazy" decoding="async"
                 src={universityPartnersNew}
                 alt="Partner Universities"
                 className="w-full h-auto"
@@ -630,7 +630,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <img
+            <img loading="lazy" decoding="async"
               src={partnerships}
               alt="Partnership Meeting"
               className="w-full h-[350px] object-cover object-[center_-50px]"
@@ -679,7 +679,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <img
+            <img loading="lazy" decoding="async"
               src={companyEventsCollage}
               alt="GlobeTrek Company Events and Celebrations"
               className="w-full h-auto"
@@ -718,7 +718,7 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <img
+              <img loading="lazy" decoding="async"
                 src={studentSuccess}
                 alt="Successful Students"
                 className="w-full h-auto"
@@ -758,7 +758,7 @@ const AboutUs = () => {
                   <Quote className="absolute top-4 right-4 w-8 h-8 text-accent/20" />
                   <div className="flex items-start gap-4">
                     <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-accent">
-                      <img
+                      <img loading="lazy" decoding="async"
                         src={testimonial.image}
                         alt={testimonial.name}
                         className="w-full h-full object-cover"

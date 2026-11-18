@@ -9,7 +9,7 @@ import {
   MessageCircle,
   ArrowRight,
 } from "lucide-react";
-import { sendConsultationMail } from "@/lib/bot";
+// API client (axios) is loaded on demand so it is not part of the initial page download.
 const contactInfo = [
  {
   icon: MapPin,
@@ -68,7 +68,7 @@ const Contact = () => {
       funding: "Not specified",
     };
 
-    await sendConsultationMail(payload);
+    await (await import("@/lib/bot")).sendConsultationMail(payload);
   };
 
   return (
@@ -117,10 +117,13 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label htmlFor="contact-name" className="block text-sm font-medium mb-2">
                     Full Name
                   </label>
                   <input
+                    id="contact-name"
+                    name="name"
+                    autoComplete="name"
                     type="text"
                     placeholder="John Doe"
                     className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-all"
@@ -131,10 +134,13 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label htmlFor="contact-email" className="block text-sm font-medium mb-2">
                     Email Address
                   </label>
                   <input
+                    id="contact-email"
+                    name="email"
+                    autoComplete="email"
                     type="email"
                     placeholder="john@example.com"
                     className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-all"
@@ -148,10 +154,13 @@ const Contact = () => {
 
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label htmlFor="contact-phone" className="block text-sm font-medium mb-2">
                     Phone Number
                   </label>
                   <input
+                    id="contact-phone"
+                    name="phone"
+                    autoComplete="tel"
                     type="tel"
                     placeholder="+91 98765 43210"
                     className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-all"
@@ -162,10 +171,12 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label htmlFor="contact-country" className="block text-sm font-medium mb-2">
                     Preferred Country
                   </label>
                   <select
+                    id="contact-country"
+                    name="country"
                     className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-all"
                     value={formData.country}
                     onChange={(e) =>
@@ -184,10 +195,12 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">
+                <label htmlFor="contact-message" className="block text-sm font-medium mb-2">
                   Your Message
                 </label>
                 <textarea
+                  id="contact-message"
+                  name="message"
                   rows={4}
                   placeholder="Tell us about your study abroad goals..."
                   className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-all resize-none"

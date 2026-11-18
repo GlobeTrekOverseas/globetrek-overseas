@@ -112,7 +112,7 @@ const PreDeparturePage = () => {
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img
+          <img decoding="async"
             src={predepartureHero}
             alt="Students preparing for departure"
             className="w-full h-full object-cover"
@@ -202,7 +202,7 @@ const PreDeparturePage = () => {
             >
               <div className="absolute -top-4 -right-4 w-32 h-32 bg-accent/10 rounded-2xl" />
               <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-2xl" />
-              <img
+              <img loading="lazy" decoding="async"
                 src={serviceTravel}
                 alt="Pre-departure preparation"
                 className="relative rounded-3xl shadow-2xl w-full h-[450px] object-cover"
@@ -397,7 +397,7 @@ const PreDeparturePage = () => {
                 <ArrowRight size={18} />
               </a>
               <a
-                href="tel:+1234567890"
+                href="tel:+919311331899"
                 className="px-8 py-4 bg-primary-foreground/10 text-primary-foreground rounded-full font-semibold hover:bg-primary-foreground/20 transition-all duration-300 border border-primary-foreground/20 inline-flex items-center justify-center"
               >
                 Call Us Now

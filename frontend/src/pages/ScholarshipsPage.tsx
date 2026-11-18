@@ -101,7 +101,7 @@ const ScholarshipsPage = () => {
       {/* Hero Section with Image */}
       <section className="relative pt-24 pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <img decoding="async"
             src={scholarshipHero}
             alt="Scholarship Students"
             className="w-full h-full object-cover"
@@ -180,7 +180,7 @@ const ScholarshipsPage = () => {
               <div className="absolute -top-6 -left-6 w-32 h-32 bg-accent/20 rounded-3xl" />
               <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-primary/10 rounded-3xl" />
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img
+                <img loading="lazy" decoding="async"
                   src={serviceScholarship}
                   alt="Scholarship Guidance"
                   className="w-full h-[450px] object-cover"
@@ -399,7 +399,7 @@ const ScholarshipsPage = () => {
                 <ArrowRight size={18} />
               </a>
               <a
-                href="tel:+1234567890"
+                href="tel:+919311331899"
                 className="px-8 py-4 bg-primary-foreground/10 text-primary-foreground rounded-full font-semibold hover:bg-primary-foreground/20 transition-all duration-300 border border-primary-foreground/20 inline-flex items-center justify-center"
               >
                 Call Us Now

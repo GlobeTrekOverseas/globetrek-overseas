@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Star, CheckCircle } from "lucide-react";
-import heroStudents from "@/assets/hero-students.jpg";
+import heroStudents from "@/assets/hero-students.webp";
 
 const MotionLink = motion(Link);
 
@@ -149,9 +149,14 @@ const Hero = () => {
               {/* Main Image Container */}
               <div className="relative rounded-3xl overflow-hidden shadow-elegant-lg">
                 <motion.div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent z-10" />
-                <img
+                <img decoding="async"
                   src={heroStudents}
                   alt="International students walking on university campus"
+                  width={1200}
+                  height={680}
+                  // Main (LCP) image: download it before anything else.
+                  // React 18 drops the camelCase fetchPriority prop, so pass the HTML attribute directly.
+                  {...{ fetchpriority: "high" }}
                   className="w-full h-[400px] lg:h-[550px] object-cover"
                 />
               </div>

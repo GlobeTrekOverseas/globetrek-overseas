@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogAxios } from "@/lib/bot";
+import { usePageMeta } from "@/lib/seo";
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -33,9 +34,35 @@ export default function BlogPost() {
         document.documentElement.scrollHeight - window.innerHeight;
       setProgress((window.scrollY / totalHeight) * 100);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  usePageMeta(
+    loading
+      ? null
+      : blog
+        ? {
+            path: `/blog/${slug}`,
+            title: `${blog.title} | GlobeTrek Overseas`,
+            description: String(
+              blog.metaDescription ||
+                blog.excerpt ||
+                String(blog.content || "")
+                  .replace(/<[^>]+>/g, " ")
+                  .replace(/\s+/g, " ")
+                  .trim(),
+            ).slice(0, 160),
+            image: blog.featuredImage,
+            type: "article",
+          }
+        : {
+            path: `/blog/${slug}`,
+            title: "Article Not Found | GlobeTrek Overseas",
+            description: "This article could not be found.",
+            noindex: true,
+          },
+  );
 
   if (loading) {
     return (
@@ -307,7 +334,7 @@ export default function BlogPost() {
         className="relative h-[60vh] min-h-[300px] w-full overflow-hidden bg-[#0c0c0e]"
       >
         {blog.featuredImage && (
-          <img
+          <img decoding="async"
             src={blog.featuredImage}
             alt={blog.title}
             className={`hero-image absolute inset-0 w-full h-full object-cover ${heroVisible ? "loaded" : ""}`}

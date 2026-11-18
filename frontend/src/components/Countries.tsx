@@ -2,16 +2,12 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { MapPin, Users, GraduationCap, ArrowRight } from "lucide-react";
 
-import countryUSA from "@/assets/country-usa.jpg";
-import countryUK from "@/assets/country-uk.jpg";
-import countryAustralia from "@/assets/country-australia.jpg";
-import countryGermany from "@/assets/country-germany.jpg";
-import London from "@/assets/London.jpeg";
-import aus from "@/assets/aus.jpeg";
-import germany from "@/assets/germany.jpeg";
-import usa from "@/assets/usa.jpeg";
-import swiz from "@/assets/swiz.jpeg";
-import euro from "@/assets/eur.jpeg";
+import London from "@/assets/London.webp";
+import aus from "@/assets/aus.webp";
+import germany from "@/assets/germany.webp";
+import usa from "@/assets/usa.webp";
+import swiz from "@/assets/swiz.webp";
+import euro from "@/assets/eur.webp";
 const countries = [
   {
     name: "United Kingdom",
@@ -104,9 +100,11 @@ const Countries = () => {
               >
                 {/* Background Image */}
                 <div className="aspect-[4/5] relative overflow-hidden">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={country.image}
                     alt={`Study in ${country.name}`}
+                    width={700}
+                    height={875}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   {/* Gradient Overlay */}
@@ -148,13 +146,11 @@ const Countries = () => {
                     </div>
 
                     {/* CTA */}
-                    <Link
-                      to={`/country/${country.slug}`}
-                      className="inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all"
-                    >
+                    {/* Whole card is already a link; a nested <a> is invalid HTML */}
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all">
                       Explore Programs
                       <ArrowRight size={16} />
-                    </Link>
+                    </span>
                   </div>
                 </div>
               </motion.div>

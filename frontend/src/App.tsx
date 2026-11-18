@@ -1,34 +1,49 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Home";
-import AboutUs from "./pages/AboutUs";
-import PowerBatches from "./pages/PowerBatches";
-import ServicesPage from "./pages/ServicesPage";
-import UniversitySelectionPage from "./pages/UniversitySelectionPage";
-import VisaAssistancePage from "./pages/VisaAssistancePage";
-import ScholarshipsPage from "./pages/ScholarshipsPage";
-import PreDeparturePage from "./pages/PreDeparturePage";
-import AcademicCounselingPage from "./pages/AcademicCounselingPage";
-import ChannelPartnerPage from "./pages/ChannelPartnerPage";
-import CountryPage from "./pages/CountryPage";
-import IELTSPage from "./pages/IELTSPage";
-import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
-import TermsAndConditions from "./pages/TermsAndConditions";
-import BlogLive from "./pages/BlogListingLive";
-import BlogPost from "./pages/BlogPost";
-const queryClient = new QueryClient();
+import RouteSeo from "./components/RouteSeo";
+
+// Every page except Home is code-split: its JS downloads only when visited.
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const PowerBatches = lazy(() => import("./pages/PowerBatches"));
+const ServicesPage = lazy(() => import("./pages/ServicesPage"));
+const UniversitySelectionPage = lazy(
+  () => import("./pages/UniversitySelectionPage"),
+);
+const VisaAssistancePage = lazy(() => import("./pages/VisaAssistancePage"));
+const ScholarshipsPage = lazy(() => import("./pages/ScholarshipsPage"));
+const PreDeparturePage = lazy(() => import("./pages/PreDeparturePage"));
+const AcademicCounselingPage = lazy(
+  () => import("./pages/AcademicCounselingPage"),
+);
+const ChannelPartnerPage = lazy(() => import("./pages/ChannelPartnerPage"));
+const CountryPage = lazy(() => import("./pages/CountryPage"));
+const IELTSPage = lazy(() => import("./pages/IELTSPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
+const BlogLive = lazy(() => import("./pages/BlogListingLive"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+
+const PageFallback = () => (
+  <div className="min-h-screen flex items-center justify-center bg-background">
+    <div
+      className="w-10 h-10 rounded-full border-2 border-accent/20 border-t-accent animate-spin"
+      role="status"
+      aria-label="Loading page"
+    />
+  </div>
+);
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
+  <TooltipProvider>
+    <Toaster />
+    <BrowserRouter>
+      <ScrollToTop />
+      <RouteSeo />
+      <Suspense fallback={<PageFallback />}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutUs />} />
@@ -56,12 +71,13 @@ const App = () => (
           {/* Country pages */}
           <Route path="/country/:countrySlug" element={<CountryPage />} />
           <Route path="/ielts" element={<IELTSPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE.
+                Also add new routes to vercel.json rewrites and public/sitemap.xml. */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+      </Suspense>
+    </BrowserRouter>
+  </TooltipProvider>
 );
 
 export default App;

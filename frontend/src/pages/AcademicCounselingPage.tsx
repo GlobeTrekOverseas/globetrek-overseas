@@ -147,7 +147,7 @@ const AcademicCounselingPage = () => {
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <img decoding="async"
             src={academicHero}
             alt="Academic Counseling"
             className="w-full h-full object-cover"
@@ -280,7 +280,7 @@ const AcademicCounselingPage = () => {
                 className="bg-card rounded-3xl overflow-hidden border border-border hover:border-accent/30 transition-all duration-500 hover:shadow-2xl group"
               >
                 <div className="relative h-56 overflow-hidden">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={course.image}
                     alt={course.title}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"

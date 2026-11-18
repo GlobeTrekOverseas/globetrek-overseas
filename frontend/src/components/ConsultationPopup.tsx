@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
-import { sendConsultationMail } from "@/lib/bot";
+// API client (axios) is loaded on demand so it is not part of the initial page download.
 
 interface ConsultationPopupProps {
   isOpen: boolean;
@@ -90,7 +90,7 @@ const ConsultationPopup = ({ isOpen, onClose }: ConsultationPopupProps) => {
     }
 
     try {
-      await sendConsultationMail({
+      await (await import("@/lib/bot")).sendConsultationMail({
         fullName: formData.fullName,
         email: formData.email,
         contact: formData.contact,

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Linkedin, Youtube, ArrowUp } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.webp";
 import { Link } from "react-router-dom";
 
 const footerLinks = {
@@ -17,7 +17,7 @@ const footerLinks = {
   ],
   destinations: [
     { name: "Study in UK", href: "/country/uk" },
-    { name: "Study in Canada", href: "/country/canada" },
+    { name: "Study in Australia", href: "/country/australia" },
     { name: "Study in Switzerland", href: "/country/switzerland" },
     { name: "Study in Germany", href: "/country/germany" },
     { name: "Study in Europe", href: "/country/europe" },
@@ -67,10 +67,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <motion.img
+            <motion.img loading="lazy" decoding="async"
               src={logo}
               alt="GlobeTrek Overseas"
-              className="h-12 mb-6 brightness-0 invert"
+              width={420}
+              height={146}
+              className="w-auto h-12 mb-6 brightness-0 invert"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -88,6 +90,8 @@ const Footer = () => {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
@@ -176,7 +180,8 @@ const Footer = () => {
       {/* Scroll to Top */}
       <motion.button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg z-50"
+        aria-label="Scroll to top"
+        className="fixed bottom-6 left-6 w-12 h-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg z-50"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         whileHover={{ scale: 1.1 }}

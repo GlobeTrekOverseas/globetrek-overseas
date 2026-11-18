@@ -75,7 +75,7 @@ const ChannelPartnerPage = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <img decoding="async"
             src={servicePartner}
             alt="Channel Partner Support"
             className="w-full h-full object-cover"
@@ -314,7 +314,7 @@ const ChannelPartnerPage = () => {
                 <ArrowRight size={18} />
               </a>
               <a
-                href="tel:+1234567890"
+                href="tel:+919311331899"
                 className="px-8 py-4 bg-accent-foreground/10 text-accent-foreground rounded-full font-semibold hover:bg-accent-foreground/20 transition-all duration-300 border border-accent-foreground/20 inline-flex items-center justify-center"
               >
                 Call Us Now

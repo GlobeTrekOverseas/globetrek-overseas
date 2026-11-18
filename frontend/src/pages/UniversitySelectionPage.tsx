@@ -158,7 +158,7 @@ const UniversitySelectionPage = () => {
       {/* Hero Section with Image */}
       <section className="relative pt-24 pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <img decoding="async"
             src={universityHero}
             alt="University Students"
             className="w-full h-full object-cover"
@@ -241,7 +241,7 @@ const UniversitySelectionPage = () => {
               <div className="absolute -top-6 -left-6 w-32 h-32 bg-accent/20 rounded-3xl" />
               <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-primary/10 rounded-3xl" />
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img
+                <img loading="lazy" decoding="async"
                   src={serviceUniversity}
                   alt="University Selection"
                   className="w-full h-[450px] object-cover"

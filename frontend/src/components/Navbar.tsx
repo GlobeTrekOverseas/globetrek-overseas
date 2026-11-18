@@ -10,7 +10,7 @@ import {
   Sparkles,
   CalendarCheck,
 } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.webp";
 
 // Create motion-enabled Link component
 const MotionLink = motion(Link);
@@ -76,7 +76,7 @@ const Navbar = ({ onOpenConsultation }: NavbarProps) => {
         <div className="container-custom flex justify-between items-center text-sm relative z-10">
           <div className="flex items-center gap-8">
             <motion.a
-              href="tel:+91 93113 31899"
+              href="tel:+919311331899"
               className="flex items-center gap-2 hover:text-accent transition-colors group"
               whileHover={{ scale: 1.02 }}
             >
@@ -140,6 +140,8 @@ const Navbar = ({ onOpenConsultation }: NavbarProps) => {
               <motion.img
                 src={logo}
                 alt="GlobeTrek Overseas"
+                width={420}
+                height={146}
                 className={`transition-all duration-300 ${isScrolled ? "h-12" : "h-14"} w-auto`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -192,6 +194,8 @@ const Navbar = ({ onOpenConsultation }: NavbarProps) => {
             <motion.button
               className="lg:hidden p-2.5 text-foreground bg-secondary rounded-xl"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
               whileTap={{ scale: 0.9 }}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

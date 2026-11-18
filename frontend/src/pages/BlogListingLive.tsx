@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { blogAxios } from "@/lib/bot";
-import globetrek from "@/assets/blogpagebackground.png";
+import globetrek from "@/assets/blogpagebackground.webp";
 import bg from "@/assets/BGBLOGS.jpeg";
 export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -46,7 +46,7 @@ export default function BlogPage() {
 
       {/* ================= HERO ================= */}
       <section className="relative h-[60vh] w-full overflow-hidden">
-        <img
+        <img decoding="async"
           src={bg}
           alt="Study Abroad Guide"
           className="absolute inset-0 w-full h-full object-cover"
@@ -124,7 +124,7 @@ export default function BlogPage() {
           {!loadingFeatured && featured && (
             <div className="group grid md:grid-cols-2 gap-12 items-center bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition">
               <div className="relative h-[320px] md:h-full overflow-hidden">
-                <img
+                <img loading="lazy" decoding="async"
                   src={featured.featuredImage}
                   alt={featured.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-700"

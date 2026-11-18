@@ -237,7 +237,7 @@ const IELTSPage = () => {
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <img decoding="async"
             src={ieltsHero}
             alt="IELTS Preparation"
             className="w-full h-full object-cover"
@@ -472,7 +472,7 @@ const IELTSPage = () => {
                 className="bg-white rounded-2xl overflow-hidden shadow-lg border border-border/50 group hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative h-56 overflow-hidden">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={module.image}
                     alt={module.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
